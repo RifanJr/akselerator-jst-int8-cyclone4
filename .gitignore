@@ -1,0 +1,45 @@
+# ==========================================================================
+#  .gitignore untuk Alur_Utama
+#  Yang diabaikan: berkas yang dibuat ulang otomatis, berukuran besar,
+#  atau khusus laptop masing-masing.
+# ==========================================================================
+
+# ---- Quartus: hasil kompilasi (muncul lagi setiap Compile) ----
+3_Quartus/db/
+3_Quartus/incremental_db/
+3_Quartus/simulation/
+3_Quartus/greybox_tmp/
+3_Quartus/*.qws
+3_Quartus/*.qarlog
+3_Quartus/output_papan/*
+
+# ...kecuali tiga berkas ini, tetap disimpan:
+#   papan.sof          -> papan bisa langsung diprogram tanpa kompilasi
+#   papan.fit.summary  -> ringkasan pemakaian LE, M9K, pengali
+#   papan.sta.summary  -> ringkasan timing (Fmax)
+!3_Quartus/output_papan/papan.sof
+!3_Quartus/output_papan/papan.fit.summary
+!3_Quartus/output_papan/papan.sta.summary
+
+# ---- Simulasi Icarus Verilog (dibuat ulang oleh jalankan_papan.py) ----
+2_Verilog/build_sapu/
+*.vcd
+*.vvp
+
+# ---- Python ----
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# ---- Editor dan sistem operasi ----
+.vscode/
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# ---- Catatan pribadi (hanya untuk setup awal, tidak dipublikasikan) ----
+CATATAN_LANJUTAN.md
+
+# Catatan: 1_Python_PC/Training/data/MNIST/raw/ (test set, sekitar 8 MB)
+# SENGAJA tidak diabaikan, karena Tahap 8 notebook membacanya langsung
+# dan tidak mengunduhnya ulang.

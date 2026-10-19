@@ -1,0 +1,36 @@
+=== DAFTAR CITRA UJI UNTUK PENGUJIAN DI PAPAN ===
+
+Model      : Training/export_final (beku)
+Sumber     : MNIST test set, 10000 citra
+Praproses  : 28x28 -> 14x14 rerata blok 2x2, kuantisasi Q2.6
+Akurasi INT8 seluruh test set : 97.45%
+
+Aturan pemilihan (deterministik, tanpa pemilihan subjektif):
+  - 10 citra: kemunculan pertama tiap digit 0..9
+  -  6 citra: indeks terkecil yang belum terpakai
+
+ No  Berkas            MNIST#  Label  Prediksi  Hasil
+--------------------------------------------------------
+  0  citra_00.hex           0      7         7  benar
+  1  citra_01.hex           1      2         2  benar
+  2  citra_02.hex           2      1         1  benar
+  3  citra_03.hex           3      0         0  benar
+  4  citra_04.hex           4      4         4  benar
+  5  citra_05.hex           5      1         1  benar
+  6  citra_06.hex           6      4         4  benar
+  7  citra_07.hex           7      9         9  benar
+  8  citra_08.hex           8      5         5  benar
+  9  citra_09.hex           9      9         9  benar
+ 10  citra_10.hex          10      0         0  benar
+ 11  citra_11.hex          11      6         6  benar
+ 12  citra_12.hex          12      9         9  benar
+ 13  citra_13.hex          13      0         0  benar
+ 14  citra_14.hex          18      3         3  benar
+ 15  citra_15.hex          61      8         8  benar
+--------------------------------------------------------
+
+Benar 16 dari 16 citra uji.
+
+Citra yang salah diprediksi SENGAJA TIDAK DIBUANG. Papan harus
+menghasilkan keluaran yang sama dengan Python, termasuk saat
+keduanya salah -- itu justru bukti implementasinya bit-exact.

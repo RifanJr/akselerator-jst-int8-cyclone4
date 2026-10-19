@@ -1,0 +1,16 @@
+=== GOLDEN OUTPUT - REFERENSI VERIFIKASI BIT-EXACT ===
+Citra uji indeks       : 0
+Label sebenarnya       : 7
+Prediksi model INT8    : 7
+
+Akumulator lapisan keluaran (10 nilai, sebelum argmax):
+  digit 0: -1269
+  digit 1: -2393
+  digit 2: -586
+  digit 3: 663
+  digit 4: -3113
+  digit 5: -831
+  digit 6: -5163
+  digit 7: 2063
+  digit 8: -968
+  digit 9: -484
