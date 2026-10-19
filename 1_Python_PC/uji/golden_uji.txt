@@ -1,0 +1,196 @@
+=== ACUAN EMAS PER CITRA UJI ===
+Sepuluh akumulator lapisan keluaran sebelum argmax.
+Papan harus menghasilkan angka yang sama persis.
+
+--- citra_00.hex  MNIST#0  label 7  prediksi 7
+      digit 0: -1269
+      digit 1: -2393
+      digit 2: -586
+      digit 3: 663
+      digit 4: -3113
+      digit 5: -831
+      digit 6: -5163
+      digit 7: 2063
+      digit 8: -968
+      digit 9: -484
+
+--- citra_01.hex  MNIST#1  label 2  prediksi 2
+      digit 0: -1430
+      digit 1: 617
+      digit 2: 2601
+      digit 3: -132
+      digit 4: -4703
+      digit 5: -287
+      digit 6: -592
+      digit 7: -5196
+      digit 8: -785
+      digit 9: -4742
+
+--- citra_02.hex  MNIST#2  label 1  prediksi 1
+      digit 0: -1643
+      digit 1: 1185
+      digit 2: -834
+      digit 3: -1261
+      digit 4: -693
+      digit 5: -1282
+      digit 6: -936
+      digit 7: -399
+      digit 8: -936
+      digit 9: -1835
+
+--- citra_03.hex  MNIST#3  label 0  prediksi 0
+      digit 0: 1615
+      digit 1: -2253
+      digit 2: -930
+      digit 3: -1805
+      digit 4: -2054
+      digit 5: -1239
+      digit 6: -1226
+      digit 7: -681
+      digit 8: -2740
+      digit 9: -1500
+
+--- citra_04.hex  MNIST#4  label 4  prediksi 4
+      digit 0: -1143
+      digit 1: -2131
+      digit 2: -926
+      digit 3: -2561
+      digit 4: 2324
+      digit 5: -1540
+      digit 6: -919
+      digit 7: -463
+      digit 8: -819
+      digit 9: 544
+
+--- citra_05.hex  MNIST#5  label 1  prediksi 1
+      digit 0: -2397
+      digit 1: 1689
+      digit 2: -1313
+      digit 3: -1404
+      digit 4: -943
+      digit 5: -2272
+      digit 6: -2132
+      digit 7: 169
+      digit 8: -1373
+      digit 9: -1835
+
+--- citra_06.hex  MNIST#6  label 4  prediksi 4
+      digit 0: -3028
+      digit 1: -2353
+      digit 2: -2812
+      digit 3: -2614
+      digit 4: 1541
+      digit 5: -25
+      digit 6: -1636
+      digit 7: -943
+      digit 8: 330
+      digit 9: -369
+
+--- citra_07.hex  MNIST#7  label 9  prediksi 9
+      digit 0: -2724
+      digit 1: -2418
+      digit 2: -1601
+      digit 3: -427
+      digit 4: 156
+      digit 5: -1583
+      digit 6: -4089
+      digit 7: -893
+      digit 8: -1228
+      digit 9: 1675
+
+--- citra_08.hex  MNIST#8  label 5  prediksi 5
+      digit 0: -2580
+      digit 1: -3161
+      digit 2: -1269
+      digit 3: -1693
+      digit 4: -2428
+      digit 5: 1216
+      digit 6: -354
+      digit 7: -3602
+      digit 8: -562
+      digit 9: -1736
+
+--- citra_09.hex  MNIST#9  label 9  prediksi 9
+      digit 0: -3844
+      digit 1: -4719
+      digit 2: -4215
+      digit 3: -1087
+      digit 4: 696
+      digit 5: -1578
+      digit 6: -5721
+      digit 7: 204
+      digit 8: 131
+      digit 9: 2106
+
+--- citra_10.hex  MNIST#10  label 0  prediksi 0
+      digit 0: 2250
+      digit 1: -1145
+      digit 2: -60
+      digit 3: -1954
+      digit 4: -3897
+      digit 5: -944
+      digit 6: -606
+      digit 7: -2329
+      digit 8: -1939
+      digit 9: -844
+
+--- citra_11.hex  MNIST#11  label 6  prediksi 6
+      digit 0: -168
+      digit 1: -2565
+      digit 2: -597
+      digit 3: -1317
+      digit 4: -1489
+      digit 5: -410
+      digit 6: 2304
+      digit 7: -3233
+      digit 8: 764
+      digit 9: -1681
+
+--- citra_12.hex  MNIST#12  label 9  prediksi 9
+      digit 0: -2752
+      digit 1: -3331
+      digit 2: -2545
+      digit 3: -600
+      digit 4: 132
+      digit 5: -908
+      digit 6: -4285
+      digit 7: -403
+      digit 8: -1086
+      digit 9: 1554
+
+--- citra_13.hex  MNIST#13  label 0  prediksi 0
+      digit 0: 2255
+      digit 1: -2945
+      digit 2: -523
+      digit 3: -1682
+      digit 4: -2728
+      digit 5: -1229
+      digit 6: -1490
+      digit 7: -391
+      digit 8: -1235
+      digit 9: -329
+
+--- citra_14.hex  MNIST#18  label 3  prediksi 3
+      digit 0: -2633
+      digit 1: -1500
+      digit 2: -1040
+      digit 3: 1055
+      digit 4: -853
+      digit 5: -906
+      digit 6: -2199
+      digit 7: -2375
+      digit 8: 319
+      digit 9: -1855
+
+--- citra_15.hex  MNIST#61  label 8  prediksi 8
+      digit 0: -2296
+      digit 1: -2989
+      digit 2: 884
+      digit 3: -693
+      digit 4: -2928
+      digit 5: -1446
+      digit 6: -1896
+      digit 7: -1853
+      digit 8: 1537
+      digit 9: -1841
+

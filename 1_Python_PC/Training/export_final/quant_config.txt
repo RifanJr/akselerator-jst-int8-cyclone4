@@ -1,0 +1,12 @@
+=== KONFIGURASI KUANTISASI ===
+Konvensi: Qm.n dengan m termasuk bit tanda, m + n = 8
+
+Masukan               : Q2.6  (skala 2^6)
+Bobot                 : Q3.5  (skala 2^5)
+Bias                  : Q1.7  (skala 2^7)
+Aktivasi tersembunyi  : Q5.3  (skala 2^3)
+
+Arsitektur : 196 - 64 - 10, aktivasi ReLU
+Akurasi FP32: 97.45%
+Akurasi INT8: 97.45%
+Degradasi   : +0.00 poin persentase

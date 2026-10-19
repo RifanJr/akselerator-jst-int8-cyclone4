@@ -1,0 +1,9 @@
+# -------------------------------------------------------------------------- #
+#  papan.qpf -- akselerator P = 8 pada papan (demonstrasi 16 citra uji)
+# -------------------------------------------------------------------------- #
+
+QUARTUS_VERSION = "25.1"
+
+# Revisions
+
+PROJECT_REVISION = "papan"
