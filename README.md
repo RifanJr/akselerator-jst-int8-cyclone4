@@ -8,11 +8,6 @@ Repository ini memuat seluruh alur: pelatihan dan kuantisasi model di PC,
 pemetaan bobot ke memori M9K, rancangan Verilog beserta simulasinya, sampai
 proyek Quartus untuk memprogram papan.
 
-![Papan OMDAZZ Cyclone IV menampilkan 00.77](gambar/papan_uji.jpg)
-
-*Papan menampilkan `00.77`: citra uji nomor 00, tebakan Python 7, tebakan
-FPGA 7. Cara membaca tampilan ada di bagian [3_Quartus](#3_quartus).*
-
 ```
 Alur_Utama/
 ├── 1_Python_PC/     langkah 1–4  model, bobot .hex, citra uji, golden
@@ -125,6 +120,11 @@ ingin memprogram tanpa kompilasi ulang: Quartus Programmer → Add File →
 Di papan, layar menampilkan `[nomor citra][.][tebakan Python][tebakan FPGA]`,
 misalnya `00.77`. LED1 menyala bila keduanya cocok. S1 citra berikutnya,
 S2 sebelumnya, S3 ulang, S4 ditahan menampilkan jumlah siklus (1816).
+
+![Papan OMDAZZ Cyclone IV menampilkan 00.77](gambar/papan_uji.jpg)
+
+*Papan menampilkan `00.77`: citra uji nomor 00, tebakan Python 7, tebakan
+FPGA 7.*
 
 ---
 
