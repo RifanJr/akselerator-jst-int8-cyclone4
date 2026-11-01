@@ -43,3 +43,16 @@ CATATAN_LANJUTAN.md
 # Catatan: 1_Python_PC/Training/data/MNIST/raw/ (test set, sekitar 8 MB)
 # SENGAJA tidak diabaikan, karena Tahap 8 notebook membacanya langsung
 # dan tidak mengunduhnya ulang.
+
+# ---- Rancangan WS (4_WS/): sama dengan aturan rancangan OS ----
+4_WS/2_verilog/build/
+4_WS/3_quartus/db/
+4_WS/3_quartus/incremental_db/
+4_WS/3_quartus/simulation/
+4_WS/3_quartus/greybox_tmp/
+4_WS/3_quartus/*.qws
+4_WS/3_quartus/*.qarlog
+4_WS/3_quartus/output_papan_ws/*
+!4_WS/3_quartus/output_papan_ws/papan_ws.sof
+!4_WS/3_quartus/output_papan_ws/papan_ws.fit.summary
+!4_WS/3_quartus/output_papan_ws/papan_ws.sta.summary
