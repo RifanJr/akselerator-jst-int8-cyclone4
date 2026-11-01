@@ -10,8 +10,9 @@
 //    5. key[3] ditahan -> tampilan harus berganti ke jumlah siklus
 //
 //  Tiap hasil dicetak dalam baris HASIL yang diurai jalankan_papan.py dan
-//  dicocokkan ke uji/golden_uji.txt: digit terpilih DAN nilai akumulator
-//  pemenangnya harus sama persis.
+//  dicocokkan ke uji/golden_uji.txt: digit terpilih, nilai akumulator
+//  pemenangnya, DAN kesepuluh akumulator lapisan 2 (baris AKS) harus sama
+//  persis.
 //
 //  Pewaktuan tombol, pindai, dan kedip diperkecil supaya simulasi cepat.
 //  Logikanya sama; hanya angka pembaginya yang berbeda.
@@ -32,6 +33,13 @@ module tb_papan;
         .clk(clk), .key(key), .led(led), .seg(seg), .dig(dig));
 
     integer salah = 0;
+
+    // Setiap keluaran lapisan 2 (sepuluh per inferensi) dicetak dalam baris
+    // AKS, supaya jalankan_papan.py dapat mencocokkan KESEPULUH akumulator,
+    // bukan hanya akumulator pemenangnya.
+    always @(posedge clk)
+        if (u_top.amax_valid)
+            $display("AKS %0d %0d", u_top.amax_idx, u_top.acc_terpilih);
 
     task tekan(input integer n);
     begin
@@ -84,7 +92,7 @@ module tb_papan;
         tekan(2);
         tunggu_hasil(sebelum);
 
-        // 5. mode siklus: tampilan harus 1816 dalam BCD
+        // 5. mode siklus: tampilan harus jumlah siklus inferensi dalam BCD
         key[3] = 1'b0;
         repeat (SAMPEL * 4) @(posedge clk);
         $display("TAMPIL_SIKLUS %h LED1 %0d", u_top.tampil, ~led[1]);

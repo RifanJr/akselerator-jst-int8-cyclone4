@@ -26,6 +26,7 @@ Alur_Utama/
 | Format bilangan | input Q2.6, bobot Q3.5, bias Q1.7, aktivasi Q5.3, akumulator 32 bit |
 | Parameter | 13.258 = 13.184 bobot (di M9K) + 74 bias (ROM `rom_bias8.v`) |
 | Paralelisme | 8 lajur MAC; satu piksel disiarkan ke 8 lajur sekaligus |
+| Dataflow | *Output-stationary* (varian OS_C untuk lapisan FC): jumlah parsial diam di akumulator tiap lajur sampai neuron selesai; hasil 8 lajur diambil serentak ke register penangkap lalu dikuras sambil aliran berikutnya berjalan |
 | Memori bobot | 8 bank M9K; bank *j* berisi neuron *j*, *j*+8, *j*+16, …; satu pencacah alamat untuk semua bank |
 
 ## Hasil
@@ -33,10 +34,10 @@ Alur_Utama/
 | Pengukuran | Hasil |
 |---|---|
 | Akurasi | FP32 97,45 %, INT8 97,45 % |
-| Siklus per inferensi | 1.816 siklus = 36,32 µs pada 50 MHz (lapisan 1: 1.568, lapisan 2: 128, pengurasan: 80, jeda/transisi: 40) |
-| Pemakaian chip | 2.129 / 6.272 LE (34 %), 1.185 register, 17 / 30 M9K, 143.392 / 276.480 bit memori (52 %), 8 / 30 pengali 9 bit, 21 / 92 pin |
-| Timing | Fmax 70,58 MHz (slack setup 5,832 ns pada periode 20 ns) |
-| Simulasi RTL | LULUS: 18 inferensi, identik dengan acuan Python |
+| Siklus per inferensi | 1.708 siklus = 34,16 µs pada 50 MHz (lapisan 1: 1.568, lapisan 2: 128, ekor pipa dan pengurasan terakhir: 12); utilisasi MAC 99,3 % |
+| Pemakaian chip | 2.306 / 6.272 LE (37 %), 1.420 register, 21 / 30 M9K, 143.392 / 276.480 bit memori (52 %), 8 / 30 pengali 9 bit, 21 / 92 pin |
+| Timing | Fmax 82,46 MHz (slack setup 7,873 ns pada periode 20 ns) |
+| Simulasi RTL | LULUS: 18 inferensi, kesepuluh akumulator keluaran tiap citra identik dengan acuan Python |
 | Uji papan | 16 / 16 citra uji cocok dengan tebakan Python |
 
 ---
@@ -119,7 +120,7 @@ ingin memprogram tanpa kompilasi ulang: Quartus Programmer → Add File →
 
 Di papan, layar menampilkan `[nomor citra][.][tebakan Python][tebakan FPGA]`,
 misalnya `00.77`. LED1 menyala bila keduanya cocok. S1 citra berikutnya,
-S2 sebelumnya, S3 ulang, S4 ditahan menampilkan jumlah siklus (1816).
+S2 sebelumnya, S3 ulang, S4 ditahan menampilkan jumlah siklus (1708).
 
 ![Papan OMDAZZ Cyclone IV menampilkan 00.77](gambar/papan_uji.jpg)
 
