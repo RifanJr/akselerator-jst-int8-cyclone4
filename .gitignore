@@ -43,3 +43,21 @@ CATATAN_LANJUTAN.md
 # Catatan: 1_Python_PC/Training/data/MNIST/raw/ (test set, sekitar 8 MB)
 # SENGAJA tidak diabaikan, karena Tahap 8 notebook membacanya langsung
 # dan tidak mengunduhnya ulang.
+
+# ---- Tambahan Student A (1 November 2026) ----
+# keluaran kompilasi revisi varian (dibuat ulang oleh kompilasi_varian.bat)
+3_Quartus/output_arith/
+3_Quartus/output_struct/
+# salinan cadangan lokal hasil kompilasi asli
+3_Quartus/output_papan_asli/
+# run daya tidak sah (VCD Questa hanya 4 %), disimpan lokal saja
+3_Quartus/hasil_mentah/*TIDAK_SAH*/
+3_Quartus/hasil_mentah/**/_hapus_*
+# log dan cadangan lokal skrip simulasi
+3_Quartus/simulasi_netlist/log_*.txt
+3_Quartus/simulasi_netlist/*.sebelum_questa
+3_Quartus/simulasi_netlist/atoms_min*.v
+# skrip percobaan lama (alur Questa ditolak; versi Icarus digantikan daya_3_varian.bat)
+3_Quartus/simulasi_netlist/jalankan_daya_questa.*
+3_Quartus/simulasi_netlist/jalankan_daya_icarus.bat
+3_Quartus/simulasi_netlist/papan_netlist.vcd
