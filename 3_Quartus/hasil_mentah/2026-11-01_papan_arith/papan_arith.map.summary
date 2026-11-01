@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Sun Nov  1 14:03:59 2026
+Quartus Prime Version : 25.1std.0 Build 1129 10/21/2025 SC Lite Edition
+Revision Name : papan_arith
+Top-level Entity Name : top_papan
+Family : Cyclone IV E
+Total logic elements : 3,355
+    Total combinational functions : 3,005
+    Dedicated logic registers : 1,257
+Total registers : 1257
+Total pins : 21
+Total virtual pins : 0
+Total memory bits : 143,392
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0
