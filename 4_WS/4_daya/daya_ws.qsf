@@ -1,0 +1,103 @@
+# -------------------------------------------------------------------------- #
+#  daya_ws.qsf -- analisis daya akselerator WS 4 x 2, batch 16, pengali HARD
+#
+#  Rancangan, pin, dan pengaturan SAMA dengan 4_WS/3_quartus/papan_ws.qsf.
+#  Proyek ini terpisah hanya supaya hasil kompilasi dan pengaturan daya tidak
+#  mengubah 4_WS/3_quartus/output_papan_ws. Pengaturan daya sama dengan
+#  6_Daya_FPGA/daya_os.qsf (rancangan OS).
+# -------------------------------------------------------------------------- #
+
+set_global_assignment -name FAMILY "Cyclone IV E"
+set_global_assignment -name DEVICE EP4CE6E22C8
+set_global_assignment -name TOP_LEVEL_ENTITY top_papan_ws
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION 25.1STD.0
+set_global_assignment -name LAST_QUARTUS_VERSION "25.1std.0 Lite Edition"
+set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_ws
+
+set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
+set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
+set_global_assignment -name NOMINAL_CORE_SUPPLY_VOLTAGE 1.2V
+
+set_global_assignment -name RESERVE_ALL_UNUSED_PINS "AS INPUT TRI-STATED"
+set_global_assignment -name RESERVE_ALL_UNUSED_PINS_NO_OUTPUT_GND "AS INPUT TRI-STATED"
+set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "3.3-V LVTTL"
+
+# ---- FIFO jumlah parsial dan penunda baris tetap berupa register ----
+# Tanpa ini Quartus boleh memindahkan register geser panjang ke blok M9K
+# (altshift_taps), sehingga jumlah parsial menyentuh M9K, bertentangan
+# dengan rancangan (SPESIFIKASI_WS.md bagian 4.3).
+set_global_assignment -name AUTO_SHIFT_REGISTER_RECOGNITION OFF
+
+# ---- modul bersama rancangan OS, tanpa diubah ----
+set_global_assignment -name VERILOG_FILE ../../2_Verilog/mult_bw8_arith.v
+set_global_assignment -name VERILOG_FILE ../../2_Verilog/mult_bw8_struct.v
+set_global_assignment -name VERILOG_FILE ../../2_Verilog/mult_hard8.v
+set_global_assignment -name VERILOG_FILE ../../2_Verilog/mac_unit.v
+set_global_assignment -name VERILOG_FILE ../../2_Verilog/epilog_unit.v
+set_global_assignment -name VERILOG_FILE ../../2_Verilog/mem_w.v
+set_global_assignment -name VERILOG_FILE ../../2_Verilog/seg7_dec.v
+set_global_assignment -name VERILOG_FILE ../../2_Verilog/seg7_scan.v
+set_global_assignment -name VERILOG_FILE ../../1_Python_PC/mem/rom_bias8.v
+
+# ---- modul khusus WS ----
+set_global_assignment -name VERILOG_FILE ../2_verilog/ctrl_ws.v
+set_global_assignment -name VERILOG_FILE ../2_verilog/larik_ws.v
+set_global_assignment -name VERILOG_FILE ../2_verilog/buf_aktivasi_ws.v
+set_global_assignment -name VERILOG_FILE ../2_verilog/argmax_batch.v
+set_global_assignment -name VERILOG_FILE ../2_verilog/top_papan_ws.v
+
+set_global_assignment -name SDC_FILE ../../2_Verilog/papan.sdc
+
+# ---- netlist tingkat gerbang untuk simulasi pascasintesis dan analisis daya ----
+set_global_assignment -name EDA_SIMULATION_TOOL "Questa Altera FPGA (Verilog)"
+set_global_assignment -name EDA_TIME_SCALE "1 ps" -section_id eda_simulation
+set_global_assignment -name EDA_OUTPUT_DATA_FORMAT "VERILOG HDL" -section_id eda_simulation
+
+# ---- analisis daya: tulis aktivitas tiap sinyal dan daya per blok ke laporan ----
+set_global_assignment -name POWER_REPORT_SIGNAL_ACTIVITY ON
+set_global_assignment -name POWER_REPORT_POWER_DISSIPATION ON
+
+# ---- pin, sama dengan papan.qsf (terbukti oleh uji_papan) ----
+set_location_assignment PIN_23  -to clk
+
+set_location_assignment PIN_88  -to key[0]
+set_location_assignment PIN_89  -to key[1]
+set_location_assignment PIN_90  -to key[2]
+set_location_assignment PIN_91  -to key[3]
+
+set_location_assignment PIN_87  -to led[0]
+set_location_assignment PIN_86  -to led[1]
+set_location_assignment PIN_85  -to led[2]
+set_location_assignment PIN_84  -to led[3]
+
+set_location_assignment PIN_128 -to seg[0]
+set_location_assignment PIN_121 -to seg[1]
+set_location_assignment PIN_125 -to seg[2]
+set_location_assignment PIN_129 -to seg[3]
+set_location_assignment PIN_132 -to seg[4]
+set_location_assignment PIN_126 -to seg[5]
+set_location_assignment PIN_124 -to seg[6]
+set_location_assignment PIN_127 -to seg[7]
+
+set_location_assignment PIN_133 -to dig[0]
+set_location_assignment PIN_135 -to dig[1]
+set_location_assignment PIN_136 -to dig[2]
+set_location_assignment PIN_137 -to dig[3]
+
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to clk
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to key
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to led
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to seg
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to dig
+
+# ---- analisis daya: aktivitas sinyal dari simulasi netlist (VCD) ----
+set_global_assignment -name POWER_USE_INPUT_FILES ON
+set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
+set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
+set_global_assignment -name POWER_DEFAULT_INPUT_IO_TOGGLE_RATE "12.5 %"
+set_global_assignment -name POWER_INPUT_FILE_NAME "build/ws_inferensi.vcd" -section_id ws_inferensi.vcd
+set_instance_assignment -name POWER_READ_INPUT_FILE ws_inferensi.vcd -to top_papan_ws
+
+#  Aktivitas register yang namanya tidak terpetakan dari VCD (register di
+#  dalam blok generate), dihitung dari VCD yang sama oleh aktivitas_register.py.
+source build/aktivitas_register.tcl
