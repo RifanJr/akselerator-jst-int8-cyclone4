@@ -1,0 +1,23 @@
+{
+  "mulai": "2026-11-02T19:09:38",
+  "selesai": "2026-11-02T19:41:21",
+  "kali": 5,
+  "detik_per_fase": 60.0,
+  "inti": 2,
+  "model": [
+    "int8",
+    "fp32"
+  ],
+  "pengukuran": [
+    "C:\\Users\\rifan\\Downloads\\skripsi\\Alur_Utama\\5_PC\\hasil\\beban_int8_1_inti2_20261102_191343.json",
+    "C:\\Users\\rifan\\Downloads\\skripsi\\Alur_Utama\\5_PC\\hasil\\beban_fp32_1_inti2_20261102_191647.json",
+    "C:\\Users\\rifan\\Downloads\\skripsi\\Alur_Utama\\5_PC\\hasil\\beban_int8_1_inti2_20261102_191951.json",
+    "C:\\Users\\rifan\\Downloads\\skripsi\\Alur_Utama\\5_PC\\hasil\\beban_fp32_1_inti2_20261102_192256.json",
+    "C:\\Users\\rifan\\Downloads\\skripsi\\Alur_Utama\\5_PC\\hasil\\beban_int8_1_inti2_20261102_192600.json",
+    "C:\\Users\\rifan\\Downloads\\skripsi\\Alur_Utama\\5_PC\\hasil\\beban_fp32_1_inti2_20261102_192904.json",
+    "C:\\Users\\rifan\\Downloads\\skripsi\\Alur_Utama\\5_PC\\hasil\\beban_int8_1_inti2_20261102_193208.json",
+    "C:\\Users\\rifan\\Downloads\\skripsi\\Alur_Utama\\5_PC\\hasil\\beban_fp32_1_inti2_20261102_193512.json",
+    "C:\\Users\\rifan\\Downloads\\skripsi\\Alur_Utama\\5_PC\\hasil\\beban_int8_1_inti2_20261102_193816.json",
+    "C:\\Users\\rifan\\Downloads\\skripsi\\Alur_Utama\\5_PC\\hasil\\beban_fp32_1_inti2_20261102_194121.json"
+  ]
+}
