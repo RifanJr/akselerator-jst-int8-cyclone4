@@ -3,9 +3,9 @@
 //  tb_netlist_os.v  --  simulasi netlist pascasintesis untuk analisis daya
 //
 //  Menjalankan netlist simulation/questa/daya_os.vo (citra 00 berjalan sendiri
-//  setelah dinyalakan) dan merekam VCD mulai siklus MULAI. siapkan_vcd.py
-//  memotongnya pada siklus SELESAI, sehingga Power Analyzer hanya melihat
-//  aktivitas selama inferensi, tanpa reset dan muat citra.
+//  setelah dinyalakan) dan merekam VCD dari siklus MULAI sampai AKHIR.
+//  siapkan_vcd.py lalu memotong dua jendela dari rekaman yang sama:
+//  saat inferensi (tanpa reset dan muat citra) dan saat chip diam setelahnya.
 //
 //  MULAI, SELESAI, dan LED_COCOK diambil dari tb_jendela_os.v (RTL). Netlist
 //  dianggap benar bila LED "cocok" menyala pada siklus yang SAMA dengan RTL.
@@ -26,12 +26,12 @@ module tb_netlist_os;
             $dumpvars(1, dut);
         end
     end
+    // AKHIR: siklus terakhir yang direkam (setelah jendela diam)
     always @(negedge clk) begin
         if (cocok < 0 && led[3] === 1'b0) cocok = n;
-        if (n == `LED_COCOK + 2) begin
+        if (n == `LED_COCOK + 2)
             $display("NETLIST led_cocok=%0d harap=%0d %s", cocok, `LED_COCOK,
                      cocok == `LED_COCOK ? "COCOK" : "BEDA");
-            $finish;
-        end
+        if (n == `AKHIR) $finish;
     end
 endmodule

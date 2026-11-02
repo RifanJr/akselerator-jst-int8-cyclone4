@@ -91,8 +91,10 @@ set_global_assignment -name POWER_USE_INPUT_FILES ON
 set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
 set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
 set_global_assignment -name POWER_DEFAULT_INPUT_IO_TOGGLE_RATE "12.5 %"
-set_global_assignment -name POWER_INPUT_FILE_NAME "build/os_inferensi.vcd" -section_id os_inferensi.vcd
-set_instance_assignment -name POWER_READ_INPUT_FILE os_inferensi.vcd -to top_papan
+#  build/aktivitas.vcd diisi jalankan_daya_os.py dengan jendela yang sedang
+#  dianalisis: inferensi (os_inferensi.vcd) atau diam (os_diam.vcd).
+set_global_assignment -name POWER_INPUT_FILE_NAME "build/aktivitas.vcd" -section_id aktivitas.vcd
+set_instance_assignment -name POWER_READ_INPUT_FILE aktivitas.vcd -to top_papan
 
 #  Aktivitas register akumulator MAC (g_lajur[k].u_mac|acc, m_acc, p_q, init1),
 #  dihitung dari VCD yang sama oleh aktivitas_mac.py, karena Power Analyzer

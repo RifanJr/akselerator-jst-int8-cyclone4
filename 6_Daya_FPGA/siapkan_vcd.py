@@ -8,8 +8,9 @@ Siapkan VCD Icarus dari simulasi netlist supaya dapat dibaca Power Analyzer.
 2. Buang blok $comment/$dumpall kosong setelah $enddefinitions (Quartus
    Error 222007).
 3. Pecah sinyal vektor menjadi bit bernama "nama [i]" (format skrip VCD Quartus).
-4. Geser waktu supaya mulai dari 0, lalu potong pada T_SELESAI, sehingga lama
-   VCD = lama inferensi.
+4. Ambil hanya jendela T_MULAI..T_SELESAI dan geser waktunya supaya mulai dari
+   0. Keadaan sinyal sebelum T_MULAI ditulis sebagai nilai awal pada waktu 0,
+   sehingga jendela boleh berada di tengah rekaman (mis. saat chip diam).
 
 Langkah 1-3 diadaptasi dari 3_Quartus/simulasi_netlist/vcd_quartus.py
 (Student A, 1 November 2026); langkah 4 tambahan.
@@ -53,7 +54,19 @@ def main(src, dst, t_mulai, t_selesai):
         else:
             kepala.append(l)
 
+    # Perubahan sebelum T_MULAI tidak ditulis; hanya keadaan terakhirnya yang
+    # disimpan di `kini`, lalu ditulis sebagai nilai awal pada waktu 0.
     out, t_awal, n_ubah = kepala + [L[akhir]], None, 0
+    kini, dalam, t_tulis = {}, False, None
+
+    def ubah(kunci, baris):
+        nonlocal n_ubah
+        if dalam:
+            out.append(baris)
+            n_ubah += 1
+        else:
+            kini[kunci] = baris
+
     for l in L[akhir + 1:]:
         if l.startswith("#"):
             t = int(l[1:])
@@ -63,7 +76,18 @@ def main(src, dst, t_mulai, t_selesai):
                     raise SystemExit(f"VCD mulai {t_awal} ps, lebih lambat dari T_MULAI {t_mulai} ps")
             if t > t_selesai:
                 break
-            out.append(f"#{max(t, t_mulai) - t_mulai}")
+            if t >= t_mulai and not dalam:
+                dalam = True
+                if kini:
+                    out += ["#0", "$dumpvars"] + list(kini.values()) + ["$end"]
+                    t_tulis = 0
+            if dalam and t - t_mulai != t_tulis:
+                t_tulis = t - t_mulai
+                out.append(f"#{t_tulis}")
+            continue
+        if l.startswith("$"):
+            if dalam:
+                out.append(l)
             continue
         if l[:1] in "bB" and " " in l:
             val, i = l[1:].split()
@@ -72,13 +96,13 @@ def main(src, dst, t_mulai, t_selesai):
                 val = val.rjust(len(ids), "0" if val[0] in "01" else val[0])
                 for k, (bi, v) in enumerate(zip(ids, val)):
                     if lalu[k] != v:
-                        out.append(v + bi)
+                        ubah(bi, v + bi)
                         lalu[k] = v
-                        n_ubah += 1
                 continue
+            ubah(i, l)
+            continue
         if l.strip():
-            n_ubah += 1
-        out.append(l)
+            ubah(l[1:], l)
     out.append(f"#{t_selesai - t_mulai}")
     open(dst, "w").write("\n".join(out) + "\n")
     print(f"{dst}: lama {(t_selesai - t_mulai) / 1e6:.2f} us, vektor dipecah {len(vek)}, "

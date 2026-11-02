@@ -31,7 +31,7 @@ di PATH atau di `C:\iverilog\bin`.
 | `siapkan_vcd.py` | Merapikan VCD untuk Quartus dan memotongnya tepat pada jendela inferensi |
 | `aktivitas_mac.py` | Menghitung aktivitas register akumulator MAC dari VCD yang sama (lihat Metode) |
 | `jalankan_daya_os.py` | Menjalankan semua langkah dan meringkas hasil |
-| `hasil/` | `daya_os.json` (ringkasan), `daya_os.pow.summary`, `daya_os.fit.summary`, `daya_os.pow_ringkas.rpt` (laporan daya tanpa tabel per sinyal) |
+| `hasil/` | `daya_os.json` (ringkasan), `daya_os.pow.summary` dan `daya_os.pow_ringkas.rpt` (saat bekerja), `daya_os_diam.pow.summary` dan `daya_os_diam.pow_ringkas.rpt` (saat diam), `daya_os.fit.summary`. Laporan "ringkas" adalah laporan daya tanpa tabel per sinyal. |
 
 ## Metode
 
@@ -40,8 +40,14 @@ di PATH atau di `C:\iverilog\bin`.
    **1.708 siklus**, sama dengan penghitung siklus di papan.
 3. **Simulasi netlist** dengan Icarus. Netlist dianggap benar bila LED "cocok"
    menyala pada siklus yang sama dengan RTL (siklus 1.926).
-4. **VCD** hanya berisi jendela inferensi (34,16 µs). Reset dan muat citra
-   tidak ikut terekam.
+4. **VCD.** Dari satu rekaman diambil dua jendela, masing-masing 1.708 siklus
+   (34,16 µs):
+   - **bekerja**: siklus 216–1.924, selama inferensi. Reset dan muat citra
+     tidak ikut terekam;
+   - **diam**: siklus 1.934–3.642, setelah inferensi selesai, tanpa tombol
+     ditekan.
+
+   Power Analyzer dijalankan sekali untuk setiap jendela.
 5. **Aktivitas register akumulator MAC.** Power Analyzer tidak dapat
    mencocokkan nama bit register di dalam blok `generate`
    (`g_lajur[k].u_mac|acc`, `m_acc`, `p_q`, `init1`; 718 register), walaupun
@@ -78,6 +84,27 @@ Sebagai pembanding, hasil Student A (rancangan OS lama 1.816 siklus, VCD
 memuat reset dan muat citra) adalah 91,99 mW total, 19,17 mW dinamis, dengan
 confidence *Low*.
 
+### Daya saat diam
+
+Rumusnya sama dengan pembanding PC: **selisih = daya bekerja − daya diam**,
+dan **energi tambahan per citra = selisih × 34,16 µs**.
+
+| | Bekerja | Diam | Selisih |
+|---|---|---|---|
+| **Total chip** | 93,91 mW | 89,40 mW | **4,51 mW** |
+| Inti dinamis | 21,09 mW | 14,81 mW | 6,28 mW |
+| Inti statis | 43,16 mW | 43,17 mW | −0,01 mW |
+| I/O | 29,66 mW | 31,41 mW | −1,75 mW |
+
+- Confidence untuk kedua jendela: **High**.
+- Energi tambahan per citra = 4,51 mW × 34,16 µs = **0,154 µJ**.
+- **Saat diam, M9K tetap memakan 8,71 mW**, padahal saat bekerja 9,53 mW.
+  Penyebabnya, bank bobot rancangan OS terus membaca walaupun tidak ada
+  inferensi (`mem_en` terhubung ke "semua lajur siap", yang bernilai 1 saat
+  diam). Karena itu daya diam OS tinggi, dan selisihnya kecil.
+- Daya I/O saat diam sedikit lebih tinggi, karena setelah inferensi LED
+  "cocok" menyala dan tampilan menunjukkan hasil.
+
 ## Perbandingan dengan PC
 
 Angka PC berasal dari `5_PC/` (AMD Ryzen 5 7535HS, model INT8 NumPy, satu inti,
@@ -90,6 +117,8 @@ Angka PC berasal dari `5_PC/` (AMD Ryzen 5 7535HS, model INT8 NumPy, satu inti,
 | Daya saat bekerja | 93,91 mW (chip) | 24,79 W (paket CPU) | FPGA ≈264× lebih kecil |
 | **Energi per citra, total chip** | **3,208 µJ** | **399,5 µJ** (paket CPU) | **FPGA ≈125× lebih hemat** |
 | Energi per citra, bagian yang bekerja | 0,720 µJ (inti dinamis) | 171,5 µJ (tambahan di inti) | FPGA ≈238× lebih hemat |
+| Daya saat diam | 89,40 mW (chip) | 8,43 W (paket CPU) | FPGA ≈94× lebih kecil |
+| Selisih bekerja − diam | 4,51 mW → 0,154 µJ per citra | 16,36 W → 263,7 µJ per citra (paket) | cara hitung sama; angka FPGA kecil karena daya diamnya tinggi (lihat di atas) |
 
 **Kesimpulan:** FPGA jauh lebih hemat energi, tetapi pada 50 MHz dengan 8 MAC
 ia sekitar dua kali lebih lambat dari satu inti CPU laptop. Keunggulan lain

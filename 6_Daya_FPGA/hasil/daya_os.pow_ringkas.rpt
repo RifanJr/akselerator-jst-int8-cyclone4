@@ -1,5 +1,5 @@
 Power Analyzer report for daya_os
-Mon Nov  2 20:40:00 2026
+Mon Nov  2 23:37:07 2026
 Quartus Prime Version 25.1std.0 Build 1129 10/21/2025 SC Lite Edition
 
 
@@ -53,19 +53,19 @@ on the Quartus Prime software download page.
 ; Number detected on machine ; 12          ;
 ; Maximum allowed            ; 12          ;
 ;                            ;             ;
-; Average used               ; 1.12        ;
+; Average used               ; 1.11        ;
 ; Maximum used               ; 12          ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-12        ;   1.1%      ;
+;     Processors 2-12        ;   1.0%      ;
 +----------------------------+-------------+
 
 
 +------------------------------------------------------------------------------------------+
 ; Power Analyzer Summary                                                                   ;
 +----------------------------------------+-------------------------------------------------+
-; Power Analyzer Status                  ; Successful - Mon Nov  2 20:39:59 2026           ;
+; Power Analyzer Status                  ; Successful - Mon Nov  2 23:37:07 2026           ;
 ; Quartus Prime Version                  ; 25.1std.0 Build 1129 10/21/2025 SC Lite Edition ;
 ; Revision Name                          ; daya_os                                         ;
 ; Top-level Entity Name                  ; top_papan                                       ;
@@ -106,13 +106,13 @@ on the Quartus Prime software download page.
 +------------------------------------------------------------------+---------------------------------------+---------------+
 
 
-+------------------------------------------------------------------------------------------------------------------+
-; Power Analyzer Simulation Files Read                                                                             ;
-+---------+------------------------+-----------+------------+----------------+--------------+-----------+----------+
-; File ID ; File Name              ; File Type ; Entity     ; VCD Start Time ; VCD End Time ; Unknown % ; Toggle % ;
-+---------+------------------------+-----------+------------+----------------+--------------+-----------+----------+
-; f1      ; build/os_inferensi.vcd ; VCD       ; |top_papan ; N/A            ; N/A          ; 0.0%      ; 81.4%    ;
-+---------+------------------------+-----------+------------+----------------+--------------+-----------+----------+
++---------------------------------------------------------------------------------------------------------------+
+; Power Analyzer Simulation Files Read                                                                          ;
++---------+---------------------+-----------+------------+----------------+--------------+-----------+----------+
+; File ID ; File Name           ; File Type ; Entity     ; VCD Start Time ; VCD End Time ; Unknown % ; Toggle % ;
++---------+---------------------+-----------+------------+----------------+--------------+-----------+----------+
+; f1      ; build/aktivitas.vcd ; VCD       ; |top_papan ; N/A            ; N/A          ; 0.0%      ; 81.4%    ;
++---------+---------------------+-----------+------------+----------------+--------------+-----------+----------+
 
 
 +--------------------------------------------------------------------------+
@@ -339,13 +339,13 @@ Info: Running Quartus Prime Power Analyzer
     Info: Altera and sold by Altera or its authorized distributors.  Please
     Info: refer to the Altera Software License Subscription Agreements 
     Info: on the Quartus Prime software download page.
-    Info: Processing started: Mon Nov  2 20:39:52 2026
+    Info: Processing started: Mon Nov  2 23:36:59 2026
 Info: Command: quartus_pow --read_settings_files=on --write_settings_files=off daya_os -c daya_os
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (21077): Low junction temperature is 0 degrees C
 Info (21077): High junction temperature is 85 degrees C
-Info (222002): Starting scan of VCD file build/os_inferensi.vcd (0 ns to End of File) for signal static probabilities and transition densities
-Info (222003): Finished scan of VCD file build/os_inferensi.vcd (0 ns to End of File) for signal static probabilities and transition densities
+Info (222002): Starting scan of VCD file build/aktivitas.vcd (0 ns to End of File) for signal static probabilities and transition densities
+Info (222003): Finished scan of VCD file build/aktivitas.vcd (0 ns to End of File) for signal static probabilities and transition densities
 Info (332104): Reading SDC File: '../2_Verilog/papan.sdc'
 Info (332151): Clock uncertainty is not calculated until you update the timing netlist.
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
@@ -359,8 +359,8 @@ Info (215049): Average toggle rate for this design is 2.333 millions of transiti
 Info (215031): Total thermal power estimate for the design is 93.91 mW
 Info: Quartus Prime Power Analyzer was successful. 0 errors, 1 warning
     Info: Peak virtual memory: 4973 megabytes
-    Info: Processing ended: Mon Nov  2 20:40:00 2026
+    Info: Processing ended: Mon Nov  2 23:37:07 2026
     Info: Elapsed time: 00:00:08
-    Info: Total CPU time (on all processors): 00:00:15
+    Info: Total CPU time (on all processors): 00:00:17
 
 
