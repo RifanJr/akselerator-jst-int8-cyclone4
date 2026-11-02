@@ -1,0 +1,12 @@
+Power Analyzer Status : Successful - Mon Nov  2 20:39:59 2026
+Quartus Prime Version : 25.1std.0 Build 1129 10/21/2025 SC Lite Edition
+Revision Name : daya_os
+Top-level Entity Name : top_papan
+Family : Cyclone IV E
+Device : EP4CE6E22C8
+Power Models : Final
+Total Thermal Power Dissipation : 93.91 mW
+Core Dynamic Thermal Power Dissipation : 21.09 mW
+Core Static Thermal Power Dissipation : 43.16 mW
+I/O Thermal Power Dissipation : 29.66 mW
+Power Estimation Confidence : High: user provided sufficient toggle rate data

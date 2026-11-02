@@ -1,0 +1,16 @@
+Fitter Status : Successful - Mon Nov  2 20:39:33 2026
+Quartus Prime Version : 25.1std.0 Build 1129 10/21/2025 SC Lite Edition
+Revision Name : daya_os
+Top-level Entity Name : top_papan
+Family : Cyclone IV E
+Device : EP4CE6E22C8
+Timing Models : Final
+Total logic elements : 2,306 / 6,272 ( 37 % )
+    Total combinational functions : 1,826 / 6,272 ( 29 % )
+    Dedicated logic registers : 1,420 / 6,272 ( 23 % )
+Total registers : 1420
+Total pins : 21 / 92 ( 23 % )
+Total virtual pins : 0
+Total memory bits : 143,392 / 276,480 ( 52 % )
+Embedded Multiplier 9-bit elements : 8 / 30 ( 27 % )
+Total PLLs : 0 / 2 ( 0 % )
