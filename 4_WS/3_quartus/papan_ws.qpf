@@ -1,0 +1,9 @@
+# -------------------------------------------------------------------------- #
+#  papan_ws.qpf -- akselerator weight-stationary 4 x 2, batch 16, pada papan
+# -------------------------------------------------------------------------- #
+
+QUARTUS_VERSION = "25.1"
+
+# Revisions
+
+PROJECT_REVISION = "papan_ws"
