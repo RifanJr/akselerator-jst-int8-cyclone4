@@ -1,0 +1,1102 @@
+{
+  "log": "hwinfo_resmi_20261102.CSV",
+  "interval_detik": 2.008,
+  "per_pengukuran": [
+    {
+      "model": "fp32",
+      "inti": 2,
+      "mulai": "2026-11-02T19:13:45.455",
+      "citra_per_detik": 25089.544062144705,
+      "pemakaian_cpu_persen": 99.79164304932493,
+      "besaran": {
+        "Inti yang dikunci": {
+          "kolom": "Core 2 Power [W]",
+          "perangkat": "CPU [#0]: AMD Ryzen 5 7535HS: Enhanced",
+          "diam_sebelum_w": 0.4702,
+          "beban_w": 10.835041666666667,
+          "diam_sesudah_w": 0.37444,
+          "simpangan_w": [
+            0.5643556798095801,
+            0.11179814075091914,
+            0.2515695861320813
+          ],
+          "n_cuplikan": [
+            25,
+            24,
+            25
+          ],
+          "selisih_w": 10.412721666666666,
+          "energi_tambahan_uj_per_citra": 415.02235516417613,
+          "energi_total_uj_per_citra": 431.8548651115052
+        },
+        "Paket CPU": {
+          "kolom": "CPU Package Power [W]",
+          "perangkat": "CPU [#0]: AMD Ryzen 5 7535HS: Enhanced",
+          "diam_sebelum_w": 8.6852,
+          "beban_w": 23.542458333333332,
+          "diam_sesudah_w": 8.65472,
+          "simpangan_w": [
+            2.122769083846223,
+            0.9440056640934837,
+            1.6652115110900074
+          ],
+          "n_cuplikan": [
+            25,
+            24,
+            25
+          ],
+          "selisih_w": 14.872498333333333,
+          "energi_tambahan_uj_per_citra": 592.7767478155599,
+          "energi_total_uj_per_citra": 938.3374315220966
+        },
+        "Inti + SoC (regulator)": {
+          "kolom": "Core+SoC+SR Power (SVI3 TFN) [W]",
+          "perangkat": "CPU [#0]: AMD Ryzen 5 7535HS: Enhanced",
+          "diam_sebelum_w": 5.68728,
+          "beban_w": 19.913125,
+          "diam_sesudah_w": 5.663,
+          "simpangan_w": [
+            2.0368296345055468,
+            0.9412239170125892,
+            1.6047124352979882
+          ],
+          "n_cuplikan": [
+            25,
+            24,
+            25
+          ],
+          "selisih_w": 14.237985,
+          "energi_tambahan_uj_per_citra": 567.4867970790422,
+          "energi_total_uj_per_citra": 793.6822188030541
+        },
+        "GPU (kontrol)": {
+          "kolom": "GPU Power [W]",
+          "perangkat": "dGPU [#0]: NVIDIA GeForce RTX 4050 Laptop",
+          "diam_sebelum_w": 15.80912,
+          "beban_w": 15.754958333333333,
+          "diam_sesudah_w": 15.86176,
+          "simpangan_w": [
+            0.025357970476098068,
+            0.03779519082205242,
+            0.03859974093177324
+          ],
+          "n_cuplikan": [
+            25,
+            24,
+            25
+          ],
+          "selisih_w": -0.08048166666666745,
+          "energi_tambahan_uj_per_citra": -3.207777170733796,
+          "energi_total_uj_per_citra": 627.9491685584089
+        }
+      },
+      "pemakaian_core_t0_hwinfo_persen": null
+    },
+    {
+      "model": "fp32",
+      "inti": 2,
+      "mulai": "2026-11-02T19:19:53.920",
+      "citra_per_detik": 24920.742606838416,
+      "pemakaian_cpu_persen": 99.76559540284157,
+      "besaran": {
+        "Inti yang dikunci": {
+          "kolom": "Core 2 Power [W]",
+          "perangkat": "CPU [#0]: AMD Ryzen 5 7535HS: Enhanced",
+          "diam_sebelum_w": 0.33924,
+          "beban_w": 10.92988,
+          "diam_sesudah_w": 0.51988,
+          "simpangan_w": [
+            0.24380529800095266,
+            0.13837850266569593,
+            0.5960658744355918
+          ],
+          "n_cuplikan": [
+            25,
+            25,
+            25
+          ],
+          "selisih_w": 10.50032,
+          "energi_tambahan_uj_per_citra": 421.34859966486886,
+          "energi_total_uj_per_citra": 438.58564619983554
+        },
+        "Paket CPU": {
+          "kolom": "CPU Package Power [W]",
+          "perangkat": "CPU [#0]: AMD Ryzen 5 7535HS: Enhanced",
+          "diam_sebelum_w": 8.33236,
+          "beban_w": 23.60536,
+          "diam_sesudah_w": 8.3654,
+          "simpangan_w": [
+            1.5956039577539283,
+            1.2199374601456692,
+            1.5879235655408606
+          ],
+          "n_cuplikan": [
+            25,
+            25,
+            25
+          ],
+          "selisih_w": 15.256480000000002,
+          "energi_tambahan_uj_per_citra": 612.2000552188009,
+          "energi_total_uj_per_citra": 947.2173591457317
+        },
+        "Inti + SoC (regulator)": {
+          "kolom": "Core+SoC+SR Power (SVI3 TFN) [W]",
+          "perangkat": "CPU [#0]: AMD Ryzen 5 7535HS: Enhanced",
+          "diam_sebelum_w": 5.35584,
+          "beban_w": 19.97176,
+          "diam_sesudah_w": 5.3808,
+          "simpangan_w": [
+            1.5386102950390004,
+            1.214247719097439,
+            1.5307865080844334
+          ],
+          "n_cuplikan": [
+            25,
+            25,
+            25
+          ],
+          "selisih_w": 14.603439999999999,
+          "energi_tambahan_uj_per_citra": 585.9953786446443,
+          "energi_total_uj_per_citra": 801.4111102178639
+        },
+        "GPU (kontrol)": {
+          "kolom": "GPU Power [W]",
+          "perangkat": "dGPU [#0]: NVIDIA GeForce RTX 4050 Laptop",
+          "diam_sebelum_w": 15.84256,
+          "beban_w": 15.78704,
+          "diam_sesudah_w": 15.8938,
+          "simpangan_w": [
+            0.028571664284741873,
+            0.03734242448833049,
+            0.028225284173355434
+          ],
+          "n_cuplikan": [
+            25,
+            25,
+            25
+          ],
+          "selisih_w": -0.08114000000000132,
+          "energi_tambahan_uj_per_citra": -3.2559222363516556,
+          "energi_total_uj_per_citra": 633.489950482773
+        }
+      },
+      "pemakaian_core_t0_hwinfo_persen": null
+    },
+    {
+      "model": "fp32",
+      "inti": 2,
+      "mulai": "2026-11-02T19:26:02.520",
+      "citra_per_detik": 24784.31579922103,
+      "pemakaian_cpu_persen": 99.76562150822505,
+      "besaran": {
+        "Inti yang dikunci": {
+          "kolom": "Core 2 Power [W]",
+          "perangkat": "CPU [#0]: AMD Ryzen 5 7535HS: Enhanced",
+          "diam_sebelum_w": 0.42816,
+          "beban_w": 10.777208333333334,
+          "diam_sesudah_w": 0.35368,
+          "simpangan_w": [
+            0.52411112689327,
+            0.10634683992634127,
+            0.424107368481143
+          ],
+          "n_cuplikan": [
+            25,
+            24,
+            25
+          ],
+          "selisih_w": 10.386288333333335,
+          "energi_tambahan_uj_per_citra": 419.0669783855714,
+          "energi_total_uj_per_citra": 434.8398568126727
+        },
+        "Paket CPU": {
+          "kolom": "CPU Package Power [W]",
+          "perangkat": "CPU [#0]: AMD Ryzen 5 7535HS: Enhanced",
+          "diam_sebelum_w": 8.294319999999999,
+          "beban_w": 23.309083333333334,
+          "diam_sesudah_w": 8.25944,
+          "simpangan_w": [
+            1.7190790586822935,
+            0.848472433856571,
+            1.6410193244850388
+          ],
+          "n_cuplikan": [
+            25,
+            24,
+            25
+          ],
+          "selisih_w": 15.032203333333335,
+          "energi_tambahan_uj_per_citra": 606.5208115935077,
+          "energi_total_uj_per_citra": 940.477176056074
+        },
+        "Inti + SoC (regulator)": {
+          "kolom": "Core+SoC+SR Power (SVI3 TFN) [W]",
+          "perangkat": "CPU [#0]: AMD Ryzen 5 7535HS: Enhanced",
+          "diam_sebelum_w": 5.3184,
+          "beban_w": 19.680041666666668,
+          "diam_sesudah_w": 5.28668,
+          "simpangan_w": [
+            1.6593230045212213,
+            0.8471272928918765,
+            1.585412609806461
+          ],
+          "n_cuplikan": [
+            25,
+            24,
+            25
+          ],
+          "selisih_w": 14.377501666666667,
+          "energi_tambahan_uj_per_citra": 580.1048446581912,
+          "energi_total_uj_per_citra": 794.0522476430522
+        },
+        "GPU (kontrol)": {
+          "kolom": "GPU Power [W]",
+          "perangkat": "dGPU [#0]: NVIDIA GeForce RTX 4050 Laptop",
+          "diam_sebelum_w": 15.806799999999999,
+          "beban_w": 15.755916666666666,
+          "diam_sesudah_w": 15.863291666666667,
+          "simpangan_w": [
+            0.024770614310778292,
+            0.04164854678467612,
+            0.045722679337469874
+          ],
+          "n_cuplikan": [
+            25,
+            24,
+            24
+          ],
+          "selisih_w": -0.07912916666666625,
+          "energi_tambahan_uj_per_citra": -3.192711362609142,
+          "energi_total_uj_per_citra": 635.7212680110327
+        }
+      },
+      "pemakaian_core_t0_hwinfo_persen": null
+    },
+    {
+      "model": "fp32",
+      "inti": 2,
+      "mulai": "2026-11-02T19:32:10.922",
+      "citra_per_detik": 24991.373961569472,
+      "pemakaian_cpu_persen": 99.71350427410805,
+      "besaran": {
+        "Inti yang dikunci": {
+          "kolom": "Core 2 Power [W]",
+          "perangkat": "CPU [#0]: AMD Ryzen 5 7535HS: Enhanced",
+          "diam_sebelum_w": 0.32892,
+          "beban_w": 11.095791666666667,
+          "diam_sesudah_w": 0.31664,
+          "simpangan_w": [
+            0.44171087074389886,
+            0.12316513452401566,
+            0.35584358455178966
+          ],
+          "n_cuplikan": [
+            25,
+            24,
+            25
+          ],
+          "selisih_w": 10.773011666666667,
+          "energi_tambahan_uj_per_citra": 431.0692034472728,
+          "energi_total_uj_per_citra": 443.98485988522435
+        },
+        "Paket CPU": {
+          "kolom": "CPU Package Power [W]",
+          "perangkat": "CPU [#0]: AMD Ryzen 5 7535HS: Enhanced",
+          "diam_sebelum_w": 8.36052,
+          "beban_w": 23.36124,
+          "diam_sesudah_w": 8.42612,
+          "simpangan_w": [
+            1.664923274508468,
+            0.9405485668835323,
+            1.6903668319825333
+          ],
+          "n_cuplikan": [
+            25,
+            25,
+            25
+          ],
+          "selisih_w": 14.96792,
+          "energi_tambahan_uj_per_citra": 598.9234534690628,
+          "energi_total_uj_per_citra": 934.7721352144858
+        },
+        "Inti + SoC (regulator)": {
+          "kolom": "Core+SoC+SR Power (SVI3 TFN) [W]",
+          "perangkat": "CPU [#0]: AMD Ryzen 5 7535HS: Enhanced",
+          "diam_sebelum_w": 5.38088,
+          "beban_w": 19.73076,
+          "diam_sesudah_w": 5.43056,
+          "simpangan_w": [
+            1.6016160932008645,
+            0.9386493523497825,
+            1.6213370274766028
+          ],
+          "n_cuplikan": [
+            25,
+            25,
+            25
+          ],
+          "selisih_w": 14.32504,
+          "energi_tambahan_uj_per_citra": 573.1993775943793,
+          "energi_total_uj_per_citra": 789.5028112636388
+        },
+        "GPU (kontrol)": {
+          "kolom": "GPU Power [W]",
+          "perangkat": "dGPU [#0]: NVIDIA GeForce RTX 4050 Laptop",
+          "diam_sebelum_w": 15.806545454545455,
+          "beban_w": 15.75628,
+          "diam_sesudah_w": 15.875458333333333,
+          "simpangan_w": [
+            0.03281655690236887,
+            0.04242102466152078,
+            0.03281698813335748
+          ],
+          "n_cuplikan": [
+            22,
+            25,
+            24
+          ],
+          "selisih_w": -0.08472189393939367,
+          "energi_tambahan_uj_per_citra": -3.39004546407392,
+          "energi_total_uj_per_citra": 630.4687379024957
+        }
+      },
+      "pemakaian_core_t0_hwinfo_persen": null
+    },
+    {
+      "model": "fp32",
+      "inti": 2,
+      "mulai": "2026-11-02T19:38:18.930",
+      "citra_per_detik": 24751.440058179916,
+      "pemakaian_cpu_persen": 99.58329333407741,
+      "besaran": {
+        "Inti yang dikunci": {
+          "kolom": "Core 2 Power [W]",
+          "perangkat": "CPU [#0]: AMD Ryzen 5 7535HS: Enhanced",
+          "diam_sebelum_w": 0.31176,
+          "beban_w": 10.8154,
+          "diam_sesudah_w": 0.5384,
+          "simpangan_w": [
+            0.36863851761131344,
+            0.13169788659402765,
+            0.6215507487995918
+          ],
+          "n_cuplikan": [
+            25,
+            25,
+            25
+          ],
+          "selisih_w": 10.390320000000001,
+          "energi_tambahan_uj_per_citra": 419.7864841632187,
+          "energi_total_uj_per_citra": 436.9604344061468
+        },
+        "Paket CPU": {
+          "kolom": "CPU Package Power [W]",
+          "perangkat": "CPU [#0]: AMD Ryzen 5 7535HS: Enhanced",
+          "diam_sebelum_w": 8.3088,
+          "beban_w": 23.4486,
+          "diam_sesudah_w": 8.48728,
+          "simpangan_w": [
+            1.7337589221111451,
+            1.09976713444256,
+            1.790969046819812
+          ],
+          "n_cuplikan": [
+            25,
+            25,
+            25
+          ],
+          "selisih_w": 15.050559999999999,
+          "energi_tambahan_uj_per_citra": 608.0680544090627,
+          "energi_total_uj_per_citra": 947.3630602858861
+        },
+        "Inti + SoC (regulator)": {
+          "kolom": "Core+SoC+SR Power (SVI3 TFN) [W]",
+          "perangkat": "CPU [#0]: AMD Ryzen 5 7535HS: Enhanced",
+          "diam_sebelum_w": 5.32844,
+          "beban_w": 19.81752,
+          "diam_sesudah_w": 5.49624,
+          "simpangan_w": [
+            1.6708091871904462,
+            1.0958108535083355,
+            1.7236584947914324
+          ],
+          "n_cuplikan": [
+            25,
+            25,
+            25
+          ],
+          "selisih_w": 14.405179999999998,
+          "energi_tambahan_uj_per_citra": 581.9936119328677,
+          "energi_total_uj_per_citra": 800.6612929759881
+        },
+        "GPU (kontrol)": {
+          "kolom": "GPU Power [W]",
+          "perangkat": "dGPU [#0]: NVIDIA GeForce RTX 4050 Laptop",
+          "diam_sebelum_w": 15.813833333333333,
+          "beban_w": 15.774791666666667,
+          "diam_sesudah_w": 15.88856,
+          "simpangan_w": [
+            0.022676681504531615,
+            0.0381769098968913,
+            0.03351004824427056
+          ],
+          "n_cuplikan": [
+            24,
+            24,
+            25
+          ],
+          "selisih_w": -0.07640499999999939,
+          "energi_tambahan_uj_per_citra": -3.086891098877654,
+          "energi_total_uj_per_citra": 637.3282374515165
+        }
+      },
+      "pemakaian_core_t0_hwinfo_persen": null
+    },
+    {
+      "model": "int8",
+      "inti": 2,
+      "mulai": "2026-11-02T19:10:40.886",
+      "citra_per_detik": 62190.21583745747,
+      "pemakaian_cpu_persen": 99.76562366978156,
+      "besaran": {
+        "Inti yang dikunci": {
+          "kolom": "Core 2 Power [W]",
+          "perangkat": "CPU [#0]: AMD Ryzen 5 7535HS: Enhanced",
+          "diam_sebelum_w": 0.33604,
+          "beban_w": 10.98391304347826,
+          "diam_sesudah_w": 0.43884,
+          "simpangan_w": [
+            0.21432519683882248,
+            0.09304637799773849,
+            0.567490211369324
+          ],
+          "n_cuplikan": [
+            25,
+            23,
+            25
+          ],
+          "selisih_w": 10.59647304347826,
+          "energi_tambahan_uj_per_citra": 170.38810527967252,
+          "energi_total_uj_per_citra": 176.61802416293585
+        },
+        "Paket CPU": {
+          "kolom": "CPU Package Power [W]",
+          "perangkat": "CPU [#0]: AMD Ryzen 5 7535HS: Enhanced",
+          "diam_sebelum_w": 8.575,
+          "beban_w": 24.81891304347826,
+          "diam_sesudah_w": 8.53368,
+          "simpangan_w": [
+            1.7130442444179115,
+            0.9795355074098536,
+            1.7093142562637997
+          ],
+          "n_cuplikan": [
+            25,
+            23,
+            25
+          ],
+          "selisih_w": 16.26457304347826,
+          "energi_tambahan_uj_per_citra": 261.5294516100076,
+          "energi_total_uj_per_citra": 399.08067063709575
+        },
+        "Inti + SoC (regulator)": {
+          "kolom": "Core+SoC+SR Power (SVI3 TFN) [W]",
+          "perangkat": "CPU [#0]: AMD Ryzen 5 7535HS: Enhanced",
+          "diam_sebelum_w": 5.59124,
+          "beban_w": 21.215304347826088,
+          "diam_sesudah_w": 5.54488,
+          "simpangan_w": [
+            1.6521173858617513,
+            0.9760553931180251,
+            1.6407978577509175
+          ],
+          "n_cuplikan": [
+            25,
+            23,
+            25
+          ],
+          "selisih_w": 15.647244347826089,
+          "energi_tambahan_uj_per_citra": 251.60299151754475,
+          "energi_total_uj_per_citra": 341.1357246817594
+        },
+        "GPU (kontrol)": {
+          "kolom": "GPU Power [W]",
+          "perangkat": "dGPU [#0]: NVIDIA GeForce RTX 4050 Laptop",
+          "diam_sebelum_w": 15.772291666666666,
+          "beban_w": 15.718666666666667,
+          "diam_sesudah_w": 15.844291666666667,
+          "simpangan_w": [
+            0.026613953788039078,
+            0.03741851049328709,
+            0.037048122837697074
+          ],
+          "n_cuplikan": [
+            24,
+            24,
+            24
+          ],
+          "selisih_w": -0.08962499999999807,
+          "energi_tambahan_uj_per_citra": -1.4411430928981677,
+          "energi_total_uj_per_citra": 252.75144096218492
+        }
+      },
+      "pemakaian_core_t0_hwinfo_persen": null
+    },
+    {
+      "model": "int8",
+      "inti": 2,
+      "mulai": "2026-11-02T19:16:49.883",
+      "citra_per_detik": 61624.58274510501,
+      "pemakaian_cpu_persen": 99.66143042811369,
+      "besaran": {
+        "Inti yang dikunci": {
+          "kolom": "Core 2 Power [W]",
+          "perangkat": "CPU [#0]: AMD Ryzen 5 7535HS: Enhanced",
+          "diam_sebelum_w": 0.28658333333333336,
+          "beban_w": 10.92016,
+          "diam_sesudah_w": 0.34448,
+          "simpangan_w": [
+            0.1866719784440929,
+            0.11510961442613449,
+            0.27822639462615095
+          ],
+          "n_cuplikan": [
+            24,
+            25,
+            25
+          ],
+          "selisih_w": 10.604628333333332,
+          "energi_tambahan_uj_per_citra": 172.08438355188187,
+          "energi_total_uj_per_citra": 177.2046075373616
+        },
+        "Paket CPU": {
+          "kolom": "CPU Package Power [W]",
+          "perangkat": "CPU [#0]: AMD Ryzen 5 7535HS: Enhanced",
+          "diam_sebelum_w": 8.510375,
+          "beban_w": 25.12448,
+          "diam_sesudah_w": 8.87548,
+          "simpangan_w": [
+            1.5717235018616817,
+            1.0532843126778895,
+            2.0535476238289028
+          ],
+          "n_cuplikan": [
+            24,
+            25,
+            25
+          ],
+          "selisih_w": 16.4315525,
+          "energi_tambahan_uj_per_citra": 266.639574144706,
+          "energi_total_uj_per_citra": 407.70223311565866
+        },
+        "Inti + SoC (regulator)": {
+          "kolom": "Core+SoC+SR Power (SVI3 TFN) [W]",
+          "perangkat": "CPU [#0]: AMD Ryzen 5 7535HS: Enhanced",
+          "diam_sebelum_w": 5.522875,
+          "beban_w": 21.51852,
+          "diam_sesudah_w": 5.8746,
+          "simpangan_w": [
+            1.5129362845430592,
+            1.0483944915917862,
+            1.9799074683765738
+          ],
+          "n_cuplikan": [
+            24,
+            25,
+            25
+          ],
+          "selisih_w": 15.819782499999999,
+          "energi_tambahan_uj_per_citra": 256.7122046965357,
+          "energi_total_uj_per_citra": 349.1872730239178
+        },
+        "GPU (kontrol)": {
+          "kolom": "GPU Power [W]",
+          "perangkat": "dGPU [#0]: NVIDIA GeForce RTX 4050 Laptop",
+          "diam_sebelum_w": 15.810708333333334,
+          "beban_w": 15.76164,
+          "diam_sesudah_w": 15.87664,
+          "simpangan_w": [
+            0.02851007322618322,
+            0.04521603697804581,
+            0.038055748580207854
+          ],
+          "n_cuplikan": [
+            24,
+            25,
+            25
+          ],
+          "selisih_w": -0.08203416666666641,
+          "energi_tambahan_uj_per_citra": -1.3311922452437632,
+          "energi_total_uj_per_citra": 255.76870946443827
+        }
+      },
+      "pemakaian_core_t0_hwinfo_persen": null
+    },
+    {
+      "model": "int8",
+      "inti": 2,
+      "mulai": "2026-11-02T19:22:58.287",
+      "citra_per_detik": 61553.354561171,
+      "pemakaian_cpu_persen": 99.79164704097185,
+      "besaran": {
+        "Inti yang dikunci": {
+          "kolom": "Core 2 Power [W]",
+          "perangkat": "CPU [#0]: AMD Ryzen 5 7535HS: Enhanced",
+          "diam_sebelum_w": 0.2762,
+          "beban_w": 10.96456,
+          "diam_sesudah_w": 0.398,
+          "simpangan_w": [
+            0.19941852973081511,
+            0.10227417399650163,
+            0.5468909092923987
+          ],
+          "n_cuplikan": [
+            25,
+            25,
+            25
+          ],
+          "selisih_w": 10.627460000000001,
+          "energi_tambahan_uj_per_citra": 172.65444061929324,
+          "energi_total_uj_per_citra": 178.1309902306551
+        },
+        "Paket CPU": {
+          "kolom": "CPU Package Power [W]",
+          "perangkat": "CPU [#0]: AMD Ryzen 5 7535HS: Enhanced",
+          "diam_sebelum_w": 8.29724,
+          "beban_w": 24.58276,
+          "diam_sesudah_w": 8.23916,
+          "simpangan_w": [
+            1.6555291017275011,
+            0.8058262467802841,
+            1.7078348788256241
+          ],
+          "n_cuplikan": [
+            25,
+            25,
+            25
+          ],
+          "selisih_w": 16.31456,
+          "energi_tambahan_uj_per_citra": 265.0474554361905,
+          "energi_total_uj_per_citra": 399.3731970459862
+        },
+        "Inti + SoC (regulator)": {
+          "kolom": "Core+SoC+SR Power (SVI3 TFN) [W]",
+          "perangkat": "CPU [#0]: AMD Ryzen 5 7535HS: Enhanced",
+          "diam_sebelum_w": 5.32052,
+          "beban_w": 20.98084,
+          "diam_sesudah_w": 5.2684,
+          "simpangan_w": [
+            1.598862697878297,
+            0.8046355116862955,
+            1.6462575740144674
+          ],
+          "n_cuplikan": [
+            25,
+            25,
+            25
+          ],
+          "selisih_w": 15.68638,
+          "energi_tambahan_uj_per_citra": 254.84200027491693,
+          "energi_total_uj_per_citra": 340.85615884914097
+        },
+        "GPU (kontrol)": {
+          "kolom": "GPU Power [W]",
+          "perangkat": "dGPU [#0]: NVIDIA GeForce RTX 4050 Laptop",
+          "diam_sebelum_w": 15.82728,
+          "beban_w": 15.77272,
+          "diam_sesudah_w": 15.88228,
+          "simpangan_w": [
+            0.027014687363235045,
+            0.03893212041489657,
+            0.04379832569098193
+          ],
+          "n_cuplikan": [
+            25,
+            25,
+            25
+          ],
+          "selisih_w": -0.08206000000000024,
+          "energi_tambahan_uj_per_citra": -1.3331523616385517,
+          "energi_total_uj_per_citra": 256.2446858087199
+        }
+      },
+      "pemakaian_core_t0_hwinfo_persen": null
+    },
+    {
+      "model": "int8",
+      "inti": 2,
+      "mulai": "2026-11-02T19:29:06.576",
+      "citra_per_detik": 62274.54408390347,
+      "pemakaian_cpu_persen": 99.71353219385735,
+      "besaran": {
+        "Inti yang dikunci": {
+          "kolom": "Core 2 Power [W]",
+          "perangkat": "CPU [#0]: AMD Ryzen 5 7535HS: Enhanced",
+          "diam_sebelum_w": 0.3786,
+          "beban_w": 10.98208,
+          "diam_sesudah_w": 0.35588,
+          "simpangan_w": [
+            0.4793483423704867,
+            0.1029534360767042,
+            0.3388450137353851
+          ],
+          "n_cuplikan": [
+            25,
+            25,
+            25
+          ],
+          "selisih_w": 10.61484,
+          "energi_tambahan_uj_per_citra": 170.4523117134099,
+          "energi_total_uj_per_citra": 176.34942433626927
+        },
+        "Paket CPU": {
+          "kolom": "CPU Package Power [W]",
+          "perangkat": "CPU [#0]: AMD Ryzen 5 7535HS: Enhanced",
+          "diam_sebelum_w": 8.31048,
+          "beban_w": 24.707160000000002,
+          "diam_sesudah_w": 8.36216,
+          "simpangan_w": [
+            1.6250351309023034,
+            0.9021892207292215,
+            1.6001767006594407
+          ],
+          "n_cuplikan": [
+            25,
+            25,
+            25
+          ],
+          "selisih_w": 16.37084,
+          "energi_tambahan_uj_per_citra": 262.88173186692967,
+          "energi_total_uj_per_citra": 396.7457387839188
+        },
+        "Inti + SoC (regulator)": {
+          "kolom": "Core+SoC+SR Power (SVI3 TFN) [W]",
+          "perangkat": "CPU [#0]: AMD Ryzen 5 7535HS: Enhanced",
+          "diam_sebelum_w": 5.3332,
+          "beban_w": 21.10452,
+          "diam_sesudah_w": 5.3796,
+          "simpangan_w": [
+            1.569137023972094,
+            0.9006165073622251,
+            1.5441437756892977
+          ],
+          "n_cuplikan": [
+            25,
+            25,
+            25
+          ],
+          "selisih_w": 15.74812,
+          "energi_tambahan_uj_per_citra": 252.8821403940318,
+          "energi_total_uj_per_citra": 338.8948134500278
+        },
+        "GPU (kontrol)": {
+          "kolom": "GPU Power [W]",
+          "perangkat": "dGPU [#0]: NVIDIA GeForce RTX 4050 Laptop",
+          "diam_sebelum_w": 15.82264,
+          "beban_w": 15.75996,
+          "diam_sesudah_w": 15.88396,
+          "simpangan_w": [
+            0.02688537396677489,
+            0.03781917503066396,
+            0.034374748483928366
+          ],
+          "n_cuplikan": [
+            25,
+            25,
+            25
+          ],
+          "selisih_w": -0.09334000000000131,
+          "energi_tambahan_uj_per_citra": -1.4988467819891682,
+          "energi_total_uj_per_citra": 253.0722662339584
+        }
+      },
+      "pemakaian_core_t0_hwinfo_persen": null
+    },
+    {
+      "model": "int8",
+      "inti": 2,
+      "mulai": "2026-11-02T19:35:14.943",
+      "citra_per_detik": 62648.09749408741,
+      "pemakaian_cpu_persen": 99.84374600626818,
+      "besaran": {
+        "Inti yang dikunci": {
+          "kolom": "Core 2 Power [W]",
+          "perangkat": "CPU [#0]: AMD Ryzen 5 7535HS: Enhanced",
+          "diam_sebelum_w": 0.248375,
+          "beban_w": 11.0236,
+          "diam_sesudah_w": 0.24092,
+          "simpangan_w": [
+            0.146338146977709,
+            0.0857952990165156,
+            0.1057626745753592
+          ],
+          "n_cuplikan": [
+            24,
+            25,
+            25
+          ],
+          "selisih_w": 10.7789525,
+          "energi_tambahan_uj_per_citra": 172.05554408124357,
+          "energi_total_uj_per_citra": 175.9606506971801
+        },
+        "Paket CPU": {
+          "kolom": "CPU Package Power [W]",
+          "perangkat": "CPU [#0]: AMD Ryzen 5 7535HS: Enhanced",
+          "diam_sebelum_w": 8.314666666666666,
+          "beban_w": 24.72872,
+          "diam_sesudah_w": 8.27716,
+          "simpangan_w": [
+            1.6553432500126126,
+            1.0021591906146115,
+            1.7688647413901757
+          ],
+          "n_cuplikan": [
+            24,
+            25,
+            25
+          ],
+          "selisih_w": 16.432806666666664,
+          "energi_tambahan_uj_per_citra": 262.3033631343323,
+          "energi_total_uj_per_citra": 394.7241973682256
+        },
+        "Inti + SoC (regulator)": {
+          "kolom": "Core+SoC+SR Power (SVI3 TFN) [W]",
+          "perangkat": "CPU [#0]: AMD Ryzen 5 7535HS: Enhanced",
+          "diam_sebelum_w": 5.332583333333334,
+          "beban_w": 21.12528,
+          "diam_sesudah_w": 5.30032,
+          "simpangan_w": [
+            1.5921304544722368,
+            0.9982989916185765,
+            1.7062257744311955
+          ],
+          "n_cuplikan": [
+            24,
+            25,
+            25
+          ],
+          "selisih_w": 15.808828333333333,
+          "energi_tambahan_uj_per_citra": 252.343310741804,
+          "energi_total_uj_per_citra": 337.2054514822858
+        },
+        "GPU (kontrol)": {
+          "kolom": "GPU Power [W]",
+          "perangkat": "dGPU [#0]: NVIDIA GeForce RTX 4050 Laptop",
+          "diam_sebelum_w": 15.799434782608696,
+          "beban_w": 15.748791666666667,
+          "diam_sesudah_w": 15.8544,
+          "simpangan_w": [
+            0.025043282690277252,
+            0.043200220577805114,
+            0.036515978237843624
+          ],
+          "n_cuplikan": [
+            23,
+            24,
+            25
+          ],
+          "selisih_w": -0.07812572463768142,
+          "energi_tambahan_uj_per_citra": -1.2470566188391394,
+          "energi_total_uj_per_citra": 251.38499486202278
+        }
+      },
+      "pemakaian_core_t0_hwinfo_persen": 100.0
+    }
+  ],
+  "per_model": {
+    "fp32": {
+      "ulangan": 5,
+      "citra_per_detik": [
+        24907.48329759071,
+        141.31463122671406
+      ],
+      "besaran": {
+        "Inti yang dikunci": {
+          "diam_w": [
+            0.398132,
+            0.04480209280826067
+          ],
+          "beban_w": [
+            10.890664333333334,
+            0.12771644006135002
+          ],
+          "selisih_w": [
+            10.492532333333333,
+            0.16342750328084643
+          ],
+          "energi_tambahan_uj_per_citra": [
+            421.2587241650216,
+            5.9606442573832865
+          ],
+          "energi_total_uj_per_citra": [
+            437.24513248307693,
+            4.531619160486456
+          ]
+        },
+        "Paket CPU": {
+          "diam_w": [
+            8.417416,
+            0.14931683521960976
+          ],
+          "beban_w": [
+            23.453348333333334,
+            0.12284850514624403
+          ],
+          "selisih_w": [
+            15.035932333333333,
+            0.14160287531214508
+          ],
+          "energi_tambahan_uj_per_citra": [
+            603.6978245011989,
+            7.768858144418202
+          ],
+          "energi_total_uj_per_citra": [
+            941.6334324448549,
+            5.551729982635503
+          ]
+        },
+        "Inti + SoC (regulator)": {
+          "diam_w": [
+            5.432812,
+            0.14230772192681646
+          ],
+          "beban_w": [
+            19.822641333333333,
+            0.12168272585453052
+          ],
+          "selisih_w": [
+            14.389829333333333,
+            0.13534353560990187
+          ],
+          "energi_tambahan_uj_per_citra": [
+            577.756001981825,
+            7.375315636481454
+          ],
+          "energi_total_uj_per_citra": [
+            795.8619361807195,
+            5.056969653451209
+          ]
+        },
+        "GPU (kontrol)": {
+          "diam_w": [
+            15.846172878787879,
+            0.01392207546149441
+          ],
+          "beban_w": [
+            15.765797333333333,
+            0.014472733395749577
+          ],
+          "selisih_w": [
+            -0.08037554545454562,
+            0.0030333598906560847
+          ],
+          "energi_tambahan_uj_per_citra": [
+            -3.2266694665292337,
+            0.11022194069423648
+          ],
+          "energi_total_uj_per_citra": [
+            632.9914724812454,
+            3.8176174823080498
+          ]
+        }
+      }
+    },
+    "int8": {
+      "ulangan": 5,
+      "citra_per_detik": [
+        62058.158944344876,
+        462.35939212140704
+      ],
+      "besaran": {
+        "Inti yang dikunci": {
+          "diam_w": [
+            0.33039183333333333,
+            0.055295107059505924
+          ],
+          "beban_w": [
+            10.974862608695652,
+            0.03744280158519421
+          ],
+          "selisih_w": [
+            10.644470775362318,
+            0.0760655737528021
+          ],
+          "energi_tambahan_uj_per_citra": [
+            171.52695704910022,
+            1.0384114921188843
+          ],
+          "energi_total_uj_per_citra": [
+            176.85273939288038,
+            0.8458687725865037
+          ]
+        },
+        "Paket CPU": {
+          "diam_w": [
+            8.429540166666667,
+            0.18542159070652697
+          ],
+          "beban_w": [
+            24.792406608695654,
+            0.2038688286963608
+          ],
+          "selisih_w": [
+            16.362866442028984,
+            0.07360042756131706
+          ],
+          "energi_tambahan_uj_per_citra": [
+            263.6803152384332,
+            2.108686347053107
+          ],
+          "energi_total_uj_per_citra": [
+            399.525207390177,
+            4.946200884234855
+          ]
+        },
+        "Inti + SoC (regulator)": {
+          "diam_w": [
+            5.446821833333334,
+            0.17786709415006716
+          ],
+          "beban_w": [
+            21.18889286956522,
+            0.20236290799569984
+          ],
+          "selisih_w": [
+            15.742071036231884,
+            0.0752093588433862
+          ],
+          "energi_tambahan_uj_per_citra": [
+            253.67652952496664,
+            2.0785651360745687
+          ],
+          "energi_total_uj_per_citra": [
+            341.45588429742634,
+            4.606023432266767
+          ]
+        },
+        "GPU (kontrol)": {
+          "diam_w": [
+            15.837392644927537,
+            0.019694031147700096
+          ],
+          "beban_w": [
+            15.752355666666666,
+            0.020654186137439048
+          ],
+          "selisih_w": [
+            -0.08503697826086949,
+            0.006237684208887358
+          ],
+          "energi_tambahan_uj_per_citra": [
+            -1.370278220121758,
+            0.09955062922603973
+          ],
+          "energi_total_uj_per_citra": [
+            253.84441946626487,
+            2.0798895716050785
+          ]
+        }
+      }
+    }
+  }
+}

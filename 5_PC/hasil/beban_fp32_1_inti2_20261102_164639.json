@@ -1,0 +1,45 @@
+{
+  "lingkungan": {
+    "waktu": "2026-11-02T16:46:39",
+    "cpu": "AMD Ryzen 5 7535HS with Radeon Graphics",
+    "cpu_logis": 12,
+    "os": "Windows-11-10.0.26300-SP0",
+    "python": "3.12.10",
+    "numpy": "1.26.4",
+    "torch": "2.12.1+cpu",
+    "skema_daya": "Power Scheme GUID: 381b4222-f694-41f0-9685-ff5bb260df2e  (Balanced)",
+    "baterai": "79% status=2"
+  },
+  "model": "fp32",
+  "mode_thread": "1",
+  "kunci_inti": {
+    "inti_fisik": 2,
+    "prosesor_logis": 4,
+    "affinity_ok": true,
+    "prioritas_tinggi_ok": true
+  },
+  "detik_per_fase": 60.0,
+  "inferensi": 1392365,
+  "detik_beban": 60.000005699985195,
+  "citra_per_detik": 23206.08112876135,
+  "detik_cpu_proses": 59.890625,
+  "pemakaian_cpu_persen": 99.81769885067658,
+  "fase": [
+    {
+      "fase": "diam_mulai",
+      "waktu": "2026-11-02T16:43:37.870"
+    },
+    {
+      "fase": "beban_mulai",
+      "waktu": "2026-11-02T16:44:37.871"
+    },
+    {
+      "fase": "beban_selesai",
+      "waktu": "2026-11-02T16:45:37.871"
+    },
+    {
+      "fase": "diam_selesai",
+      "waktu": "2026-11-02T16:46:37.872"
+    }
+  ]
+}
