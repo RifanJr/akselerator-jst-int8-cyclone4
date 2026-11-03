@@ -5,16 +5,19 @@
 //  ---------------------------------------------------------------------
 //  HUBUNGAN DENGAN top_akselerator_p8.v
 //
-//  Jalur data di berkas ini SAMA PERSIS dengan top_akselerator_p8.v: modul
-//  yang sama (mem_w, mem_d, mac_unit, epilog_unit, argmax10, rom_bias8,
-//  ctrl_fsm_p8), parameter yang sama, sambungan yang sama. top_akselerator_p8
-//  sengaja TIDAK diubah, karena itulah rancangan yang sudah diukur dan angka
-//  sintesisnya sudah dilaporkan.
+//  Jalur data di berkas ini diturunkan dari top_akselerator_p8.v (modul
+//  mem_w, mem_d, mac_unit, epilog_unit, argmax10, rom_bias8, ctrl_fsm_p8),
+//  dengan dua tambahan:
 //
-//  Tambahannya hanya SATU: mux pada port tulis mem_d, supaya citra uji dapat
-//  dimuat ke alamat piksel 0..195 sebelum inferensi dimulai. Saat akselerator
-//  berjalan, mux itu selalu memilih jalur tulis aktivasi milik pengendali.
-//  Kesetaraannya dibuktikan oleh tb_papan.v: 16 citra, hasil identik.
+//    1. mux pada port tulis mem_d, supaya citra uji dapat dimuat ke alamat
+//       piksel 0..195 sebelum inferensi dimulai. Saat akselerator berjalan,
+//       mux itu selalu memilih jalur tulis aktivasi milik pengendali.
+//    2. register penangkap 8 x 32 bit, supaya kedelapan hasil lajur diambil
+//       sekaligus dan MAC tidak tertahan selama pengurasan (lihat bagian 2
+//       di ctrl_fsm_p8.v). Satu inferensi kini 1708 siklus, bukan 1816.
+//
+//  Kebenarannya dibuktikan oleh tb_papan.v: kesepuluh akumulator keluaran
+//  ke-16 citra identik dengan acuan Python.
 //
 //  ---------------------------------------------------------------------
 //  CARA PAKAI DI PAPAN
@@ -24,7 +27,7 @@
 //    key[0]  citra berikutnya, lalu jalankan
 //    key[1]  citra sebelumnya, lalu jalankan
 //    key[2]  jalankan ulang citra yang sama
-//    key[3]  DITAHAN: tampilkan jumlah siklus inferensi terakhir (harus 1816)
+//    key[3]  DITAHAN: tampilkan jumlah siklus inferensi terakhir (harus 1708)
 //
 //  Tampilan normal, dari kiri ke kanan:
 //
@@ -170,12 +173,25 @@ module top_papan #(
         end
     endgenerate
 
+    // ---- register penangkap: kedelapan hasil diambil SEKALIGUS ----
+    // Pengendali melepas kedelapan lajur serentak; pada detak itu hasilnya
+    // disalin ke sini, sehingga MAC langsung bebas mengerjakan kelompok
+    // berikutnya. Pengurasan ke epilog/argmax membaca dari register ini.
+    wire tangkap = m_valid_lajur[0] & m_ready_lajur[0];
+
+    reg signed [ACCW-1:0] hasil_lajur [0:P-1];
+    integer u;
+    always @(posedge clk)
+        if (tangkap)
+            for (u = 0; u < P; u = u + 1)
+                hasil_lajur[u] <= m_acc_lajur[u];
+
     reg signed [ACCW-1:0] acc_terpilih;
     integer t;
     always @(*) begin
-        acc_terpilih = m_acc_lajur[0];
+        acc_terpilih = hasil_lajur[0];
         for (t = 0; t < P; t = t + 1)
-            if (pilih_lajur == t[2:0]) acc_terpilih = m_acc_lajur[t];
+            if (pilih_lajur == t[2:0]) acc_terpilih = hasil_lajur[t];
     end
 
     epilog_unit #(.DW(DW), .ACCW(ACCW))

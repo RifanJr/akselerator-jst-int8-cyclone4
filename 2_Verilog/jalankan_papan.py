@@ -4,8 +4,9 @@ Menguji rancangan papan (top_papan.v) sebelum diprogram ke FPGA.
 
 Mengompilasi dan menjalankan tb_papan.v, yang meniru orang menekan tombol
 untuk menjalankan ke-16 citra uji, lalu mencocokkan setiap hasil ke
-1_Python_PC/uji/golden_uji.txt: digit terpilih DAN nilai akumulator pemenangnya harus sama
-persis. Jumlah siklus tiap inferensi harus 1816, sama dengan top_akselerator_p8.
+1_Python_PC/uji/golden_uji.txt: digit terpilih, nilai akumulator pemenangnya, DAN
+kesepuluh akumulator lapisan 2 harus sama persis. Jumlah siklus tiap inferensi harus
+SIKLUS_HARAP.
 
 Jalankan dari folder 2_Verilog:
 
@@ -23,7 +24,10 @@ AKAR = Path(__file__).resolve().parent
 RTL = AKAR
 UJI = AKAR.parent / "1_Python_PC" / "uji"
 BUILD = AKAR / "build_sapu"
-SIKLUS_HARAP = 1816
+# 1696 suku dialirkan tanpa henti (1568 lapisan 1 + 128 lapisan 2), ditambah
+# 12 siklus ekor: 2 pipa penanda + 2 MAC + 8 pengurasan kelompok terakhir.
+# (Versi lama yang menghentikan aliran saat pengurasan: 1816.)
+SIKLUS_HARAP = 1708
 
 SUMBER = ["tb_papan.v", "top_papan.v", "ctrl_fsm_p8.v", "mem_w.v", "mem_d.v",
           "mac_unit.v", "epilog_unit.v", "argmax10.v", "mult_bw8_arith.v",
@@ -64,10 +68,15 @@ def main():
 
     acuan = baca_acuan()
     hasil, tampil_siklus, led_siklus = [], None, None
+    aks, aks_per_hasil = [], []          # keluaran lapisan 2 tiap inferensi
     for b in j.stdout.splitlines():
         s = b.split()
-        if s and s[0] == "HASIL" and len(s) == 7:
+        if s and s[0] == "AKS" and len(s) == 3:
+            aks.append((int(s[1]), int(s[2])))
+        elif s and s[0] == "HASIL" and len(s) == 7:
             hasil.append(tuple(int(x) for x in s[1:]))
+            aks_per_hasil.append(aks)
+            aks = []
         elif s and s[0] == "TAMPIL_SIKLUS":
             tampil_siklus, led_siklus = s[1], s[3]
 
@@ -75,19 +84,24 @@ def main():
     print("  UJI RANCANGAN PAPAN — top_papan.v (P = 8, varian HARD)")
     print("=" * 72)
     print()
-    print("  Citra  Python  Papan  Akumulator  Acuan  Siklus  LED cocok  Hasil")
-    print("  " + "-" * 66)
+    print("  Citra  Python  Papan  Akumulator  Acuan  10 aks  Siklus  LED cocok  Hasil")
+    print("  " + "-" * 74)
 
     salah = 0
-    for idx, h, nilai, siklus, led_cocok, led_beda in hasil:
+    for (idx, h, nilai, siklus, led_cocok, led_beda), ak in zip(hasil, aks_per_hasil):
         a = acuan[idx]
         nilai_acuan = a["acc"][a["prediksi"]]
-        benar = (h == a["prediksi"] and nilai == nilai_acuan
+        # kesepuluh akumulator lapisan 2, tiap digit tepat sekali
+        sama = sum(1 for d, v in ak if a["acc"][d] == v)
+        aks_benar = (len(ak) == 10 and sorted(d for d, _ in ak) == list(range(10))
+                     and sama == 10)
+        benar = (h == a["prediksi"] and nilai == nilai_acuan and aks_benar
                  and siklus == SIKLUS_HARAP and led_cocok == 1 and led_beda == 0)
         salah += 0 if benar else 1
         print(f"  {idx:5d}  {a['prediksi']:6d}  {h:5d}  {nilai:10d}  {nilai_acuan:5d}"
-              f"  {siklus:6d}  {'nyala' if led_cocok else 'mati':>9}  {'cocok' if benar else 'BEDA'}")
-    print("  " + "-" * 66)
+              f"  {sama:3d}/10  {siklus:6d}  {'nyala' if led_cocok else 'mati':>9}"
+              f"  {'cocok' if benar else 'BEDA'}")
+    print("  " + "-" * 74)
 
     terlihat = sorted({r[0] for r in hasil})
     if terlihat != list(range(16)):
@@ -98,7 +112,7 @@ def main():
         salah += 1
 
     print()
-    ok_tampil = (tampil_siklus == "1816" and led_siklus == "1")
+    ok_tampil = (tampil_siklus == str(SIKLUS_HARAP) and led_siklus == "1")
     print(f"  Mode siklus (key[3] ditahan) menampilkan : {tampil_siklus}  "
           f"{'benar' if ok_tampil else 'SALAH'}")
     salah += 0 if ok_tampil else 1
@@ -106,7 +120,8 @@ def main():
     print("=" * 72)
     if salah == 0:
         print(f"  HASIL: LULUS — {len(hasil)} inferensi lewat tombol, seluruhnya identik")
-        print("         dengan acuan Python, dan tiap inferensi tepat 1816 siklus.")
+        print(f"         dengan acuan Python (10 akumulator tiap citra), dan tiap")
+        print(f"         inferensi tepat {SIKLUS_HARAP} siklus.")
     else:
         print(f"  HASIL: GAGAL — {salah} masalah")
     print("=" * 72)

@@ -20,21 +20,32 @@
 //  saat yang sama, jadi satu mem_d melayani semuanya lewat satu port baca.
 //
 //  ---------------------------------------------------------------------
-//  2. PENGURASAN HASIL
+//  2. PENGURASAN HASIL TANPA MENGHENTIKAN ALIRAN
 //
 //  Kedelapan lajur menerima s_valid, s_first, dan s_last yang sama, sehingga
 //  kedelapannya selesai pada siklus yang SAMA PERSIS. Sementara epilog dan
-//  port tulis mem_d hanya satu. Karena itu hasilnya dikuras satu per satu
-//  selama P siklus, dan selama itu lajur berhenti menerima masukan.
+//  port tulis mem_d hanya satu, jadi hasilnya tetap dikuras satu per satu
+//  selama P siklus.
 //
-//  Ongkosnya P siklus per kelompok neuron: 10 kelompok x 8 = 80 siklus dari
-//  total sekitar 1.776. Ini DILAPORKAN APA ADANYA, bukan disembunyikan --
-//  percepatan nyatanya 7,4x, bukan 8x.
+//  Versi sebelumnya menghentikan aliran selama pengurasan (keadaan TUNGGU
+//  dan KURAS): 10 kelompok x (8 kuras + 4 tunggu pipa) = 120 siklus MAC
+//  menganggur, total 1816 siklus. Kini kedelapan hasil diambil SEKALIGUS
+//  (m_ready serentak) ke register penangkap di top, lalu dikuras dari sana
+//  sementara aliran kelompok berikutnya berjalan terus. Pengurasan (P = 8
+//  siklus) selalu selesai jauh sebelum hasil kelompok berikutnya keluar
+//  (paling cepat 64 siklus kemudian), jadi MAC tidak pernah tertahan.
 //
-//  Menghilangkan 80 siklus itu bisa, dengan menambah register penangkap
-//  32 bit di tiap lajur (8 x 32 = 256 register) supaya MAC tidak perlu
-//  menunggu. Tidak dilakukan karena menukar 4,5 persen kecepatan dengan
-//  9 persen logic element adalah pertukaran yang merugikan.
+//  Urutan hasil yang keluar sama dengan urutan kelompok yang dialirkan,
+//  sehingga kelompok milik setiap tangkapan cukup dihitung dengan pencacah
+//  kel_tangkap (0..7 lapisan 1, 8..9 lapisan 2).
+//
+//  Aktivasi kelompok terakhir lapisan 1 (neuron 56..63) tertulis sekitar
+//  belasan siklus setelah lapisan 2 mulai, sedangkan lapisan 2 baru
+//  membacanya pada suku ke-56. Kebenarannya dibuktikan tb_papan.v: kesepuluh
+//  akumulator keluaran ke-16 citra identik dengan acuan Python.
+//
+//  Ongkosnya 8 x 32 = 256 register penangkap di top_papan.v. mac_unit.v
+//  tidak diubah sama sekali.
 //
 //  ---------------------------------------------------------------------
 //  3. TOPENG LAJUR PADA LAPISAN 2
@@ -106,22 +117,30 @@ module ctrl_fsm_p8 #(
     output wire                     sibuk
 );
 
-    localparam N_A = (N_HIDDEN + P - 1) / P;      // 8 kelompok lapisan 1
-    localparam N_B = (N_OUTPUT + P - 1) / P;      // 2 kelompok lapisan 2
+    localparam N_A   = (N_HIDDEN + P - 1) / P;    // 8 kelompok lapisan 1
+    localparam N_B   = (N_OUTPUT + P - 1) / P;    // 2 kelompok lapisan 2
+    localparam N_KEL = N_A + N_B;                 // 10 kelompok seluruhnya
 
-    localparam [2:0] S_IDLE    = 3'd0,
-                     S_ALIR    = 3'd1,
-                     S_KURAS   = 3'd2,
-                     S_TUNGGU  = 3'd3,
-                     S_SELESAI = 3'd4;
+    // Keadaan ALIRAN. Pengurasan tidak lagi menjadi keadaan tersendiri;
+    // ia berjalan sejajar (lihat blok "Pengurasan" di bawah).
+    localparam [1:0] S_IDLE    = 2'd0,
+                     S_ALIR    = 2'd1,    // suku dialirkan tanpa henti
+                     S_HABIS   = 2'd2,    // suku habis, tunggu pengurasan terakhir
+                     S_SELESAI = 2'd3;
 
-    reg [2:0] state;
+    reg [1:0] state;
     reg       lapisan2;
 
     reg [AW_W-1:0] cnt_w;      // alamat bobot, tidak pernah direset
     reg [7:0]      i;          // indeks suku
-    reg [3:0]      g;          // indeks kelompok neuron
+    reg [3:0]      g;          // indeks kelompok neuron yang sedang dialirkan
+
+    // ---- pengurasan, sejajar dengan aliran ----
+    reg            menguras;   // register penangkap sedang dikuras
     reg [2:0]      k;          // lajur yang sedang dikuras
+    reg [3:0]      kel_tangkap;// banyak kelompok yang hasilnya sudah ditangkap
+    reg [3:0]      g_kuras;    // kelompok milik hasil yang sedang dikuras
+    reg            lap2_kuras; // hasil yang sedang dikuras milik lapisan 2
 
     wire [7:0] n_suku = lapisan2 ? N_HIDDEN[7:0] : N_INPUT[7:0];
     wire [3:0] n_kel  = lapisan2 ? N_B[3:0]      : N_A[3:0];
@@ -168,27 +187,35 @@ module ctrl_fsm_p8 #(
 
     // ------------------------------------------------------------------
     //  Pengurasan
+    //
+    //  Begitu kedelapan lajur menyodorkan hasil dan register penangkap
+    //  kosong, SEMUA lajur dilepas serentak (m_ready = 1). Pada detak itu
+    //  top_papan.v menyalin kedelapan m_acc ke register penangkap, sehingga
+    //  MAC langsung bebas lagi dan tidak pernah tertahan. Isi register
+    //  penangkap lalu dikuras satu per satu selama P siklus berikutnya.
     // ------------------------------------------------------------------
-    wire menguras = (state == S_KURAS);
+    wire ambil = semua_hasil & ~menguras;
 
-    // neuron global yang sedang dikuras
-    wire [6:0] neuron_kuras = {3'b0, g} * P[6:0] + {4'b0, k};
-    // pada lapisan 2 hanya neuron < 10 yang sah
-    wire lajur_sah = lapisan2 ? (neuron_kuras < N_OUTPUT[6:0]) : 1'b1;
-
-    assign pilih_lajur = k;
-
-    // hanya lajur yang sedang dikuras yang boleh melepas hasilnya
     genvar gj;
     generate
         for (gj = 0; gj < P; gj = gj + 1) begin : g_rdy
-            assign m_ready_lajur[gj] = menguras && (k == gj[2:0]);
+            assign m_ready_lajur[gj] = ambil;
         end
     endgenerate
 
-    assign epi_valid  = menguras & ~lapisan2;
-    assign amax_valid = menguras &  lapisan2 & lajur_sah;
+    // neuron global yang sedang dikuras
+    wire [6:0] neuron_kuras = {3'b0, g_kuras} * P[6:0] + {4'b0, k};
+    // pada lapisan 2 hanya neuron < 10 yang sah
+    wire lajur_sah = lap2_kuras ? (neuron_kuras < N_OUTPUT[6:0]) : 1'b1;
+
+    // lajur yang dipilih DARI REGISTER PENANGKAP di top_papan.v
+    assign pilih_lajur = k;
+
+    assign epi_valid  = menguras & ~lap2_kuras;
+    assign amax_valid = menguras &  lap2_kuras & lajur_sah;
     assign amax_idx   = neuron_kuras[3:0];
+
+    wire kuras_akhir = menguras && (k == P[2:0] - 3'd1);
 
     // penulisan aktivasi menyusul keluaran epilog satu siklus
     reg [6:0] neuron_epi;
@@ -205,7 +232,11 @@ module ctrl_fsm_p8 #(
             cnt_w    <= {AW_W{1'b0}};
             i        <= 8'd0;
             g        <= 4'd0;
-            k        <= 3'd0;
+            menguras    <= 1'b0;
+            k           <= 3'd0;
+            kel_tangkap <= 4'd0;
+            g_kuras     <= 4'd0;
+            lap2_kuras  <= 1'b0;
             v1       <= 1'b0;  f1 <= 1'b0;  l1 <= 1'b0;
             s_valid  <= 1'b0;  s_first <= 1'b0;  s_last <= 1'b0;
             done     <= 1'b0;
@@ -230,52 +261,62 @@ module ctrl_fsm_p8 #(
                 else            i <= i + 1'b1;
             end
 
+            // --- pengurasan, berjalan sejajar dengan aliran ---
+            // Hasil keluar menurut urutan kelompok yang dialirkan, jadi
+            // tangkapan ke-n adalah kelompok ke-n: 0..7 lapisan 1, 8..9
+            // lapisan 2.
+            if (ambil) begin
+                menguras    <= 1'b1;
+                k           <= 3'd0;
+                lap2_kuras  <= (kel_tangkap >= N_A[3:0]);
+                g_kuras     <= (kel_tangkap >= N_A[3:0]) ? (kel_tangkap - N_A[3:0])
+                                                         : kel_tangkap;
+                kel_tangkap <= kel_tangkap + 4'd1;
+            end else if (menguras) begin
+                if (kuras_akhir) begin
+                    menguras <= 1'b0;
+                    k        <= 3'd0;
+                end else begin
+                    k <= k + 3'd1;
+                end
+            end
+
+            // --- aliran ---
             case (state)
                 S_IDLE: begin
                     done <= 1'b0;
                     if (start) begin
-                        state    <= S_ALIR;
-                        lapisan2 <= 1'b0;
-                        cnt_w    <= {AW_W{1'b0}};
-                        i        <= 8'd0;
-                        g        <= 4'd0;
-                        k        <= 3'd0;
+                        state       <= S_ALIR;
+                        lapisan2    <= 1'b0;
+                        cnt_w       <= {AW_W{1'b0}};
+                        i           <= 8'd0;
+                        g           <= 4'd0;
+                        kel_tangkap <= 4'd0;
                     end
                 end
 
-                // Alamat kelompok ini habis -> tunggu hasilnya keluar,
-                // baru dikuras. TIDAK menghitung siklus, menunggu m_valid.
+                // Suku dialirkan tanpa henti, kelompok demi kelompok.
+                // Pengurasan kelompok sebelumnya berjalan di belakangnya.
                 S_ALIR: if (maju && suku_akhir) begin
-                    state <= S_TUNGGU;
-                end
-
-                S_TUNGGU: if (semua_hasil) begin
-                    state <= S_KURAS;
-                    k     <= 3'd0;
-                end
-
-                S_KURAS: begin
-                    if (k == P[2:0] - 3'd1) begin
-                        k <= 3'd0;
-                        if (kel_akhir) begin
-                            if (lapisan2) begin
-                                state <= S_SELESAI;
-                                done  <= 1'b1;
-                            end else begin
-                                // pindah ke lapisan 2; cnt_w SENGAJA tidak
-                                // direset, nilainya sudah nA*196 = 1568
-                                lapisan2 <= 1'b1;
-                                g        <= 4'd0;
-                                i        <= 8'd0;
-                                state    <= S_ALIR;
-                            end
+                    if (kel_akhir) begin
+                        if (lapisan2) begin
+                            state <= S_HABIS;
                         end else begin
-                            g     <= g + 4'd1;
-                            state <= S_ALIR;
+                            // pindah ke lapisan 2; cnt_w SENGAJA tidak
+                            // direset, nilainya sudah nA*196 = 1568
+                            lapisan2 <= 1'b1;
+                            g        <= 4'd0;
                         end
                     end else begin
-                        k <= k + 3'd1;
+                        g <= g + 4'd1;
                     end
+                end
+
+                // Seluruh suku sudah dialirkan. Selesai ketika kelompok
+                // terakhir (ke-10) habis dikuras ke argmax.
+                S_HABIS: if (kuras_akhir && (kel_tangkap == N_KEL[3:0])) begin
+                    state <= S_SELESAI;
+                    done  <= 1'b1;
                 end
 
                 S_SELESAI: if (start) state <= S_IDLE;
