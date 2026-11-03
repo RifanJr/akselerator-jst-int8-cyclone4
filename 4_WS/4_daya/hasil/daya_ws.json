@@ -1,0 +1,58 @@
+{
+ "waktu": "2026-11-02T21:20:08",
+ "rancangan": "WS, top_papan_ws.v (larik 4 x 2, batch 16, pengali HARD)",
+ "branch_commit": "910d135",
+ "perangkat": "EP4CE6E22C8",
+ "logic_elements": "3,573",
+ "clock_mhz": 50.0,
+ "jendela_vcd": {
+  "siklus_mulai": 19,
+  "siklus_selesai": 26402,
+  "siklus": 26383,
+  "lama_us": 527.66,
+  "citra": "batch 16 citra uji"
+ },
+ "lama_per_citra_us": 32.97875,
+ "daya": {
+  "total_mw": 108.63,
+  "inti_dinamis_mw": 35.57,
+  "inti_statis_mw": 43.32,
+  "io_mw": 29.73
+ },
+ "energi": {
+  "total_uj_per_citra": 3.582482,
+  "inti_dinamis_uj_per_citra": 1.173054,
+  "inti_statis_uj_per_citra": 1.428639,
+  "io_uj_per_citra": 0.980458
+ },
+ "daya_per_jenis_blok_mw": {
+  "M9K": 2.44,
+  "Embedded multiplier block": 0.52,
+  "Embedded multiplier output": 0.36,
+  "Combinational cell": 9.27,
+  "Clock control block": 4.91,
+  "Register cell": 18.07,
+  "I/O": 9.94
+ },
+ "keyakinan": "High: user provided sufficient toggle rate data",
+ "sumber_aktivitas": {
+  "simulasi": {
+   "sinyal": 5804,
+   "sinyal_persen": 85.7,
+   "register": 1781,
+   "register_persen": 65.0
+  },
+  "assignment": {
+   "sinyal": 960,
+   "sinyal_persen": 14.2,
+   "register": 960,
+   "register_persen": 35.0
+  },
+  "vectorless": {
+   "sinyal": 4,
+   "sinyal_persen": 0.1,
+   "register": 0,
+   "register_persen": 0.0
+  }
+ }
+}
