@@ -1,4 +1,4 @@
-# Spesifikasi rancangan tanpa stationary (No Local Reuse, NLR)
+# Spesifikasi rancangan No Local Reuse (NLR) (no stationary)
 
 Status: **selesai (10 November 2026).** Simulasi RTL 16/16 citra bit-exact, uji
 papan 16/16 cocok, dan analisis daya confidence High. Angka di dokumen ini adalah
@@ -23,6 +23,9 @@ Sze dkk. (2017, Proc. IEEE 105(12), hlm. 15, Gbr. 25(c)) menyebut dataflow ini
 > the global buffer for all data types. Specifically, it has to multicast the
 > activations, single-cast the filter weights, and then spatially accumulate the
 > partial sums across the PE array."
+
+Di dokumen ini NLR juga disebut **no stationary** (istilah dosen: "tanpa
+stationary"), karena tidak ada data yang "diam" di MAC seperti pada OS dan WS.
 
 Inti definisinya: **tidak ada data yang ditahan di unit pemroses (MAC) dari satu
 operasi ke operasi berikutnya.** Setiap data diambil dari memori (global buffer)
