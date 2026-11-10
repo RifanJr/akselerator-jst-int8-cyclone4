@@ -1,0 +1,9 @@
+# -------------------------------------------------------------------------- #
+#  papan_nlr.qpf -- akselerator tanpa stationary (NLR), 8 lajur, pada papan
+# -------------------------------------------------------------------------- #
+
+QUARTUS_VERSION = "25.1"
+
+# Revisions
+
+PROJECT_REVISION = "papan_nlr"

@@ -56,3 +56,17 @@ CATATAN_LANJUTAN.md
 !4_WS/3_quartus/output_papan_ws/papan_ws.sof
 !4_WS/3_quartus/output_papan_ws/papan_ws.fit.summary
 !4_WS/3_quartus/output_papan_ws/papan_ws.sta.summary
+
+# ---- Rancangan NLR / tanpa stationary (7_NLR/): sama dengan aturan OS dan WS ----
+7_NLR/2_verilog/build/
+7_NLR/3_quartus/db/
+7_NLR/3_quartus/incremental_db/
+7_NLR/3_quartus/simulation/
+7_NLR/3_quartus/greybox_tmp/
+7_NLR/3_quartus/*.qws
+7_NLR/3_quartus/*.qarlog
+7_NLR/3_quartus/kompilasi.log
+7_NLR/3_quartus/output_papan_nlr/*
+!7_NLR/3_quartus/output_papan_nlr/papan_nlr.sof
+!7_NLR/3_quartus/output_papan_nlr/papan_nlr.fit.summary
+!7_NLR/3_quartus/output_papan_nlr/papan_nlr.sta.summary

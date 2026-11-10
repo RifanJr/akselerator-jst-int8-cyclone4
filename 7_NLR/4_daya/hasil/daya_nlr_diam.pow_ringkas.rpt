@@ -1,0 +1,388 @@
+Power Analyzer report for daya_nlr
+Tue Nov 10 23:16:35 2026
+Quartus Prime Version 25.1std.0 Build 1129 10/21/2025 SC Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Parallel Compilation
+  3. Power Analyzer Summary
+  4. Power Analyzer Settings
+  5. Power Analyzer Simulation Files Read
+  6. Operating Conditions Used
+  7. Thermal Power Dissipation by Block
+  8. Thermal Power Dissipation by Block Type
+  9. Thermal Power Dissipation by Hierarchy
+ 10. Core Dynamic Thermal Power Dissipation by Clock Domain
+ 11. Current Drawn from Voltage Supplies Summary
+ 12. VCCIO Supply Current Drawn by I/O Bank
+ 13. VCCIO Supply Current Drawn by Voltage
+ 14. Confidence Metric Details
+ 15. Signal Activities
+ 16. Power Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2025  Altera Corporation. All rights reserved.
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, the Altera Quartus Prime License Agreement,
+the Altera IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Altera and sold by Altera or its authorized distributors.  Please
+refer to the Altera Software License Subscription Agreements 
+on the Quartus Prime software download page.
+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 12          ;
+; Maximum allowed            ; 12          ;
+;                            ;             ;
+; Average used               ; 1.12        ;
+; Maximum used               ; 12          ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processors 2-12        ;   1.1%      ;
++----------------------------+-------------+
+
+
++------------------------------------------------------------------------------------------+
+; Power Analyzer Summary                                                                   ;
++----------------------------------------+-------------------------------------------------+
+; Power Analyzer Status                  ; Successful - Tue Nov 10 23:16:35 2026           ;
+; Quartus Prime Version                  ; 25.1std.0 Build 1129 10/21/2025 SC Lite Edition ;
+; Revision Name                          ; daya_nlr                                        ;
+; Top-level Entity Name                  ; top_papan_nlr                                   ;
+; Family                                 ; Cyclone IV E                                    ;
+; Device                                 ; EP4CE6E22C8                                     ;
+; Power Models                           ; Final                                           ;
+; Total Thermal Power Dissipation        ; 83.96 mW                                        ;
+; Core Dynamic Thermal Power Dissipation ; 9.43 mW                                         ;
+; Core Static Thermal Power Dissipation  ; 43.14 mW                                        ;
+; I/O Thermal Power Dissipation          ; 31.40 mW                                        ;
+; Power Estimation Confidence            ; High: user provided sufficient toggle rate data ;
++----------------------------------------+-------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------+
+; Power Analyzer Settings                                                                                                  ;
++------------------------------------------------------------------+---------------------------------------+---------------+
+; Option                                                           ; Setting                               ; Default Value ;
++------------------------------------------------------------------+---------------------------------------+---------------+
+; Use smart compilation                                            ; Off                                   ; Off           ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                                    ; On            ;
+; Enable compact report table                                      ; Off                                   ; Off           ;
+; Default Power Input I/O Toggle Rate                              ; 12.5%                                 ; 12.5%         ;
+; Use Input Files                                                  ; On                                    ; Off           ;
+; Power Analyzer Report Signal Activity                            ; On                                    ; Off           ;
+; Power Analyzer Report Power Dissipation                          ; On                                    ; Off           ;
+; Preset Cooling Solution                                          ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW ;               ;
+; Board thermal model                                              ; None (CONSERVATIVE)                   ;               ;
+; Default Power Toggle Rate                                        ; 12.5%                                 ; 12.5%         ;
+; Use vectorless estimation                                        ; On                                    ; On            ;
+; Filter Glitches in VCD File Reader                               ; On                                    ; On            ;
+; Device Power Characteristics                                     ; TYPICAL                               ; TYPICAL       ;
+; Automatically Compute Junction Temperature                       ; On                                    ; On            ;
+; Specified Junction Temperature                                   ; 25                                    ; 25            ;
+; Ambient Temperature                                              ; 25                                    ; 25            ;
+; Use Custom Cooling Solution                                      ; Off                                   ; Off           ;
+; Board Temperature                                                ; 25                                    ; 25            ;
++------------------------------------------------------------------+---------------------------------------+---------------+
+
+
++-------------------------------------------------------------------------------------------------------------------+
+; Power Analyzer Simulation Files Read                                                                              ;
++---------+---------------------+-----------+----------------+----------------+--------------+-----------+----------+
+; File ID ; File Name           ; File Type ; Entity         ; VCD Start Time ; VCD End Time ; Unknown % ; Toggle % ;
++---------+---------------------+-----------+----------------+----------------+--------------+-----------+----------+
+; f1      ; build/aktivitas.vcd ; VCD       ; |top_papan_nlr ; N/A            ; N/A          ; 0.0%      ; 3.8%     ;
++---------+---------------------+-----------+----------------+----------------+--------------+-----------+----------+
+
+
++--------------------------------------------------------------------------+
+; Operating Conditions Used                                                ;
++---------------------------------------------+----------------------------+
+; Setting                                     ; Value                      ;
++---------------------------------------------+----------------------------+
+; Device power characteristics                ; Typical                    ;
+;                                             ;                            ;
+; Voltages                                    ;                            ;
+;     VCCINT                                  ; 1.20 V                     ;
+;     VCCA                                    ; 2.50 V                     ;
+;     VCCD                                    ; 1.20 V                     ;
+;     3.3-V LVTTL I/O Standard                ; 3.3 V                      ;
+;                                             ;                            ;
+; Auto computed junction temperature          ; 26.3 degrees Celsius       ;
+;     Ambient temperature                     ; 25.0 degrees Celsius       ;
+;     Junction-to-Case thermal resistance     ; 10.50 degrees Celsius/Watt ;
+;     Case-to-Heat Sink thermal resistance    ; 0.10 degrees Celsius/Watt  ;
+;     Heat Sink-to-Ambient thermal resistance ; 4.30 degrees Celsius/Watt  ;
+;                                             ;                            ;
+; Board model used                            ; None                       ;
++---------------------------------------------+----------------------------+
+
+; Thermal Power Dissipation by Block ; (tabel dihapus dari salinan ringkas)
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Thermal Power Dissipation by Block Type                                                                                                                                                                                   ;
++----------------------------+-----------------------------------+-----------------------------+--------------------------------+-------------------------------+-----------------------------------------------------------+
+; Block Type                 ; Total Thermal Power by Block Type ; Block Thermal Dynamic Power ; Block Thermal Static Power (1) ; Routing Thermal Dynamic Power ; Block Average Toggle Rate (millions of transitions / sec) ;
++----------------------------+-----------------------------------+-----------------------------+--------------------------------+-------------------------------+-----------------------------------------------------------+
+; M9K                        ; 2.06 mW                           ; 2.06 mW                     ; --                             ; 0.00 mW                       ;    0.000                                                  ;
+; Embedded multiplier output ; 0.00 mW                           ; 0.00 mW                     ; --                             ; 0.00 mW                       ;    0.001                                                  ;
+; Combinational cell         ; 0.06 mW                           ; 0.06 mW                     ; --                             ; 0.00 mW                       ;    0.239                                                  ;
+; Clock control block        ; 4.19 mW                           ; 0.00 mW                     ; --                             ; 4.19 mW                       ;  100.025                                                  ;
+; Register cell              ; 3.12 mW                           ; 3.07 mW                     ; --                             ; 0.05 mW                       ;    0.230                                                  ;
+; I/O                        ; 11.60 mW                          ; 0.34 mW                     ; 11.26 mW                       ; 0.00 mW                       ;    3.847                                                  ;
++----------------------------+-----------------------------------+-----------------------------+--------------------------------+-------------------------------+-----------------------------------------------------------+
+(1) The "Block Thermal Static Power" for all block types except Pins and the Voltage Regulator, if one exists, is part of the "Core Static Thermal Power Dissipation" value found on the PowerPlay Power Analyzer-->Summary report panel. The "Core Static Thermal Power Dissipation" also contains the thermal static power dissipated by the routing.
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Thermal Power Dissipation by Hierarchy                                                                                                                                                                                                                                                                 ;
++---------------------------------------------+--------------------------------------+---------------------------------+-----------------------------------+-----------------------------------+---------------------------------------------------------------------------------------------------------+
+; Compilation Hierarchy Node                  ; Total Thermal Power by Hierarchy (1) ; Block Thermal Dynamic Power (1) ; Block Thermal Static Power (1)(2) ; Routing Thermal Dynamic Power (1) ; Full Hierarchy Name                                                                                     ;
++---------------------------------------------+--------------------------------------+---------------------------------+-----------------------------------+-----------------------------------+---------------------------------------------------------------------------------------------------------+
+; |top_papan_nlr                              ; 21.02 mW (16.30 mW)                  ; 5.52 mW (0.81 mW)               ; 11.26 mW (11.26 mW)               ; 4.24 mW (4.23 mW)                 ; |top_papan_nlr                                                                                          ;
+;     |hard_block:auto_generated_inst         ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |top_papan_nlr|hard_block:auto_generated_inst                                                           ;
+;     |altsyncram:citra_rtl_0                 ; 1.64 mW (0.00 mW)                    ; 1.64 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |top_papan_nlr|altsyncram:citra_rtl_0                                                                   ;
+;         |altsyncram_4k91:auto_generated     ; 1.64 mW (1.64 mW)                    ; 1.64 mW (1.64 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |top_papan_nlr|altsyncram:citra_rtl_0|altsyncram_4k91:auto_generated                                    ;
+;     |mac_unit:g_lajur[0].u_mac              ; 0.24 mW (0.24 mW)                    ; 0.24 mW (0.24 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |top_papan_nlr|mac_unit:g_lajur[0].u_mac                                                                ;
+;         |mult_hard8:g_hard.u_mul            ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |top_papan_nlr|mac_unit:g_lajur[0].u_mac|mult_hard8:g_hard.u_mul                                        ;
+;             |lpm_mult:Mult0                 ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |top_papan_nlr|mac_unit:g_lajur[0].u_mac|mult_hard8:g_hard.u_mul|lpm_mult:Mult0                         ;
+;                 |mult_73t:auto_generated    ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |top_papan_nlr|mac_unit:g_lajur[0].u_mac|mult_hard8:g_hard.u_mul|lpm_mult:Mult0|mult_73t:auto_generated ;
+;     |mem_w:g_lajur[0].u_mem_w               ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |top_papan_nlr|mem_w:g_lajur[0].u_mem_w                                                                 ;
+;         |altsyncram:isi_rtl_0               ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |top_papan_nlr|mem_w:g_lajur[0].u_mem_w|altsyncram:isi_rtl_0                                            ;
+;             |altsyncram_3g91:auto_generated ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |top_papan_nlr|mem_w:g_lajur[0].u_mem_w|altsyncram:isi_rtl_0|altsyncram_3g91:auto_generated             ;
+;     |mem_psum:g_lajur[0].u_psum             ; 0.05 mW (0.05 mW)                    ; 0.05 mW (0.05 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |top_papan_nlr|mem_psum:g_lajur[0].u_psum                                                               ;
+;         |altsyncram:isi_rtl_0               ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |top_papan_nlr|mem_psum:g_lajur[0].u_psum|altsyncram:isi_rtl_0                                          ;
+;             |altsyncram_3if1:auto_generated ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |top_papan_nlr|mem_psum:g_lajur[0].u_psum|altsyncram:isi_rtl_0|altsyncram_3if1:auto_generated           ;
+;     |mac_unit:g_lajur[1].u_mac              ; 0.23 mW (0.23 mW)                    ; 0.23 mW (0.23 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |top_papan_nlr|mac_unit:g_lajur[1].u_mac                                                                ;
+;         |mult_hard8:g_hard.u_mul            ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |top_papan_nlr|mac_unit:g_lajur[1].u_mac|mult_hard8:g_hard.u_mul                                        ;
+;             |lpm_mult:Mult0                 ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |top_papan_nlr|mac_unit:g_lajur[1].u_mac|mult_hard8:g_hard.u_mul|lpm_mult:Mult0                         ;
+;                 |mult_73t:auto_generated    ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |top_papan_nlr|mac_unit:g_lajur[1].u_mac|mult_hard8:g_hard.u_mul|lpm_mult:Mult0|mult_73t:auto_generated ;
+;     |mem_w:g_lajur[1].u_mem_w               ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |top_papan_nlr|mem_w:g_lajur[1].u_mem_w                                                                 ;
+;         |altsyncram:isi_rtl_0               ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |top_papan_nlr|mem_w:g_lajur[1].u_mem_w|altsyncram:isi_rtl_0                                            ;
+;             |altsyncram_gh91:auto_generated ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |top_papan_nlr|mem_w:g_lajur[1].u_mem_w|altsyncram:isi_rtl_0|altsyncram_gh91:auto_generated             ;
+;     |mem_psum:g_lajur[1].u_psum             ; 0.05 mW (0.05 mW)                    ; 0.05 mW (0.05 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |top_papan_nlr|mem_psum:g_lajur[1].u_psum                                                               ;
+;         |altsyncram:isi_rtl_0               ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |top_papan_nlr|mem_psum:g_lajur[1].u_psum|altsyncram:isi_rtl_0                                          ;
+;             |altsyncram_3if1:auto_generated ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |top_papan_nlr|mem_psum:g_lajur[1].u_psum|altsyncram:isi_rtl_0|altsyncram_3if1:auto_generated           ;
+;     |mac_unit:g_lajur[2].u_mac              ; 0.24 mW (0.24 mW)                    ; 0.24 mW (0.24 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |top_papan_nlr|mac_unit:g_lajur[2].u_mac                                                                ;
+;         |mult_hard8:g_hard.u_mul            ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |top_papan_nlr|mac_unit:g_lajur[2].u_mac|mult_hard8:g_hard.u_mul                                        ;
+;             |lpm_mult:Mult0                 ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |top_papan_nlr|mac_unit:g_lajur[2].u_mac|mult_hard8:g_hard.u_mul|lpm_mult:Mult0                         ;
+;                 |mult_73t:auto_generated    ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |top_papan_nlr|mac_unit:g_lajur[2].u_mac|mult_hard8:g_hard.u_mul|lpm_mult:Mult0|mult_73t:auto_generated ;
+;     |mem_w:g_lajur[2].u_mem_w               ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |top_papan_nlr|mem_w:g_lajur[2].u_mem_w                                                                 ;
+;         |altsyncram:isi_rtl_0               ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |top_papan_nlr|mem_w:g_lajur[2].u_mem_w|altsyncram:isi_rtl_0                                            ;
+;             |altsyncram_nh91:auto_generated ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |top_papan_nlr|mem_w:g_lajur[2].u_mem_w|altsyncram:isi_rtl_0|altsyncram_nh91:auto_generated             ;
+;     |mem_psum:g_lajur[2].u_psum             ; 0.05 mW (0.05 mW)                    ; 0.05 mW (0.05 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |top_papan_nlr|mem_psum:g_lajur[2].u_psum                                                               ;
+;         |altsyncram:isi_rtl_0               ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |top_papan_nlr|mem_psum:g_lajur[2].u_psum|altsyncram:isi_rtl_0                                          ;
+;             |altsyncram_3if1:auto_generated ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |top_papan_nlr|mem_psum:g_lajur[2].u_psum|altsyncram:isi_rtl_0|altsyncram_3if1:auto_generated           ;
+;     |mac_unit:g_lajur[3].u_mac              ; 0.26 mW (0.26 mW)                    ; 0.26 mW (0.26 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |top_papan_nlr|mac_unit:g_lajur[3].u_mac                                                                ;
+;         |mult_hard8:g_hard.u_mul            ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |top_papan_nlr|mac_unit:g_lajur[3].u_mac|mult_hard8:g_hard.u_mul                                        ;
+;             |lpm_mult:Mult0                 ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |top_papan_nlr|mac_unit:g_lajur[3].u_mac|mult_hard8:g_hard.u_mul|lpm_mult:Mult0                         ;
+;                 |mult_73t:auto_generated    ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |top_papan_nlr|mac_unit:g_lajur[3].u_mac|mult_hard8:g_hard.u_mul|lpm_mult:Mult0|mult_73t:auto_generated ;
+;     |mem_w:g_lajur[3].u_mem_w               ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |top_papan_nlr|mem_w:g_lajur[3].u_mem_w                                                                 ;
+;         |altsyncram:isi_rtl_0               ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |top_papan_nlr|mem_w:g_lajur[3].u_mem_w|altsyncram:isi_rtl_0                                            ;
+;             |altsyncram_uk91:auto_generated ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |top_papan_nlr|mem_w:g_lajur[3].u_mem_w|altsyncram:isi_rtl_0|altsyncram_uk91:auto_generated             ;
+;     |mem_psum:g_lajur[3].u_psum             ; 0.05 mW (0.05 mW)                    ; 0.05 mW (0.05 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |top_papan_nlr|mem_psum:g_lajur[3].u_psum                                                               ;
+;         |altsyncram:isi_rtl_0               ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |top_papan_nlr|mem_psum:g_lajur[3].u_psum|altsyncram:isi_rtl_0                                          ;
+;             |altsyncram_3if1:auto_generated ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |top_papan_nlr|mem_psum:g_lajur[3].u_psum|altsyncram:isi_rtl_0|altsyncram_3if1:auto_generated           ;
+;     |mac_unit:g_lajur[4].u_mac              ; 0.25 mW (0.25 mW)                    ; 0.25 mW (0.25 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |top_papan_nlr|mac_unit:g_lajur[4].u_mac                                                                ;
+;         |mult_hard8:g_hard.u_mul            ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |top_papan_nlr|mac_unit:g_lajur[4].u_mac|mult_hard8:g_hard.u_mul                                        ;
+;             |lpm_mult:Mult0                 ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |top_papan_nlr|mac_unit:g_lajur[4].u_mac|mult_hard8:g_hard.u_mul|lpm_mult:Mult0                         ;
+;                 |mult_73t:auto_generated    ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |top_papan_nlr|mac_unit:g_lajur[4].u_mac|mult_hard8:g_hard.u_mul|lpm_mult:Mult0|mult_73t:auto_generated ;
+;     |mem_w:g_lajur[4].u_mem_w               ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |top_papan_nlr|mem_w:g_lajur[4].u_mem_w                                                                 ;
+;         |altsyncram:isi_rtl_0               ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |top_papan_nlr|mem_w:g_lajur[4].u_mem_w|altsyncram:isi_rtl_0                                            ;
+;             |altsyncram_0i91:auto_generated ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |top_papan_nlr|mem_w:g_lajur[4].u_mem_w|altsyncram:isi_rtl_0|altsyncram_0i91:auto_generated             ;
+;     |mem_psum:g_lajur[4].u_psum             ; 0.05 mW (0.05 mW)                    ; 0.05 mW (0.05 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |top_papan_nlr|mem_psum:g_lajur[4].u_psum                                                               ;
+;         |altsyncram:isi_rtl_0               ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |top_papan_nlr|mem_psum:g_lajur[4].u_psum|altsyncram:isi_rtl_0                                          ;
+;             |altsyncram_3if1:auto_generated ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |top_papan_nlr|mem_psum:g_lajur[4].u_psum|altsyncram:isi_rtl_0|altsyncram_3if1:auto_generated           ;
+;     |mac_unit:g_lajur[5].u_mac              ; 0.27 mW (0.27 mW)                    ; 0.27 mW (0.27 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |top_papan_nlr|mac_unit:g_lajur[5].u_mac                                                                ;
+;         |mult_hard8:g_hard.u_mul            ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |top_papan_nlr|mac_unit:g_lajur[5].u_mac|mult_hard8:g_hard.u_mul                                        ;
+;             |lpm_mult:Mult0                 ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |top_papan_nlr|mac_unit:g_lajur[5].u_mac|mult_hard8:g_hard.u_mul|lpm_mult:Mult0                         ;
+;                 |mult_73t:auto_generated    ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |top_papan_nlr|mac_unit:g_lajur[5].u_mac|mult_hard8:g_hard.u_mul|lpm_mult:Mult0|mult_73t:auto_generated ;
+;     |mem_w:g_lajur[5].u_mem_w               ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |top_papan_nlr|mem_w:g_lajur[5].u_mem_w                                                                 ;
+;         |altsyncram:isi_rtl_0               ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |top_papan_nlr|mem_w:g_lajur[5].u_mem_w|altsyncram:isi_rtl_0                                            ;
+;             |altsyncram_7k91:auto_generated ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |top_papan_nlr|mem_w:g_lajur[5].u_mem_w|altsyncram:isi_rtl_0|altsyncram_7k91:auto_generated             ;
+;     |mem_psum:g_lajur[5].u_psum             ; 0.05 mW (0.05 mW)                    ; 0.05 mW (0.05 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |top_papan_nlr|mem_psum:g_lajur[5].u_psum                                                               ;
+;         |altsyncram:isi_rtl_0               ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |top_papan_nlr|mem_psum:g_lajur[5].u_psum|altsyncram:isi_rtl_0                                          ;
+;             |altsyncram_3if1:auto_generated ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |top_papan_nlr|mem_psum:g_lajur[5].u_psum|altsyncram:isi_rtl_0|altsyncram_3if1:auto_generated           ;
+;     |mac_unit:g_lajur[6].u_mac              ; 0.22 mW (0.22 mW)                    ; 0.22 mW (0.22 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |top_papan_nlr|mac_unit:g_lajur[6].u_mac                                                                ;
+;         |mult_hard8:g_hard.u_mul            ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |top_papan_nlr|mac_unit:g_lajur[6].u_mac|mult_hard8:g_hard.u_mul                                        ;
+;             |lpm_mult:Mult0                 ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |top_papan_nlr|mac_unit:g_lajur[6].u_mac|mult_hard8:g_hard.u_mul|lpm_mult:Mult0                         ;
+;                 |mult_73t:auto_generated    ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |top_papan_nlr|mac_unit:g_lajur[6].u_mac|mult_hard8:g_hard.u_mul|lpm_mult:Mult0|mult_73t:auto_generated ;
+;     |mem_w:g_lajur[6].u_mem_w               ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |top_papan_nlr|mem_w:g_lajur[6].u_mem_w                                                                 ;
+;         |altsyncram:isi_rtl_0               ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |top_papan_nlr|mem_w:g_lajur[6].u_mem_w|altsyncram:isi_rtl_0                                            ;
+;             |altsyncram_9h91:auto_generated ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |top_papan_nlr|mem_w:g_lajur[6].u_mem_w|altsyncram:isi_rtl_0|altsyncram_9h91:auto_generated             ;
+;     |mem_psum:g_lajur[6].u_psum             ; 0.05 mW (0.05 mW)                    ; 0.05 mW (0.05 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |top_papan_nlr|mem_psum:g_lajur[6].u_psum                                                               ;
+;         |altsyncram:isi_rtl_0               ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |top_papan_nlr|mem_psum:g_lajur[6].u_psum|altsyncram:isi_rtl_0                                          ;
+;             |altsyncram_3if1:auto_generated ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |top_papan_nlr|mem_psum:g_lajur[6].u_psum|altsyncram:isi_rtl_0|altsyncram_3if1:auto_generated           ;
+;     |mac_unit:g_lajur[7].u_mac              ; 0.25 mW (0.25 mW)                    ; 0.25 mW (0.25 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |top_papan_nlr|mac_unit:g_lajur[7].u_mac                                                                ;
+;         |mult_hard8:g_hard.u_mul            ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |top_papan_nlr|mac_unit:g_lajur[7].u_mac|mult_hard8:g_hard.u_mul                                        ;
+;             |lpm_mult:Mult0                 ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |top_papan_nlr|mac_unit:g_lajur[7].u_mac|mult_hard8:g_hard.u_mul|lpm_mult:Mult0                         ;
+;                 |mult_73t:auto_generated    ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |top_papan_nlr|mac_unit:g_lajur[7].u_mac|mult_hard8:g_hard.u_mul|lpm_mult:Mult0|mult_73t:auto_generated ;
+;     |mem_w:g_lajur[7].u_mem_w               ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |top_papan_nlr|mem_w:g_lajur[7].u_mem_w                                                                 ;
+;         |altsyncram:isi_rtl_0               ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |top_papan_nlr|mem_w:g_lajur[7].u_mem_w|altsyncram:isi_rtl_0                                            ;
+;             |altsyncram_bh91:auto_generated ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |top_papan_nlr|mem_w:g_lajur[7].u_mem_w|altsyncram:isi_rtl_0|altsyncram_bh91:auto_generated             ;
+;     |mem_psum:g_lajur[7].u_psum             ; 0.05 mW (0.05 mW)                    ; 0.05 mW (0.05 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |top_papan_nlr|mem_psum:g_lajur[7].u_psum                                                               ;
+;         |altsyncram:isi_rtl_0               ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |top_papan_nlr|mem_psum:g_lajur[7].u_psum|altsyncram:isi_rtl_0                                          ;
+;             |altsyncram_3if1:auto_generated ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |top_papan_nlr|mem_psum:g_lajur[7].u_psum|altsyncram:isi_rtl_0|altsyncram_3if1:auto_generated           ;
+;     |argmax10:u_amax                        ; 0.06 mW (0.06 mW)                    ; 0.06 mW (0.06 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |top_papan_nlr|argmax10:u_amax                                                                          ;
+;     |rom_bias8:u_bias                       ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |top_papan_nlr|rom_bias8:u_bias                                                                         ;
+;     |ctrl_nlr:u_ctrl                        ; 0.48 mW (0.48 mW)                    ; 0.48 mW (0.48 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |top_papan_nlr|ctrl_nlr:u_ctrl                                                                          ;
+;     |epilog_unit:u_epi                      ; 0.01 mW (0.01 mW)                    ; 0.01 mW (0.01 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |top_papan_nlr|epilog_unit:u_epi                                                                        ;
+;     |mem_d:u_mem_d                          ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |top_papan_nlr|mem_d:u_mem_d                                                                            ;
+;         |altsyncram:isi_rtl_0               ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |top_papan_nlr|mem_d:u_mem_d|altsyncram:isi_rtl_0                                                       ;
+;             |altsyncram_i3k1:auto_generated ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |top_papan_nlr|mem_d:u_mem_d|altsyncram:isi_rtl_0|altsyncram_i3k1:auto_generated                        ;
+;     |seg7_scan:u_scan                       ; 0.14 mW (0.14 mW)                    ; 0.13 mW (0.13 mW)               ; --                                ; 0.02 mW (0.02 mW)                 ; |top_papan_nlr|seg7_scan:u_scan                                                                         ;
+;         |seg7_dec:u_dec                     ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |top_papan_nlr|seg7_scan:u_scan|seg7_dec:u_dec                                                          ;
++---------------------------------------------+--------------------------------------+---------------------------------+-----------------------------------+-----------------------------------+---------------------------------------------------------------------------------------------------------+
+(1) Value in parentheses is the power consumed at that level of hierarchy. Value not in parentheses is the power consumed at that level of hierarchy plus the power consumed by all levels of hierarchy below it.
+
+(2) The "Block Thermal Static Power" for all levels of hierarchy except the top-level hierarchy is part of the "Core Static Thermal Power Dissipation" value found on the PowerPlay Power Analyzer-->Summary report panel. The "Core Static Thermal Power Dissipation" also contains the thermal static power dissipated by the routing.
+
+
++-----------------------------------------------------------------+
+; Core Dynamic Thermal Power Dissipation by Clock Domain          ;
++--------------+-----------------------+--------------------------+
+; Clock Domain ; Clock Frequency (MHz) ; Total Core Dynamic Power ;
++--------------+-----------------------+--------------------------+
+; clk          ; 50.01                 ; 9.43                     ;
++--------------+-----------------------+--------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------+
+; Current Drawn from Voltage Supplies Summary                                                                                        ;
++----------------+-------------------------+---------------------------+--------------------------+----------------------------------+
+; Voltage Supply ; Total Current Drawn (1) ; Dynamic Current Drawn (1) ; Static Current Drawn (1) ; Minimum Power Supply Current (2) ;
++----------------+-------------------------+---------------------------+--------------------------+----------------------------------+
+; VCCINT         ; 18.75 mA                ; 7.89 mA                   ; 10.86 mA                 ; 18.75 mA                         ;
+; VCCIO          ; 6.52 mA                 ; 0.08 mA                   ; 6.45 mA                  ; 6.52 mA                          ;
+; VCCA           ; 15.50 mA                ; 0.00 mA                   ; 15.50 mA                 ; 15.50 mA                         ;
+; VCCD           ; 1.00 mA                 ; 0.00 mA                   ; 1.00 mA                  ; 1.00 mA                          ;
++----------------+-------------------------+---------------------------+--------------------------+----------------------------------+
+(1) Currents reported in columns "Total Current Drawn", "Dynamic Current Drawn", and "Static Current Drawn" are sufficient for user operation of the device.  
+(2) Currents reported in column "Minimum Power Supply Current" are sufficient for power-up, configuration, and user operation of the device.
+
+
++-----------------------------------------------------------------------------------------------+
+; VCCIO Supply Current Drawn by I/O Bank                                                        ;
++----------+---------------+---------------------+-----------------------+----------------------+
+; I/O Bank ; VCCIO Voltage ; Total Current Drawn ; Dynamic Current Drawn ; Static Current Drawn ;
++----------+---------------+---------------------+-----------------------+----------------------+
+; 1        ; 3.3V          ; 0.91 mA             ; 0.08 mA               ; 0.84 mA              ;
+; 2        ; 3.3V          ; 0.75 mA             ; 0.00 mA               ; 0.75 mA              ;
+; 3        ; 3.3V          ; 0.75 mA             ; 0.00 mA               ; 0.75 mA              ;
+; 4        ; 3.3V          ; 0.75 mA             ; 0.00 mA               ; 0.75 mA              ;
+; 5        ; 3.3V          ; 0.85 mA             ; 0.00 mA               ; 0.85 mA              ;
+; 6        ; 3.3V          ; 0.80 mA             ; 0.00 mA               ; 0.80 mA              ;
+; 7        ; 3.3V          ; 0.84 mA             ; 0.00 mA               ; 0.84 mA              ;
+; 8        ; 3.3V          ; 0.87 mA             ; 0.00 mA               ; 0.87 mA              ;
++----------+---------------+---------------------+-----------------------+----------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------+
+; VCCIO Supply Current Drawn by Voltage                                                                                             ;
++---------------+-------------------------+---------------------------+--------------------------+----------------------------------+
+; VCCIO Voltage ; Total Current Drawn (1) ; Dynamic Current Drawn (1) ; Static Current Drawn (1) ; Minimum Power Supply Current (2) ;
++---------------+-------------------------+---------------------------+--------------------------+----------------------------------+
+; 3.3V          ; 6.52 mA                 ; 0.08 mA                   ; 6.45 mA                  ; 6.52 mA                          ;
++---------------+-------------------------+---------------------------+--------------------------+----------------------------------+
+(1) Currents reported in columns "Total Current Drawn", "Dynamic Current Drawn", and "Static Current Drawn" are sufficient for user operation of the device.  
+(2) Currents reported in column "Minimum Power Supply Current" are sufficient for power-up, configuration, and user operation of the device.
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------+
+; Confidence Metric Details                                                                                                                         ;
++----------------------------------------------------------------------------------------+--------------+------------+--------------+---------------+
+; Data Source                                                                            ; Total        ; Pin        ; Registered   ; Combinational ;
++----------------------------------------------------------------------------------------+--------------+------------+--------------+---------------+
+; Simulation (from file)                                                                 ;              ;            ;              ;               ;
+;     -- Simulation time nodes in unknown state                                          ; 0.0%         ;            ;              ;               ;
+;     -- Number of signals with Toggle Rate from Simulation                              ; 3421 (74.7%) ; 21 (80.8%) ; 420 (26.7%)  ; 2980 (99.9%)  ;
+;     -- Number of signals with Zero toggle rate, from Simulation                        ; 3292 (71.9%) ; 20 (76.9%) ; 383 (24.4%)  ; 2889 (96.9%)  ;
+;     -- Number of signals with Static Probability from Simulation                       ; 3421 (74.7%) ; 21 (80.8%) ; 420 (26.7%)  ; 2980 (99.9%)  ;
+;                                                                                        ;              ;            ;              ;               ;
+; Node, entity or clock assignment                                                       ;              ;            ;              ;               ;
+;     -- Number of signals with Toggle Rate from Node, entity or clock assignment        ; 1152 (25.2%) ; 0 (0.0%)   ; 1152 (73.3%) ; 0 (0.0%)      ;
+;     -- Number of signals with Zero toggle rate, from Node, entity or clock assignment  ; 1152 (25.2%) ; 0 (0.0%)   ; 1152 (73.3%) ; 0 (0.0%)      ;
+;     -- Number of signals with Static Probability from Node, entity or clock assignment ; 1152 (25.2%) ; 0 (0.0%)   ; 1152 (73.3%) ; 0 (0.0%)      ;
+;                                                                                        ;              ;            ;              ;               ;
+; Vectorless estimation                                                                  ;              ;            ;              ;               ;
+;     -- Number of signals with Toggle Rate from Vectorless estimation                   ; 4 (0.1%)     ; 2 (7.7%)   ; 0 (0.0%)     ; 2 (0.1%)      ;
+;     -- Number of signals with Zero toggle rate, from Vectorless estimation             ; 4 (0.1%)     ; 2 (7.7%)   ; 0 (0.0%)     ; 2 (0.1%)      ;
+;     -- Number of signals with Static Probability from Vectorless estimation            ; 4 (0.1%)     ; 2 (7.7%)   ; 0 (0.0%)     ; 2 (0.1%)      ;
+;                                                                                        ;              ;            ;              ;               ;
+; Default assignment                                                                     ;              ;            ;              ;               ;
+;     -- Number of signals with Toggle Rate from Default assignment                      ; 0 (0.0%)     ; 0 (0.0%)   ; 0 (0.0%)     ; 0 (0.0%)      ;
+;     -- Number of signals with Static Probability from Default assignment               ; 3 (0.1%)     ; 3 (11.5%)  ; 0 (0.0%)     ; 0 (0.0%)      ;
+;                                                                                        ;              ;            ;              ;               ;
+; Assumed 0                                                                              ;              ;            ;              ;               ;
+;     -- Number of signals with Toggle Rate assumed 0                                    ; 3 (0.1%)     ; 3 (11.5%)  ; 0 (0.0%)     ; 0 (0.0%)      ;
++----------------------------------------------------------------------------------------+--------------+------------+--------------+---------------+
+
+; Signal Activities ; (tabel dihapus dari salinan ringkas)
+
+
++-------------------------+
+; Power Analyzer Messages ;
++-------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Power Analyzer
+    Info: Version 25.1std.0 Build 1129 10/21/2025 SC Lite Edition
+    Info: Copyright (C) 2025  Altera Corporation. All rights reserved.
+    Info: Your use of Altera Corporation's design tools, logic functions 
+    Info: and other software and tools, and any partner logic 
+    Info: functions, and any output files from any of the foregoing 
+    Info: (including device programming or simulation files), and any 
+    Info: associated documentation or information are expressly subject 
+    Info: to the terms and conditions of the Altera Program License 
+    Info: Subscription Agreement, the Altera Quartus Prime License Agreement,
+    Info: the Altera IP License Agreement, or other applicable license
+    Info: agreement, including, without limitation, that your use is for
+    Info: the sole purpose of programming logic devices manufactured by
+    Info: Altera and sold by Altera or its authorized distributors.  Please
+    Info: refer to the Altera Software License Subscription Agreements 
+    Info: on the Quartus Prime software download page.
+    Info: Processing started: Tue Nov 10 23:16:29 2026
+Info: Command: quartus_pow --read_settings_files=on --write_settings_files=off daya_nlr -c daya_nlr
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (21077): Low junction temperature is 0 degrees C
+Info (21077): High junction temperature is 85 degrees C
+Info (222002): Starting scan of VCD file build/aktivitas.vcd (0 ns to End of File) for signal static probabilities and transition densities
+Info (222003): Finished scan of VCD file build/aktivitas.vcd (0 ns to End of File) for signal static probabilities and transition densities
+Info (332104): Reading SDC File: '../../2_Verilog/papan.sdc'
+Info (332151): Clock uncertainty is not calculated until you update the timing netlist.
+Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
+Info (223000): Starting Vectorless Power Activity Estimation
+Info (223001): Completed Vectorless Power Activity Estimation
+Info (215037): Detailed signal activity file source information is not written to output Signal Activity File.
+Info (218000): Using Advanced I/O Power to simulate I/O buffers with the specified board trace model
+Info (334003): Started post-fitting delay annotation
+Info (334004): Delay annotation completed successfully
+Info (215049): Average toggle rate for this design is 0.247 millions of transitions / sec
+Info (215031): Total thermal power estimate for the design is 83.96 mW
+Info: Quartus Prime Power Analyzer was successful. 0 errors, 1 warning
+    Info: Peak virtual memory: 4973 megabytes
+    Info: Processing ended: Tue Nov 10 23:16:35 2026
+    Info: Elapsed time: 00:00:06
+    Info: Total CPU time (on all processors): 00:00:08
+
+
