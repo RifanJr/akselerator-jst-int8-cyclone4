@@ -1,7 +1,8 @@
 # Spesifikasi rancangan tanpa stationary (No Local Reuse, NLR)
 
-Status: **draf untuk disetujui sebelum menulis kode.** Angka siklus dan akses
-memori di dokumen ini masih **perkiraan dari perhitungan**, belum hasil simulasi.
+Status: **selesai (10 November 2026).** Simulasi RTL 16/16 citra bit-exact, uji
+papan 16/16 cocok, dan analisis daya confidence High. Angka di dokumen ini adalah
+hasil simulasi, kompilasi, dan Power Analyzer (ringkasan di bagian 8).
 
 ---
 
@@ -101,11 +102,17 @@ Total: 196 × 8 = **1.568 siklus**, sama dengan OS.
 
 **Lapisan 2** (64 masukan → 10 neuron): lajur 0–1 punya 2 neuron, lajur 2–7 hanya
 1 neuron. K = 2 terlalu kecil untuk menghindari bahaya, jadi setiap masukan diberi
-**K₂ slot** (sebagian slot kosong). K₂ adalah jarak aman terkecil, diperkirakan
-**5 siklus**, dan dipastikan dari simulasi.
+**K₂ = 5 slot** (slot 0–1 terisi, slot 2–4 kosong). Lima adalah jarak aman
+terkecil: alamat diberikan pada siklus t, data tiba di MAC pada t + 2, hasil
+ditulis pada t + 4, sehingga paling cepat dibaca lagi pada t + 5. Simulasi
+memastikan K₂ = 5 menghasilkan keluaran bit-exact.
 
-Total: 64 × K₂ ≈ **320 siklus** (OS: 128 siklus). Selisih ini adalah salah satu
+Total: 64 × 5 = **320 siklus** (OS: 128 siklus). Selisih ini adalah salah satu
 biaya NLR.
+
+**Kuras:** setelah tiap lapisan, hasil akhir dibaca dari memori jumlah parsial
+satu per siklus: 64 siklus untuk lapisan 1 (lewat epilog, ditulis ke mem_d) dan
+10 siklus untuk lapisan 2 (ke argmax).
 
 **Alamat bobot:** memakai berkas bank OS (`1_Python_PC/mem/P8`) **tanpa diubah**.
 Alamatnya = (awal lapisan) + k × (jumlah masukan) + i, cukup dihitung dengan
@@ -120,30 +127,40 @@ penjumlahan, tanpa pengali.
 | Jenis | Simple dual-port: satu port baca dan satu port tulis per siklus |
 | Penempatan | Dipaksa ke M9K (`ramstyle = "M9K"`), supaya biaya aksesnya tercatat di Power Analyzer sebagai memori, bukan register |
 
-Pemakaian M9K diperkirakan **21 (sama dengan OS) + 8 = 29 dari 30 blok**. Ini
-sudah ketat. Kalau tidak muat, alternatifnya akan dibahas sebelum diubah.
+Pemakaian M9K hasil kompilasi: **21 (sama dengan OS) + 8 = 29 dari 30 blok**.
+Laporan Quartus memastikan kedelapan memori jumlah parsial ditempatkan di M9K
+(Simple Dual Port), bukan register.
 
-## 6. Perkiraan siklus dan akses memori per citra
+## 6. Siklus dan akses memori per citra
 
-**Siklus** (dihitung dari urutan di bagian 4, belum simulasi):
+**Siklus** (simulasi RTL, sama dengan penghitung siklus di papan):
 
-| | OS | WS | NLR (perkiraan) |
+| | OS | WS | NLR |
 |---|---|---|---|
 | Lapisan 1 | 1.568 | – | 1.568 |
-| Lapisan 2 | 128 | – | ≈ 320 |
-| Total per citra | 1.708 | 1.649 | **≈ 1.900** |
+| Kuras lapisan 1 | – | – | 64 |
+| Lapisan 2 | 128 | – | 320 |
+| Kuras lapisan 2 + akhir | – | – | 10 + 3 |
+| **Total per citra** | **1.708** | **1.649** | **1.965** |
+| Waktu per citra (50 MHz) | 34,16 µs | 32,98 µs | **39,30 µs** |
 
-**Akses memori** (bit per citra):
+Waktu per citra = jumlah siklus ÷ 50.000.000 siklus per detik.
 
-| Jenis | OS | WS | NLR (perkiraan) |
+**Akses memori** (bit per citra). NLR dari pencacah di testbench
+(`tb_papan_nlr.v`, citra 00); OS dan WS dari perhitungan:
+
+| Jenis | OS | WS | NLR |
 |---|---|---|---|
-| Bobot | ≈ 109 Kbit | ≈ 7 Kbit | ≈ 109 Kbit |
-| Masukan | ≈ 14 Kbit | ≈ 53 Kbit | ≈ 15 Kbit |
-| Jumlah parsial | 0 | 0 | **≈ 840 Kbit** (13.184 operasi × (32 bit baca + 32 bit tulis)) |
-| **Total** | **≈ 123,5 Kbit** | **≈ 59,8 Kbit** | **≈ 965 Kbit** |
+| Bobot | ≈ 109 Kbit | ≈ 7 Kbit | 121,1 Kbit (15.136 baca × 8 bit) |
+| Masukan | ≈ 14 Kbit | ≈ 53 Kbit | 15,1 Kbit (1.892 baca × 8 bit) |
+| Jumlah parsial | 0 | 0 | **843,8 Kbit** (13.184 baca + 13.184 tulis, × 32 bit) |
+| Aktivasi lapisan 1 (tulis) | – | – | 0,5 Kbit (64 × 8 bit) |
+| **Total** | **≈ 123,5 Kbit** | **≈ 59,8 Kbit** | **980,5 Kbit** |
 
-Perkiraan ini menunjukkan biaya NLR: lalu lintas memorinya sekitar 8× OS dan 16×
-WS. Angka resminya diambil dari pencacah di simulasi.
+Bobot NLR sedikit lebih besar dari OS karena bank bobot tetap dibaca pada slot
+kosong lapisan 2. Lalu lintas memori NLR sekitar 8× OS dan 16× WS, dan hampir
+seluruhnya berasal dari jumlah parsial. Jumlah operasi MAC tetap 13.184, sama
+dengan OS.
 
 ## 7. Keadilan perbandingan
 
@@ -153,15 +170,40 @@ tampilan dan tombol papan.
 
 Yang berbeda hanya **pengendali dan memori jumlah parsial**.
 
-## 8. Rencana pengujian
+## 8. Hasil pengujian
 
-| Tahap | Kriteria lulus |
-|---|---|
-| Simulasi RTL (Icarus), 16 citra uji | Kesepuluh akumulator lapisan 2 identik dengan `golden_uji.txt` untuk 16/16 citra |
-| Pencacah di testbench | Jumlah siklus, baca/tulis memori jumlah parsial, baca bobot, baca masukan |
-| Kompilasi Quartus | Muat di chip, Fmax ≥ 50 MHz; catat LE, register, M9K, pengali |
-| Uji papan | 16/16 citra cocok; tombol S4 menampilkan siklus per citra |
-| Daya | Alur `6_Daya_FPGA` (jendela bekerja dan diam, VCD netlist, confidence High) |
+| Tahap | Kriteria lulus | Hasil |
+|---|---|---|
+| Simulasi RTL (Icarus), 16 citra uji | Kesepuluh akumulator lapisan 2 identik dengan `golden_uji.txt` untuk 16/16 citra | **Lulus**, 18 inferensi lewat tombol, tiap inferensi 1.965 siklus |
+| Pencacah di testbench | Jumlah siklus, akses memori, operasi MAC | 13.184 operasi MAC; akses memori di bagian 6 |
+| Kompilasi Quartus | Muat di chip, Fmax ≥ 50 MHz | **Lulus**: 2.317 LE (37 %), 1.308 register, M9K 29/30, pengali 9-bit 8/30, Fmax 73,61 MHz (model lambat 85 °C) |
+| Uji papan | 16/16 citra cocok; key[3] menampilkan siklus | **Lulus**, 16/16 cocok, tampil 1965 |
+| Daya | Alur `6_Daya_FPGA`, confidence High | **Lulus**, confidence High (bekerja dan diam) |
+
+**Sumber daya dibanding OS:** LE hampir sama (2.317 vs 2.306), karena OS dan NLR
+hanya berbeda di tempat jumlah parsial disimpan. Fmax lebih rendah (73,61 vs
+82,46 MHz) karena jalur dari memori jumlah parsial ke MAC lebih panjang; clock
+tetap 50 MHz.
+
+**Daya dan energi** (`4_daya/hasil/daya_nlr.json`). Energi per citra = daya ×
+lama satu inferensi (mW × µs = nJ, dibagi 1.000 menjadi µJ):
+
+| | OS | WS | **NLR** |
+|---|---|---|---|
+| Daya total saat bekerja | 93,91 mW | 108,63 mW | **118,17 mW** |
+| Inti dinamis saat bekerja | 21,09 mW | 35,57 mW | **45,14 mW** |
+| **Energi per citra** | **3,208 µJ** | **3,582 µJ** | **4,644 µJ** |
+| Daya M9K saat bekerja | 9,53 mW | 2,44 mW | **20,34 mW** |
+| Daya total saat diam | 89,40 mW | – | 83,96 mW |
+
+Tambahan daya NLR dibanding OS terutama dari M9K (9,53 → 20,34 mW, akibat baca
+dan tulis jumlah parsial), sel kombinasional (0,97 → 7,76 mW; penjumlah MAC
+menerima jumlah parsial neuron yang berbeda setiap siklus sehingga banyak bit
+berganti), dan register (5,38 → 11,50 mW).
+
+Daya saat diam **tidak** dipakai untuk membandingkan dataflow: M9K OS tetap
+membaca walau diam (8,71 mW), sedangkan M9K NLR dimatikan saat diam (2,06 mW).
+Perbandingan yang adil adalah daya dan energi saat bekerja.
 
 ## 9. Struktur folder
 
@@ -171,12 +213,10 @@ Yang berbeda hanya **pengendali dan memori jumlah parsial**.
   2_verilog/                ctrl_nlr.v, mem_psum.v, top_papan_nlr.v, testbench,
                             skrip simulasi (modul bersama dirujuk dari 2_Verilog)
   3_quartus/                proyek Quartus papan_nlr
-  4_daya/                   analisis daya (setelah RTL lulus)
+  4_daya/                   analisis daya (jalankan_daya_nlr.py, hasil/)
 ```
 
 ## 10. Hal yang perlu dikonfirmasi
 
 1. **Ke dosen:** apakah "tanpa stationary" yang dimaksud adalah *no local reuse*
    seperti di Sze dkk. (2017)?
-2. **K₂ untuk lapisan 2:** dipastikan dari simulasi (perkiraan 5).
-3. **M9K 29/30:** kalau tidak muat, dibahas dulu sebelum mengubah rancangan.
