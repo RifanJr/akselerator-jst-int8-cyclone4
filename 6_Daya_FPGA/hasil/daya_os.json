@@ -1,7 +1,7 @@
 {
- "waktu": "2026-11-02T20:40:00",
+ "waktu": "2026-11-02T23:37:16",
  "rancangan": "OS, top_papan.v (P = 8, pengali HARD)",
- "branch_commit": "9fc0b7f",
+ "branch_commit": "eb40c43",
  "perangkat": "EP4CE6E22C8",
  "logic_elements": "2,306",
  "clock_mhz": 50.0,
@@ -19,10 +19,10 @@
   "io_mw": 29.66
  },
  "energi": {
-  "total_uj_per_citra": 3.208,
-  "inti_dinamis_uj_per_citra": 0.7204,
-  "inti_statis_uj_per_citra": 1.4743,
-  "io_uj_per_citra": 1.0132
+  "total_uj_per_citra": 3.207966,
+  "inti_dinamis_uj_per_citra": 0.720434,
+  "inti_statis_uj_per_citra": 1.474346,
+  "io_uj_per_citra": 1.013186
  },
  "keyakinan": "High: user provided sufficient toggle rate data",
  "sumber_aktivitas": {
@@ -44,5 +44,44 @@
    "register": 0,
    "register_persen": 0.0
   }
+ },
+ "diam": {
+  "jendela_vcd": {
+   "siklus_mulai": 1934,
+   "siklus_selesai": 3642,
+   "siklus": 1708,
+   "lama_us": 34.16
+  },
+  "daya": {
+   "total_mw": 89.4,
+   "inti_dinamis_mw": 14.81,
+   "inti_statis_mw": 43.17,
+   "io_mw": 31.41
+  },
+  "keyakinan": "High: user provided sufficient toggle rate data",
+  "sumber_aktivitas": {
+   "simulasi": {
+    "sinyal": 3637,
+    "sinyal_persen": 83.4,
+    "register": 710,
+    "register_persen": 49.7
+   },
+   "assignment": {
+    "sinyal": 718,
+    "sinyal_persen": 16.5,
+    "register": 718,
+    "register_persen": 50.3
+   },
+   "vectorless": {
+    "sinyal": 4,
+    "sinyal_persen": 0.1,
+    "register": 0,
+    "register_persen": 0.0
+   }
+  }
+ },
+ "selisih_kerja_minus_diam": {
+  "total_mw": 4.51,
+  "energi_tambahan_uj_per_citra": 0.154062
  }
 }
