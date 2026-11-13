@@ -11,6 +11,7 @@ laptop untuk membandingkan kecepatan, kestabilan waktu, dan energi per citra.
 |---|---|
 | `model_pc.py` | Dua versi model dari `1_Python_PC/Training/export_final`: **INT8 (NumPy)** dengan aritmetika persis seperti FPGA, dan **FP32 (PyTorch)** sebagai cara lazim di PC. Jalankan langsung untuk memeriksa kebenaran. |
 | `ukur_pc.py` | Pengukuran: `waktu` (latensi per citra dan throughput), `beban` (pola diam–beban–diam untuk HWiNFO), `ulang` (satu sesi daya penuh, INT8 dan FP32 bergantian) |
+| `metrik_akurasi.py` | Accuracy, precision, recall, F1 per digit dan rata-rata, untuk INT8 dan FP32 |
 | `olah_daya_pc.py` | Mengolah log CSV HWiNFO: daya diam, daya beban, selisihnya, energi per citra, dan rangkuman per model |
 | `hasil/` | Data mentah dan rangkuman pengukuran (lihat bagian Hasil) |
 
@@ -23,6 +24,31 @@ python 5_PC/model_pc.py
 - INT8: kesepuluh akumulator lapisan 2 untuk 16/16 citra **identik** dengan
   `1_Python_PC/uji/golden_uji.txt`, sama dengan FPGA.
 - Akurasi 10.000 citra uji: INT8 97,45 %, FP32 97,45 %.
+
+### Precision, recall, F1
+
+```
+python 5_PC/metrik_akurasi.py
+```
+
+Untuk setiap digit dihitung:
+- precision = tebakan digit itu yang benar ÷ semua tebakan digit itu;
+- recall = citra digit itu yang tertebak benar ÷ semua citra digit itu;
+- F1 = 2 × precision × recall ÷ (precision + recall).
+
+Rata-rata makro adalah rata-rata biasa dari ke-10 digit. Hasil INT8 berlaku
+juga untuk FPGA, karena keduanya identik bit per bit.
+
+| Model | Accuracy | Precision | Recall | F1 |
+|---|---|---|---|---|
+| INT8 (= FPGA) | 97,45 % | 97,43 % | 97,43 % | 97,43 % |
+| FP32 (PyTorch) | 97,45 % | 97,43 % | 97,43 % | 97,43 % |
+
+- F1 terendah ada pada digit 8 dan 9 (sekitar 96,6 %), tertinggi pada
+  digit 1 dan 0 (sekitar 98,5 %).
+- INT8 dan FP32 menebak berbeda pada **35 dari 10.000** citra. Jumlah tebakan
+  benarnya kebetulan sama, tetapi citra yang salah tidak persis sama.
+- Rincian per digit dan matriks kebingungan: `hasil/metrik_akurasi.json`.
 
 ## Cara mengulang pengukuran
 
