@@ -80,10 +80,6 @@ dan pengendali otomatis.
   kombinasional).
 - Sumber daya: 2.306 LE, pengali 8/30, sama dengan `3_Quartus`.
 
-Sebagai pembanding, hasil Student A (rancangan OS lama 1.816 siklus, VCD
-memuat reset dan muat citra) adalah 91,99 mW total, 19,17 mW dinamis, dengan
-confidence *Low*.
-
 ### Daya saat diam
 
 Rumusnya sama dengan pembanding PC: **selisih = daya bekerja − daya diam**,

@@ -2,15 +2,15 @@
 //  ctrl_fsm_p8.v
 //  Pengendali orkestrasi memori untuk konfigurasi P lajur paralel.
 //
-//  Turunan dari ctrl_fsm.v (P = 1) dengan tiga perubahan pokok:
+//  Tiga ciri pokok:
 //
 //  ---------------------------------------------------------------------
 //  1. SATU PENCACAH UNTUK SELURUH BANK
 //
 //  Bank ke-j memegang neuron j, j+P, j+2P, ... Karena polanya simetris,
 //  kedelapan bank tetap dialamati oleh SATU pencacah yang sama. Alamatnya
-//  pun tetap naik satu demi satu tanpa pernah direset, persis seperti P = 1.
-//  Inilah buah dari tata letak berbank yang dirancang di Fase 1.
+//  pun naik satu demi satu tanpa pernah direset. Ini dimungkinkan oleh tata
+//  letak bobot berbank yang dibuat Tahap 7 notebook (1_Python_PC/mem/P8).
 //
 //      lapisan 1 : g*196 + i            g = 0..nA-1, i = 0..195
 //      lapisan 2 : nA*196 + g*64 + i    g = 0..nB-1, i = 0..63
@@ -27,11 +27,9 @@
 //  port tulis mem_d hanya satu, jadi hasilnya tetap dikuras satu per satu
 //  selama P siklus.
 //
-//  Versi sebelumnya menghentikan aliran selama pengurasan (keadaan TUNGGU
-//  dan KURAS): 10 kelompok x (8 kuras + 4 tunggu pipa) = 120 siklus MAC
-//  menganggur, total 1816 siklus. Kini kedelapan hasil diambil SEKALIGUS
-//  (m_ready serentak) ke register penangkap di top, lalu dikuras dari sana
-//  sementara aliran kelompok berikutnya berjalan terus. Pengurasan (P = 8
+//  Kedelapan hasil diambil SEKALIGUS (m_ready serentak) ke register
+//  penangkap di top, lalu dikuras dari sana sementara aliran kelompok
+//  berikutnya berjalan terus. Pengurasan (P = 8
 //  siklus) selalu selesai jauh sebelum hasil kelompok berikutnya keluar
 //  (paling cepat 64 siklus kemudian), jadi MAC tidak pernah tertahan.
 //

@@ -20,7 +20,7 @@ set_global_assignment -name RESERVE_ALL_UNUSED_PINS "AS INPUT TRI-STATED"
 set_global_assignment -name RESERVE_ALL_UNUSED_PINS_NO_OUTPUT_GND "AS INPUT TRI-STATED"
 set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "3.3-V LVTTL"
 
-# ---- sumber: jalur data SAMA dengan sys8_syn, ditambah pembungkus papan ----
+# ---- sumber: akselerator 8 lajur dan pembungkus papan ----
 set_global_assignment -name VERILOG_FILE ../2_Verilog/mult_bw8_arith.v
 set_global_assignment -name VERILOG_FILE ../2_Verilog/mult_bw8_struct.v
 set_global_assignment -name VERILOG_FILE ../2_Verilog/mult_hard8.v

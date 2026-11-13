@@ -52,7 +52,7 @@ module top_papan_nlr #(
     output wire [3:0]  dig
 );
 
-    // ---- ukuran rancangan, sama dengan top_akselerator_p8 ----
+    // ---- ukuran rancangan, sama dengan top_papan.v ----
     localparam P        = 8;
     localparam N_INPUT  = 196;
     localparam N_HIDDEN = 64;

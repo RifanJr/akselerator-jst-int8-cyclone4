@@ -2,16 +2,15 @@
 //  mem_w.v
 //  Memori bobot — hanya-baca, satu port, keluaran teregister.
 //
-//  Isinya diambil dari citra memori hasil gen_mem.py. Untuk P = 1 seluruh
-//  13.184 bobot berada dalam satu bank kontigu:
+//  Isinya diambil dari berkas bank bobot hasil Tahap 7 notebook
+//  (1_Python_PC/mem/P8/mem_w_b0..b7.hex). Bank ke-j memegang neuron
+//  j, j+P, j+2P, ... dengan peta alamat:
 //
-//      alamat       0 ..  12.543   bobot lapisan 1  (64 neuron x 196 masukan)
-//      alamat  12.544 ..  13.183   bobot lapisan 2  (10 neuron x  64 masukan)
-//
-//  Peta alamat umumnya (berlaku untuk P berapa pun):
 //      lapisan 1 : g*196 + i           g = 0..nA-1, i = 0..195
 //      lapisan 2 : nA*196 + g*64 + i   g = 0..nB-1, i = 0..63
-//  dengan nA = ceil(64/P) dan nB = ceil(10/P). P = 1 memberi nA = 64, nB = 10.
+//
+//  dengan nA = ceil(64/P) dan nB = ceil(10/P). Untuk P = 8: nA = 8, nB = 2,
+//  sehingga setiap bank berisi 8*196 + 2*64 = 1.696 kata.
 //
 //  KELUARAN TEREGISTER — ini keharusan, bukan pilihan gaya.
 //  Clock-to-output M9K sekitar 2-3 ns. Bila keluaran memori langsung
