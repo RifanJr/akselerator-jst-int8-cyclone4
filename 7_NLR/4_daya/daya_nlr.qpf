@@ -1,0 +1,9 @@
+# -------------------------------------------------------------------------- #
+#  daya_nlr.qpf -- analisis daya akselerator tanpa stationary (NLR)
+# -------------------------------------------------------------------------- #
+
+QUARTUS_VERSION = "25.1"
+
+# Revisions
+
+PROJECT_REVISION = "daya_nlr"

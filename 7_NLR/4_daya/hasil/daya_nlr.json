@@ -1,0 +1,104 @@
+{
+ "waktu": "2026-11-10T23:16:35",
+ "rancangan": "NLR (tanpa stationary), top_papan_nlr.v (8 lajur, pengali HARD)",
+ "branch_commit": "f5eb4f6",
+ "perangkat": "EP4CE6E22C8",
+ "logic_elements": "2,317",
+ "clock_mhz": 50.0,
+ "jendela_vcd": {
+  "siklus_mulai": 216,
+  "siklus_selesai": 2181,
+  "siklus": 1965,
+  "lama_us": 39.3,
+  "citra": "citra_00"
+ },
+ "daya": {
+  "total_mw": 118.17,
+  "inti_dinamis_mw": 45.14,
+  "inti_statis_mw": 43.23,
+  "io_mw": 29.8
+ },
+ "energi": {
+  "total_uj_per_citra": 4.644081,
+  "inti_dinamis_uj_per_citra": 1.774002,
+  "inti_statis_uj_per_citra": 1.698939,
+  "io_uj_per_citra": 1.17114
+ },
+ "keyakinan": "High: user provided sufficient toggle rate data",
+ "sumber_aktivitas": {
+  "simulasi": {
+   "sinyal": 3421,
+   "sinyal_persen": 74.7,
+   "register": 420,
+   "register_persen": 26.7
+  },
+  "assignment": {
+   "sinyal": 1152,
+   "sinyal_persen": 25.2,
+   "register": 1152,
+   "register_persen": 73.3
+  },
+  "vectorless": {
+   "sinyal": 4,
+   "sinyal_persen": 0.1,
+   "register": 0,
+   "register_persen": 0.0
+  }
+ },
+ "daya_per_jenis_blok_mw": {
+  "M9K": 20.34,
+  "Embedded multiplier block": 1.1,
+  "Embedded multiplier output": 0.24,
+  "Combinational cell": 7.76,
+  "Clock control block": 4.19,
+  "Register cell": 11.5,
+  "I/O": 10.0
+ },
+ "diam": {
+  "jendela_vcd": {
+   "siklus_mulai": 2191,
+   "siklus_selesai": 4156,
+   "siklus": 1965,
+   "lama_us": 39.3
+  },
+  "daya": {
+   "total_mw": 83.96,
+   "inti_dinamis_mw": 9.43,
+   "inti_statis_mw": 43.14,
+   "io_mw": 31.4
+  },
+  "daya_per_jenis_blok_mw": {
+   "M9K": 2.06,
+   "Embedded multiplier output": 0.0,
+   "Combinational cell": 0.06,
+   "Clock control block": 4.19,
+   "Register cell": 3.12,
+   "I/O": 11.6
+  },
+  "keyakinan": "High: user provided sufficient toggle rate data",
+  "sumber_aktivitas": {
+   "simulasi": {
+    "sinyal": 3421,
+    "sinyal_persen": 74.7,
+    "register": 420,
+    "register_persen": 26.7
+   },
+   "assignment": {
+    "sinyal": 1152,
+    "sinyal_persen": 25.2,
+    "register": 1152,
+    "register_persen": 73.3
+   },
+   "vectorless": {
+    "sinyal": 4,
+    "sinyal_persen": 0.1,
+    "register": 0,
+    "register_persen": 0.0
+   }
+  }
+ },
+ "selisih_kerja_minus_diam": {
+  "total_mw": 34.21,
+  "energi_tambahan_uj_per_citra": 1.344453
+ }
+}

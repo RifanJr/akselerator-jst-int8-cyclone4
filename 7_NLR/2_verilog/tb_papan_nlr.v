@@ -1,0 +1,129 @@
+`timescale 1ns/1ps
+// ============================================================================
+//  tb_papan_nlr.v  --  uji rancangan papan top_papan_nlr.v (NLR)
+//  Salinan 2_Verilog/tb_papan.v; tambahannya hanya pencacah akses memori.
+//
+//  Meniru orang yang menekan tombol di papan:
+//    1. citra 00 berjalan sendiri saat dinyalakan
+//    2. key[0] ditekan 15 kali -> citra 01 .. 15
+//    3. key[1] sekali  -> kembali ke citra 14
+//    4. key[2] sekali  -> citra 14 dijalankan ulang
+//    5. key[3] ditahan -> tampilan harus berganti ke jumlah siklus
+//
+//  Tiap hasil dicetak dalam baris HASIL yang diurai jalankan_papan.py dan
+//  dicocokkan ke uji/golden_uji.txt: digit terpilih, nilai akumulator
+//  pemenangnya, DAN kesepuluh akumulator lapisan 2 (baris AKS) harus sama
+//  persis.
+//
+//  Pewaktuan tombol, pindai, dan kedip diperkecil supaya simulasi cepat.
+//  Logikanya sama; hanya angka pembaginya yang berbeda.
+// ============================================================================
+module tb_papan_nlr;
+
+    reg clk = 0;
+    always #10 clk = ~clk;          // 50 MHz
+
+    reg  [3:0] key = 4'b1111;       // tombol aktif-rendah, dilepas
+    wire [3:0] led;
+    wire [7:0] seg;
+    wire [3:0] dig;
+
+    localparam SAMPEL = 16;
+
+    top_papan_nlr #(.SAMPEL_TOMBOL(SAMPEL), .SETENGAH_DETIK(200), .PINDAI(4)) u_top (
+        .clk(clk), .key(key), .led(led), .seg(seg), .dig(dig));
+
+    integer salah = 0;
+
+    // Setiap keluaran lapisan 2 (sepuluh per inferensi) dicetak dalam baris
+    // AKS, supaya jalankan_papan.py dapat mencocokkan KESEPULUH akumulator,
+    // bukan hanya akumulator pemenangnya.
+    always @(posedge clk)
+        if (u_top.amax_valid)
+            $display("AKS %0d %0d", u_top.amax_idx, u_top.acc_terpilih);
+
+
+    // ---- pencacah akses memori dan siklus, inferensi pertama (citra 00) ----
+    integer c_siklus = 0, c_bank = 0, c_masuk = 0, c_ps_baca = 0, c_ps_tulis = 0;
+    integer c_mac = 0, c_akt = 0, bb;
+    always @(posedge clk)
+        if (u_top.rst_n === 1'b1 && u_top.jumlah_hasil == 0) begin
+            if (u_top.sibuk)  c_siklus = c_siklus + 1;
+            if (u_top.mem_en) begin
+                c_bank  = c_bank + 8;           // kedelapan bank bobot dibaca
+                c_masuk = c_masuk + 1;          // satu masukan dibaca
+            end
+            if (u_top.wr_en) c_akt = c_akt + 1;
+            for (bb = 0; bb < 8; bb = bb + 1) begin
+                c_ps_baca  = c_ps_baca  + u_top.ps_rd_en[bb];
+                c_ps_tulis = c_ps_tulis + u_top.ps_wr_en[bb];
+                c_mac      = c_mac      + u_top.s_valid_lajur[bb];
+            end
+        end
+
+    task tekan(input integer n);
+    begin
+        key[n] = 1'b0;
+        repeat (SAMPEL * 4) @(posedge clk);
+        key[n] = 1'b1;
+        repeat (SAMPEL * 4) @(posedge clk);
+    end
+    endtask
+
+    task tunggu_hasil(input integer sebelum);
+        integer batas;
+    begin
+        batas = 0;
+        while (u_top.jumlah_hasil === sebelum && batas < 20000) begin
+            @(posedge clk); batas = batas + 1;
+        end
+        if (u_top.jumlah_hasil === sebelum) begin
+            $display("GAGAL: hasil tidak pernah keluar");
+            salah = salah + 1;
+        end
+        @(posedge clk);
+        // LED aktif-rendah: led[3] = cocok, led[2] = berbeda
+        $display("HASIL %0d %0d %0d %0d %0d %0d",
+                 u_top.idx, u_top.hasil_r, u_top.nilai_r, u_top.siklus_r,
+                 ~led[3], ~led[2]);
+    end
+    endtask
+
+    integer n, sebelum;
+    initial begin
+        // 1. citra 00 berjalan sendiri setelah reset internal lepas
+        wait (u_top.rst_n === 1'b1);
+        tunggu_hasil(0);
+
+        // 2. citra 01 .. 15
+        for (n = 1; n < 16; n = n + 1) begin
+            sebelum = u_top.jumlah_hasil;
+            tekan(0);
+            tunggu_hasil(sebelum);
+        end
+
+        // 3. mundur satu
+        sebelum = u_top.jumlah_hasil;
+        tekan(1);
+        tunggu_hasil(sebelum);
+
+        // 4. ulangi citra yang sama
+        sebelum = u_top.jumlah_hasil;
+        tekan(2);
+        tunggu_hasil(sebelum);
+
+        // 5. mode siklus: tampilan harus jumlah siklus inferensi dalam BCD
+        key[3] = 1'b0;
+        repeat (SAMPEL * 4) @(posedge clk);
+        $display("TAMPIL_SIKLUS %h LED1 %0d", u_top.tampil, ~led[1]);
+        key[3] = 1'b1;
+        repeat (SAMPEL * 4) @(posedge clk);
+        $display("TAMPIL_NORMAL %h", u_top.tampil);
+
+        $display("AKSES %0d %0d %0d %0d %0d %0d %0d", c_siklus, c_bank, c_masuk,
+                 c_ps_baca, c_ps_tulis, c_mac, c_akt);
+        $display("SELESAI");
+        $finish;
+    end
+
+endmodule
