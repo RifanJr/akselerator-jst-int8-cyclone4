@@ -3,18 +3,17 @@
 //  Akselerator JST INT8 P = 8 pada papan Cyclone IV — rancangan demonstrasi.
 //
 //  ---------------------------------------------------------------------
-//  HUBUNGAN DENGAN top_akselerator_p8.v
+//  ISI RANCANGAN
 //
-//  Jalur data di berkas ini diturunkan dari top_akselerator_p8.v (modul
-//  mem_w, mem_d, mac_unit, epilog_unit, argmax10, rom_bias8, ctrl_fsm_p8),
-//  dengan dua tambahan:
+//  Jalur data akselerator memakai modul mem_w, mem_d, mac_unit,
+//  epilog_unit, argmax10, rom_bias8, dan ctrl_fsm_p8, ditambah:
 //
 //    1. mux pada port tulis mem_d, supaya citra uji dapat dimuat ke alamat
 //       piksel 0..195 sebelum inferensi dimulai. Saat akselerator berjalan,
 //       mux itu selalu memilih jalur tulis aktivasi milik pengendali.
 //    2. register penangkap 8 x 32 bit, supaya kedelapan hasil lajur diambil
 //       sekaligus dan MAC tidak tertahan selama pengurasan (lihat bagian 2
-//       di ctrl_fsm_p8.v). Satu inferensi kini 1708 siklus, bukan 1816.
+//       di ctrl_fsm_p8.v). Satu inferensi 1708 siklus.
 //
 //  Kebenarannya dibuktikan oleh tb_papan.v: kesepuluh akumulator keluaran
 //  ke-16 citra identik dengan acuan Python.
@@ -71,7 +70,7 @@ module top_papan #(
     output wire [3:0]  dig
 );
 
-    // ---- ukuran rancangan, sama dengan top_akselerator_p8 ----
+    // ---- ukuran rancangan ----
     localparam P        = 8;
     localparam N_INPUT  = 196;
     localparam N_HIDDEN = 64;
@@ -97,7 +96,7 @@ module top_papan #(
     end
 
     // ==================================================================
-    //  Jalur data akselerator — salinan sambungan top_akselerator_p8
+    //  Jalur data akselerator
     // ==================================================================
     wire [AW_W-1:0] addr_w;
     wire [AW_D-1:0] addr_d;

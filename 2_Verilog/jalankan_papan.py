@@ -24,9 +24,9 @@ AKAR = Path(__file__).resolve().parent
 RTL = AKAR
 UJI = AKAR.parent / "1_Python_PC" / "uji"
 BUILD = AKAR / "build_sapu"
-# 1696 suku dialirkan tanpa henti (1568 lapisan 1 + 128 lapisan 2), ditambah
-# 12 siklus ekor: 2 pipa penanda + 2 MAC + 8 pengurasan kelompok terakhir.
-# (Versi lama yang menghentikan aliran saat pengurasan: 1816.)
+# 1708 siklus = 2 siklus isi pipa awal (latensi baca memori)
+#             + 1696 suku MAC tanpa henti (1568 lapisan 1 + 128 lapisan 2)
+#             + 10 siklus ekor (2 pipa MAC + 8 pengurasan kelompok terakhir).
 SIKLUS_HARAP = 1708
 
 SUMBER = ["tb_papan.v", "top_papan.v", "ctrl_fsm_p8.v", "mem_w.v", "mem_d.v",
