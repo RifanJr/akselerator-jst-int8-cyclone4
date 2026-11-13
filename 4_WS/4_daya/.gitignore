@@ -1,0 +1,9 @@
+# Hasil kompilasi dan simulasi, dibuat ulang oleh jalankan_daya_ws.py
+build/
+output_ws/
+db/
+incremental_db/
+simulation/
+greybox_tmp/
+*.qws
+*.qarlog
