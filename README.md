@@ -168,6 +168,13 @@ S2 sebelumnya, S3 ulang, S4 ditahan menampilkan jumlah siklus (1708).
 *Papan menampilkan `00.77`: citra uji nomor 00, tebakan Python 7, tebakan
 FPGA 7.*
 
+![Papan OMDAZZ Cyclone IV menampilkan 1708 saat S4 ditahan](gambar/papan_siklus.jpg)
+
+*S4 ditahan: papan menampilkan jumlah siklus satu inferensi, `1708`.*
+
+Uji papan rancangan akhir (14 November 2026): 16 dari 16 citra uji cocok
+dengan tebakan Python, dan setiap inferensi tepat 1.708 siklus.
+
 ---
 
 ## 4_WS
