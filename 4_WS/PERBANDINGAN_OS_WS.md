@@ -114,7 +114,7 @@ di bawahnya. Pada OS, kedelapan MAC hanya memakan 4,39 mW. Argmax
 
 ## Dibandingkan dengan PC
 
-Angka PC berasal dari `5_PC/` (INT8 NumPy, satu inti Ryzen 5 7535HS).
-Energi total per citra PC adalah 399,5 µJ, sehingga OS sekitar 125× lebih
-hemat dan WS sekitar 112× lebih hemat. Kedua rancangan FPGA jauh lebih hemat
+Angka PC berasal dari `5_PC_Linux/` (INT8 NumPy, satu inti terisolasi Ryzen 5
+7535HS). Energi total per citra PC adalah 350,2 µJ, sehingga OS sekitar 109×
+lebih hemat dan WS sekitar 98× lebih hemat. Kedua rancangan FPGA jauh lebih hemat
 daripada PC, dan selisih antara OS dan WS kecil dibanding selisih FPGA–PC.

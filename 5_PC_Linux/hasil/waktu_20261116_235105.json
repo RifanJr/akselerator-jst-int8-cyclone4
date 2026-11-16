@@ -1,0 +1,196 @@
+{
+  "lingkungan": {
+    "waktu": "2026-11-16T23:51:05",
+    "cpu": "AMD Ryzen 5 7535HS with Radeon Graphics",
+    "cpu_logis": 12,
+    "os": "Linux-7.0.0-43-generic-x86_64-with-glibc2.43",
+    "python": "3.12.10",
+    "numpy": "1.26.4",
+    "torch": "2.12.1+cpu",
+    "skema_daya": "power_profiles_daemon=balanced, platform_profile=balanced, driver=amd-pstate-epp, amd_pstate=active, governor=powersave, epp=balance_performance",
+    "baterai": "BAT1 78% status=Not charging; ACAD online=1",
+    "desktop": "inactive",
+    "root": true,
+    "isolasi": {
+      "cmdline": "BOOT_IMAGE=/boot/vmlinuz-7.0.0-43-generic root=UUID=6d0dca48-b219-450e-9c88-3b682d96a6a8 ro quiet splash isolcpus=domain,managed_irq,4,5 nohz_full=4,5 rcu_nocbs=4,5 irqaffinity=0-3,6-11 crashkernel=2G-4G:320M,4G-32G:512M,32G-64G:1024M,64G-128G:2048M,128G-:4096M",
+      "isolated": "4-5",
+      "nohz_full": "4-5"
+    }
+  },
+  "jalan": [
+    {
+      "mode_thread": "1",
+      "torch_thread": 1,
+      "kunci_inti": {
+        "inti_fisik": null
+      },
+      "model": {
+        "INT8 (NumPy)": {
+          "latensi_satu_citra": {
+            "n": 10000,
+            "median_us": 15.91,
+            "rata_us": 16.042129499999998,
+            "simpangan_us": 0.6107943175323015,
+            "p95_us": 16.431,
+            "p99_us": 19.597,
+            "min_us": 15.579,
+            "maks_us": 23.755
+          },
+          "throughput": [
+            {
+              "batch": 1,
+              "citra_per_detik": 61370.93118273132,
+              "us_per_citra": 16.29435924676636
+            },
+            {
+              "batch": 16,
+              "citra_per_detik": 130093.16396900405,
+              "us_per_citra": 7.686798979216615
+            },
+            {
+              "batch": 10000,
+              "citra_per_detik": 141826.073615822,
+              "us_per_citra": 7.050889688371383
+            }
+          ]
+        },
+        "FP32 (PyTorch)": {
+          "latensi_satu_citra": {
+            "n": 10000,
+            "median_us": 20.168,
+            "rata_us": 20.4330829,
+            "simpangan_us": 1.1245910198946059,
+            "p95_us": 22.012449999999994,
+            "p99_us": 25.979,
+            "min_us": 19.537,
+            "maks_us": 32.892
+          },
+          "throughput": [
+            {
+              "batch": 1,
+              "citra_per_detik": 48901.97587618271,
+              "us_per_citra": 20.44907147580189
+            },
+            {
+              "batch": 16,
+              "citra_per_detik": 563166.07828971,
+              "us_per_citra": 1.775675131280846
+            },
+            {
+              "batch": 10000,
+              "citra_per_detik": 3101358.13106284,
+              "us_per_citra": 0.3224393822771118
+            }
+          ]
+        }
+      },
+      "jendela_mono": [
+        5341.064795854,
+        5359.58560213
+      ],
+      "tid": [
+        14388
+      ],
+      "bukti": {
+        "sela_sukarela": 1,
+        "sela_paksa": 31,
+        "proc_stat": {},
+        "interupsi": {}
+      }
+    },
+    {
+      "mode_thread": "bawaan",
+      "torch_thread": 6,
+      "kunci_inti": {
+        "inti_fisik": null
+      },
+      "model": {
+        "INT8 (NumPy)": {
+          "latensi_satu_citra": {
+            "n": 10000,
+            "median_us": 15.8,
+            "rata_us": 15.916005100000001,
+            "simpangan_us": 0.5751741328276073,
+            "p95_us": 16.250049999999998,
+            "p99_us": 19.4261,
+            "min_us": 15.459,
+            "maks_us": 21.841
+          },
+          "throughput": [
+            {
+              "batch": 1,
+              "citra_per_detik": 62625.67086034605,
+              "us_per_citra": 15.967892818744877
+            },
+            {
+              "batch": 16,
+              "citra_per_detik": 130543.67011613178,
+              "us_per_citra": 7.660271839380639
+            },
+            {
+              "batch": 10000,
+              "citra_per_detik": 142073.12792398556,
+              "us_per_citra": 7.038628730234175
+            }
+          ]
+        },
+        "FP32 (PyTorch)": {
+          "latensi_satu_citra": {
+            "n": 10000,
+            "median_us": 20.489,
+            "rata_us": 20.755716599999996,
+            "simpangan_us": 1.1565072109089678,
+            "p95_us": 22.302999999999987,
+            "p99_us": 26.43901,
+            "min_us": 19.857,
+            "maks_us": 37.25
+          },
+          "throughput": [
+            {
+              "batch": 1,
+              "citra_per_detik": 47323.838515296025,
+              "us_per_citra": 21.130999330850553
+            },
+            {
+              "batch": 16,
+              "citra_per_detik": 414385.6067635976,
+              "us_per_citra": 2.413211230501278
+            },
+            {
+              "batch": 10000,
+              "citra_per_detik": 7729600.227651949,
+              "us_per_citra": 0.12937279685210498
+            }
+          ]
+        }
+      },
+      "jendela_mono": [
+        5360.863711767,
+        5379.379440025
+      ],
+      "tid": [
+        14430,
+        14431,
+        14432,
+        14433,
+        14434,
+        14435,
+        14436,
+        14437,
+        14438,
+        14439,
+        14440,
+        14441,
+        14442,
+        14443,
+        14444
+      ],
+      "bukti": {
+        "sela_sukarela": 6,
+        "sela_paksa": 65,
+        "proc_stat": {},
+        "interupsi": {}
+      }
+    }
+  ]
+}

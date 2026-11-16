@@ -1,0 +1,296 @@
+=== Pengukuran resmi PC Linux, mulai 2026-11-16 23:50:42 ===
+isolated=4-5  nohz_full=4-5  charger=tersambung  mode daya=balanced
+cmdline: BOOT_IMAGE=/boot/vmlinuz-7.0.0-43-generic root=UUID=6d0dca48-b219-450e-9c88-3b682d96a6a8 ro quiet splash isolcpus=domain,managed_irq,4,5 nohz_full=4,5 rcu_nocbs=4,5 irqaffinity=0-3,6-11 crashkernel=2G-4G:320M,4G-32G:512M,32G-64G:1024M,64G-128G:2048M,128G-:4096M
+desktop: tidak aktif (mode teks)
+Perkiraan selesai: 00:23. Jangan memakai laptop sampai selesai.
+
+### 1/3  waktu --inti 2   (23:50:42)
+mengukur, mode thread = 1, inti fisik 2 ...
+
+CPU       : AMD Ryzen 5 7535HS with Radeon Graphics (12 thread logis)
+Pustaka   : Python 3.12.10, NumPy 1.26.4, PyTorch 2.12.1+cpu
+Baterai   : BAT1 78% status=Not charging; ACAD online=1
+Mode daya : power_profiles_daemon=balanced, platform_profile=balanced, driver=amd-pstate-epp, amd_pstate=active, governor=powersave, epp=balance_performance
+Isolasi   : isolated=4-5, nohz_full=4-5, desktop=inactive
+
+Model            Thread     Median      Rata       p95       p99     Simp          b=1       b=16    b=10000
+                              (µs)      (µs)      (µs)      (µs)     (µs)      citra/s    citra/s    citra/s
+INT8 (NumPy)     1           15.79     15.85     16.18     17.24     0.32        61809     130413     140940
+FP32 (PyTorch)   1           20.41     20.55     20.89     24.72     0.79        48826     560871    3095786
+
+Bukti selama jendela pengukuran:
+  ftrace cpu4 (uji): inferensi 99.9968 %, diam 0.0032 %, lain 10.0 µs [kworker/4:1 10.0 µs], buffer hilang 0
+  ftrace cpu5 (kembar): tidak ada pergantian tugas sama sekali, buffer hilang 0 (status: lihat /proc/stat)
+  sela paksa proses inferensi: 1  (sukarela: 1)
+  /proc/stat cpu4: user 100.0 %, system 0.0 %, idle 0.0 %, irq+softirq 0.0 % (dari 18.54 detik)
+  /proc/stat cpu5: user 0.0 %, system 0.0 %, idle 100.0 %, irq+softirq 0.0 % (dari 18.54 detik)
+  interupsi cpu4: {"LOC": 3, "CAL": 9, "TLB": 2, "softirq TIMER": 3}
+  interupsi cpu5: {"LOC": 6, "CAL": 5, "softirq TIMER": 6, "softirq RCU": 3}
+
+hasil lengkap: /home/rifan/skripsi/Alur_Utama/5_PC_Linux/hasil/waktu_inti2_20261116_235044.json
+
+### 2/3  waktu (tanpa kunci inti)   (23:51:04)
+mengukur, mode thread = 1 ...
+mengukur, mode thread = bawaan ...
+
+CPU       : AMD Ryzen 5 7535HS with Radeon Graphics (12 thread logis)
+Pustaka   : Python 3.12.10, NumPy 1.26.4, PyTorch 2.12.1+cpu
+Baterai   : BAT1 78% status=Not charging; ACAD online=1
+Mode daya : power_profiles_daemon=balanced, platform_profile=balanced, driver=amd-pstate-epp, amd_pstate=active, governor=powersave, epp=balance_performance
+Isolasi   : isolated=4-5, nohz_full=4-5, desktop=inactive
+
+Model            Thread     Median      Rata       p95       p99     Simp          b=1       b=16    b=10000
+                              (µs)      (µs)      (µs)      (µs)     (µs)      citra/s    citra/s    citra/s
+INT8 (NumPy)     1           15.91     16.04     16.43     19.60     0.61        61371     130093     141826
+FP32 (PyTorch)   1           20.17     20.43     22.01     25.98     1.12        48902     563166    3101358
+INT8 (NumPy)     bawaan      15.80     15.92     16.25     19.43     0.58        62626     130544     142073
+FP32 (PyTorch)   bawaan      20.49     20.76     22.30     26.44     1.16        47324     414386    7729600
+
+hasil lengkap: /home/rifan/skripsi/Alur_Utama/5_PC_Linux/hasil/waktu_20261116_235105.json
+
+### 3/3  ulang --kali 5 --detik 60 --inti 2   (23:51:45)
+Sesi: 5 ulangan x 2 model (int8, fp32) = 10 pengukuran, 60 detik per fase, inti fisik 2
+Perkiraan lama: 31 menit, selesai sekitar pukul 00:22
+Jangan memakai laptop sampai selesai.
+
+23:51:45  menunggu 60 detik supaya sistem tenang ...
+
+=== pengukuran 1/10: INT8, ulangan 1 ===
+2026-11-16T23:52:47.025  diam_mulai
+2026-11-16T23:53:47.026  beban_mulai
+2026-11-16T23:54:47.028  beban_selesai
+2026-11-16T23:55:47.030  diam_selesai
+
+3722088 inferensi dalam 60.0 detik (62035 citra/detik)
+waktu CPU proses: 60.0 detik = 100.0 % satu prosesor logis
+dikunci ke inti fisik 2 (prosesor logis 4), prioritas normal
+Bukti selama fase beban:
+  ftrace cpu4 (uji): inferensi 100.0000 %, diam 0.0000 %, lain 10.0 µs [kworker/4:1 10.0 µs], buffer hilang 0
+  ftrace cpu5 (kembar): tidak ada pergantian tugas sama sekali, buffer hilang 0 (status: lihat /proc/stat)
+  sela paksa proses inferensi: 1  (sukarela: 0)
+  /proc/stat cpu4: user 100.0 %, system 0.0 %, idle 0.0 %, irq+softirq 0.0 % (dari 60.00 detik)
+  /proc/stat cpu5: user 0.0 %, system 0.0 %, idle 100.0 %, irq+softirq 0.0 % (dari 60.01 detik)
+  interupsi cpu4: {"LOC": 16, "CAL": 11, "softirq TIMER": 10}
+  interupsi cpu5: {"LOC": 14, "CAL": 10, "softirq TIMER": 14, "softirq RCU": 10}
+  daya paket CPU: diam 5.819 W, beban 21.683 W, selisih 15.864 W -> energi total 349.53 µJ/citra, tambahan 255.72 µJ/citra
+  daya inti 2   : diam 0.000 W, beban 10.738 W, selisih 10.738 W -> energi total 173.10 µJ/citra, tambahan 173.10 µJ/citra
+  frekuensi efektif saat beban: 4420 MHz, suhu 37.75 -> 85.25 °C
+cap waktu fase: /home/rifan/skripsi/Alur_Utama/5_PC_Linux/hasil/beban_int8_1_inti2_20261116_235246.json
+
+=== pengukuran 2/10: FP32, ulangan 1 ===
+2026-11-16T23:55:49.029  diam_mulai
+2026-11-16T23:56:49.030  beban_mulai
+2026-11-16T23:57:49.032  beban_selesai
+2026-11-16T23:58:49.034  diam_selesai
+
+2825908 inferensi dalam 60.0 detik (47098 citra/detik)
+waktu CPU proses: 60.0 detik = 100.0 % satu prosesor logis
+dikunci ke inti fisik 2 (prosesor logis 4), prioritas normal
+Bukti selama fase beban:
+  ftrace cpu4 (uji): inferensi 100.0000 %, diam 0.0000 %, lain 11.0 µs [kworker/4:1 11.0 µs], buffer hilang 0
+  ftrace cpu5 (kembar): tidak ada pergantian tugas sama sekali, buffer hilang 0 (status: lihat /proc/stat)
+  sela paksa proses inferensi: 1  (sukarela: 0)
+  /proc/stat cpu4: user 100.0 %, system 0.0 %, idle 0.0 %, irq+softirq 0.0 % (dari 60.00 detik)
+  /proc/stat cpu5: user 0.0 %, system 0.0 %, idle 100.0 %, irq+softirq 0.0 % (dari 60.00 detik)
+  interupsi cpu4: {"LOC": 15, "CAL": 11, "softirq TIMER": 10}
+  interupsi cpu5: {"LOC": 15, "CAL": 10, "softirq TIMER": 15, "softirq RCU": 11}
+  daya paket CPU: diam 5.824 W, beban 20.896 W, selisih 15.072 W -> energi total 443.66 µJ/citra, tambahan 320.02 µJ/citra
+  daya inti 2   : diam 0.000 W, beban 10.822 W, selisih 10.822 W -> energi total 229.77 µJ/citra, tambahan 229.76 µJ/citra
+  frekuensi efektif saat beban: 4458 MHz, suhu 37.625 -> 77.625 °C
+cap waktu fase: /home/rifan/skripsi/Alur_Utama/5_PC_Linux/hasil/beban_fp32_1_inti2_20261116_235548.json
+
+=== pengukuran 3/10: INT8, ulangan 2 ===
+2026-11-16T23:58:51.041  diam_mulai
+2026-11-16T23:59:51.042  beban_mulai
+2026-11-17T00:00:51.044  beban_selesai
+2026-11-17T00:01:51.046  diam_selesai
+
+3732530 inferensi dalam 60.0 detik (62209 citra/detik)
+waktu CPU proses: 60.0 detik = 100.0 % satu prosesor logis
+dikunci ke inti fisik 2 (prosesor logis 4), prioritas normal
+Bukti selama fase beban:
+  ftrace cpu4 (uji): inferensi 100.0000 %, diam 0.0000 %, lain 9.0 µs [kworker/4:1 9.0 µs], buffer hilang 0
+  ftrace cpu5 (kembar): tidak ada pergantian tugas sama sekali, buffer hilang 0 (status: lihat /proc/stat)
+  sela paksa proses inferensi: 1  (sukarela: 0)
+  /proc/stat cpu4: user 100.0 %, system 0.0 %, idle 0.0 %, irq+softirq 0.0 % (dari 59.99 detik)
+  /proc/stat cpu5: user 0.0 %, system 0.0 %, idle 100.0 %, irq+softirq 0.0 % (dari 60.00 detik)
+  interupsi cpu4: {"LOC": 17, "IWI": 1, "CAL": 11, "MCP": 1, "softirq TIMER": 11}
+  interupsi cpu5: {"LOC": 11, "IWI": 1, "CAL": 10, "MCP": 1, "softirq TIMER": 11, "softirq RCU": 11}
+  daya paket CPU: diam 5.820 W, beban 22.040 W, selisih 16.220 W -> energi total 354.29 µJ/citra, tambahan 260.73 µJ/citra
+  daya inti 2   : diam 0.000 W, beban 10.732 W, selisih 10.732 W -> energi total 172.51 µJ/citra, tambahan 172.51 µJ/citra
+  frekuensi efektif saat beban: 4413 MHz, suhu 37.625 -> 85.375 °C
+cap waktu fase: /home/rifan/skripsi/Alur_Utama/5_PC_Linux/hasil/beban_int8_1_inti2_20261116_235851.json
+
+=== pengukuran 4/10: FP32, ulangan 2 ===
+2026-11-17T00:01:53.038  diam_mulai
+2026-11-17T00:02:53.040  beban_mulai
+2026-11-17T00:03:53.041  beban_selesai
+2026-11-17T00:04:53.044  diam_selesai
+
+2891137 inferensi dalam 60.0 detik (48186 citra/detik)
+waktu CPU proses: 60.0 detik = 100.0 % satu prosesor logis
+dikunci ke inti fisik 2 (prosesor logis 4), prioritas normal
+Bukti selama fase beban:
+  ftrace cpu4 (uji): inferensi 100.0000 %, diam 0.0000 %, lain 10.0 µs [kworker/4:1 10.0 µs], buffer hilang 0
+  ftrace cpu5 (kembar): tidak ada pergantian tugas sama sekali, buffer hilang 0 (status: lihat /proc/stat)
+  sela paksa proses inferensi: 1  (sukarela: 0)
+  /proc/stat cpu4: user 100.0 %, system 0.0 %, idle 0.0 %, irq+softirq 0.0 % (dari 60.00 detik)
+  /proc/stat cpu5: user 0.0 %, system 0.0 %, idle 100.0 %, irq+softirq 0.0 % (dari 60.00 detik)
+  interupsi cpu4: {"LOC": 18, "CAL": 11, "softirq TIMER": 10}
+  interupsi cpu5: {"LOC": 10, "CAL": 10, "softirq TIMER": 10, "softirq RCU": 10}
+  daya paket CPU: diam 5.819 W, beban 21.025 W, selisih 15.206 W -> energi total 436.33 µJ/citra, tambahan 315.57 µJ/citra
+  daya inti 2   : diam 0.000 W, beban 10.838 W, selisih 10.837 W -> energi total 224.91 µJ/citra, tambahan 224.91 µJ/citra
+  frekuensi efektif saat beban: 4457 MHz, suhu 37.75 -> 78.25 °C
+cap waktu fase: /home/rifan/skripsi/Alur_Utama/5_PC_Linux/hasil/beban_fp32_1_inti2_20261117_000153.json
+
+=== pengukuran 5/10: INT8, ulangan 3 ===
+2026-11-17T00:04:55.040  diam_mulai
+2026-11-17T00:05:55.041  beban_mulai
+2026-11-17T00:06:55.043  beban_selesai
+2026-11-17T00:07:55.045  diam_selesai
+
+3745810 inferensi dalam 60.0 detik (62430 citra/detik)
+waktu CPU proses: 60.0 detik = 100.0 % satu prosesor logis
+dikunci ke inti fisik 2 (prosesor logis 4), prioritas normal
+Bukti selama fase beban:
+  ftrace cpu4 (uji): inferensi 100.0000 %, diam 0.0000 %, lain 9.0 µs [kworker/4:1 9.0 µs], buffer hilang 0
+  ftrace cpu5 (kembar): tidak ada pergantian tugas sama sekali, buffer hilang 0 (status: lihat /proc/stat)
+  sela paksa proses inferensi: 1  (sukarela: 0)
+  /proc/stat cpu4: user 100.0 %, system 0.0 %, idle 0.0 %, irq+softirq 0.0 % (dari 60.00 detik)
+  /proc/stat cpu5: user 0.0 %, system 0.0 %, idle 100.0 %, irq+softirq 0.0 % (dari 60.01 detik)
+  interupsi cpu4: {"LOC": 15, "IWI": 1, "CAL": 11, "MCP": 1, "softirq TIMER": 11}
+  interupsi cpu5: {"LOC": 10, "IWI": 1, "CAL": 9, "MCP": 1, "softirq TIMER": 10, "softirq RCU": 10}
+  daya paket CPU: diam 5.821 W, beban 21.782 W, selisih 15.961 W -> energi total 348.90 µJ/citra, tambahan 255.66 µJ/citra
+  daya inti 2   : diam 0.000 W, beban 10.778 W, selisih 10.778 W -> energi total 172.64 µJ/citra, tambahan 172.64 µJ/citra
+  frekuensi efektif saat beban: 4420 MHz, suhu 37.75 -> 85.375 °C
+cap waktu fase: /home/rifan/skripsi/Alur_Utama/5_PC_Linux/hasil/beban_int8_1_inti2_20261117_000455.json
+
+=== pengukuran 6/10: FP32, ulangan 3 ===
+2026-11-17T00:07:57.042  diam_mulai
+2026-11-17T00:08:57.043  beban_mulai
+2026-11-17T00:09:57.045  beban_selesai
+2026-11-17T00:10:57.047  diam_selesai
+
+2891386 inferensi dalam 60.0 detik (48190 citra/detik)
+waktu CPU proses: 60.0 detik = 100.0 % satu prosesor logis
+dikunci ke inti fisik 2 (prosesor logis 4), prioritas normal
+Bukti selama fase beban:
+  ftrace cpu4 (uji): inferensi 100.0000 %, diam 0.0000 %, lain 10.0 µs [kworker/4:1 10.0 µs], buffer hilang 0
+  ftrace cpu5 (kembar): tidak ada pergantian tugas sama sekali, buffer hilang 0 (status: lihat /proc/stat)
+  sela paksa proses inferensi: 1  (sukarela: 0)
+  /proc/stat cpu4: user 100.0 %, system 0.0 %, idle 0.0 %, irq+softirq 0.0 % (dari 60.01 detik)
+  /proc/stat cpu5: user 0.0 %, system 0.0 %, idle 100.0 %, irq+softirq 0.0 % (dari 60.01 detik)
+  interupsi cpu4: {"LOC": 15, "CAL": 11, "softirq TIMER": 10}
+  interupsi cpu5: {"LOC": 10, "CAL": 10, "softirq TIMER": 10, "softirq RCU": 10}
+  daya paket CPU: diam 5.782 W, beban 20.836 W, selisih 15.054 W -> energi total 432.37 µJ/citra, tambahan 312.39 µJ/citra
+  daya inti 2   : diam 0.000 W, beban 10.920 W, selisih 10.920 W -> energi total 226.61 µJ/citra, tambahan 226.61 µJ/citra
+  frekuensi efektif saat beban: 4458 MHz, suhu 37.75 -> 78.25 °C
+cap waktu fase: /home/rifan/skripsi/Alur_Utama/5_PC_Linux/hasil/beban_fp32_1_inti2_20261117_000757.json
+
+=== pengukuran 7/10: INT8, ulangan 4 ===
+2026-11-17T00:10:59.027  diam_mulai
+2026-11-17T00:11:59.029  beban_mulai
+2026-11-17T00:12:59.031  beban_selesai
+2026-11-17T00:13:59.033  diam_selesai
+
+3716509 inferensi dalam 60.0 detik (61942 citra/detik)
+waktu CPU proses: 60.0 detik = 100.0 % satu prosesor logis
+dikunci ke inti fisik 2 (prosesor logis 4), prioritas normal
+Bukti selama fase beban:
+  ftrace cpu4 (uji): inferensi 100.0000 %, diam 0.0000 %, lain 9.0 µs [kworker/4:1 9.0 µs], buffer hilang 0
+  ftrace cpu5 (kembar): tidak ada pergantian tugas sama sekali, buffer hilang 0 (status: lihat /proc/stat)
+  sela paksa proses inferensi: 1  (sukarela: 0)
+  /proc/stat cpu4: user 100.0 %, system 0.0 %, idle 0.0 %, irq+softirq 0.0 % (dari 60.00 detik)
+  /proc/stat cpu5: user 0.0 %, system 0.0 %, idle 100.0 %, irq+softirq 0.0 % (dari 60.00 detik)
+  interupsi cpu4: {"LOC": 16, "CAL": 11, "softirq TIMER": 10}
+  interupsi cpu5: {"LOC": 10, "CAL": 10, "softirq TIMER": 10, "softirq RCU": 10}
+  daya paket CPU: diam 5.734 W, beban 21.597 W, selisih 15.863 W -> energi total 348.67 µJ/citra, tambahan 256.10 µJ/citra
+  daya inti 2   : diam 0.000 W, beban 10.776 W, selisih 10.776 W -> energi total 173.96 µJ/citra, tambahan 173.96 µJ/citra
+  frekuensi efektif saat beban: 4424 MHz, suhu 38.375 -> 86.25 °C
+cap waktu fase: /home/rifan/skripsi/Alur_Utama/5_PC_Linux/hasil/beban_int8_1_inti2_20261117_001058.json
+
+=== pengukuran 8/10: FP32, ulangan 4 ===
+2026-11-17T00:14:00.798  diam_mulai
+2026-11-17T00:15:00.799  beban_mulai
+2026-11-17T00:16:00.801  beban_selesai
+2026-11-17T00:17:00.803  diam_selesai
+
+2856869 inferensi dalam 60.0 detik (47614 citra/detik)
+waktu CPU proses: 60.0 detik = 100.0 % satu prosesor logis
+dikunci ke inti fisik 2 (prosesor logis 4), prioritas normal
+Bukti selama fase beban:
+  ftrace cpu4 (uji): inferensi 100.0000 %, diam 0.0000 %, lain 9.0 µs [kworker/4:1 9.0 µs], buffer hilang 0
+  ftrace cpu5 (kembar): tidak ada pergantian tugas sama sekali, buffer hilang 0 (status: lihat /proc/stat)
+  sela paksa proses inferensi: 1  (sukarela: 0)
+  /proc/stat cpu4: user 100.0 %, system 0.0 %, idle 0.0 %, irq+softirq 0.0 % (dari 60.00 detik)
+  /proc/stat cpu5: user 0.0 %, system 0.0 %, idle 100.0 %, irq+softirq 0.0 % (dari 60.00 detik)
+  interupsi cpu4: {"LOC": 15, "CAL": 11, "softirq TIMER": 10}
+  interupsi cpu5: {"LOC": 10, "CAL": 10, "softirq TIMER": 10, "softirq RCU": 10}
+  daya paket CPU: diam 5.713 W, beban 20.779 W, selisih 15.066 W -> energi total 436.41 µJ/citra, tambahan 316.42 µJ/citra
+  daya inti 2   : diam 0.000 W, beban 11.116 W, selisih 11.116 W -> energi total 233.46 µJ/citra, tambahan 233.46 µJ/citra
+  frekuensi efektif saat beban: 4461 MHz, suhu 39.625 -> 78.625 °C
+cap waktu fase: /home/rifan/skripsi/Alur_Utama/5_PC_Linux/hasil/beban_fp32_1_inti2_20261117_001400.json
+
+=== pengukuran 9/10: INT8, ulangan 5 ===
+2026-11-17T00:17:02.848  diam_mulai
+2026-11-17T00:18:02.850  beban_mulai
+2026-11-17T00:19:02.851  beban_selesai
+2026-11-17T00:20:02.854  diam_selesai
+
+3713464 inferensi dalam 60.0 detik (61891 citra/detik)
+waktu CPU proses: 60.0 detik = 100.0 % satu prosesor logis
+dikunci ke inti fisik 2 (prosesor logis 4), prioritas normal
+Bukti selama fase beban:
+  ftrace cpu4 (uji): inferensi 100.0000 %, diam 0.0000 %, lain 8.0 µs [kworker/4:1 8.0 µs], buffer hilang 0
+  ftrace cpu5 (kembar): tidak ada pergantian tugas sama sekali, buffer hilang 0 (status: lihat /proc/stat)
+  sela paksa proses inferensi: 1  (sukarela: 0)
+  /proc/stat cpu4: user 100.0 %, system 0.0 %, idle 0.0 %, irq+softirq 0.0 % (dari 60.00 detik)
+  /proc/stat cpu5: user 0.0 %, system 0.0 %, idle 100.0 %, irq+softirq 0.0 % (dari 60.00 detik)
+  interupsi cpu4: {"LOC": 15, "CAL": 11, "softirq TIMER": 10}
+  interupsi cpu5: {"LOC": 12, "CAL": 10, "softirq TIMER": 12, "softirq RCU": 12}
+  daya paket CPU: diam 5.751 W, beban 21.628 W, selisih 15.877 W -> energi total 349.46 µJ/citra, tambahan 256.54 µJ/citra
+  daya inti 2   : diam 0.000 W, beban 10.802 W, selisih 10.802 W -> energi total 174.53 µJ/citra, tambahan 174.53 µJ/citra
+  frekuensi efektif saat beban: 4422 MHz, suhu 37.75 -> 85.25 °C
+cap waktu fase: /home/rifan/skripsi/Alur_Utama/5_PC_Linux/hasil/beban_int8_1_inti2_20261117_001702.json
+
+=== pengukuran 10/10: FP32, ulangan 5 ===
+2026-11-17T00:20:04.863  diam_mulai
+2026-11-17T00:21:04.865  beban_mulai
+2026-11-17T00:22:04.866  beban_selesai
+2026-11-17T00:23:04.868  diam_selesai
+
+2951923 inferensi dalam 60.0 detik (49199 citra/detik)
+waktu CPU proses: 60.0 detik = 100.0 % satu prosesor logis
+dikunci ke inti fisik 2 (prosesor logis 4), prioritas normal
+Bukti selama fase beban:
+  ftrace cpu4 (uji): inferensi 100.0000 %, diam 0.0000 %, lain 10.0 µs [kworker/4:1 10.0 µs], buffer hilang 0
+  ftrace cpu5 (kembar): tidak ada pergantian tugas sama sekali, buffer hilang 0 (status: lihat /proc/stat)
+  sela paksa proses inferensi: 1  (sukarela: 0)
+  /proc/stat cpu4: user 100.0 %, system 0.0 %, idle 0.0 %, irq+softirq 0.0 % (dari 60.00 detik)
+  /proc/stat cpu5: user 0.0 %, system 0.0 %, idle 100.0 %, irq+softirq 0.0 % (dari 60.00 detik)
+  interupsi cpu4: {"LOC": 15, "CAL": 11, "softirq TIMER": 10}
+  interupsi cpu5: {"LOC": 10, "CAL": 10, "softirq TIMER": 10, "softirq RCU": 10}
+  daya paket CPU: diam 5.798 W, beban 21.273 W, selisih 15.475 W -> energi total 432.39 µJ/citra, tambahan 314.55 µJ/citra
+  daya inti 2   : diam 0.000 W, beban 10.942 W, selisih 10.942 W -> energi total 222.41 µJ/citra, tambahan 222.40 µJ/citra
+  frekuensi efektif saat beban: 4455 MHz, suhu 37.75 -> 78.75 °C
+cap waktu fase: /home/rifan/skripsi/Alur_Utama/5_PC_Linux/hasil/beban_fp32_1_inti2_20261117_002004.json
+
+SESI SELESAI pada 00:23:05: 10 pengukuran.
+
+INT8 (5 ulangan), rata-rata ± simpangan:
+  laju 62101 ± 220 citra/s
+  paket: diam 5.789 W, beban 21.746 ± 0.179 W, energi total 350.17 ± 2.33 µJ/citra
+  inti : diam 0.000 W, beban 10.765 ± 0.030 W, energi total 173.35 ± 0.87 µJ/citra
+  bukti: inferensi minimal 100.0000 % inti uji, lain maksimal 10.0 µs, sela paksa maksimal 1
+
+FP32 (5 ulangan), rata-rata ± simpangan:
+  laju 48057 ± 783 citra/s
+  paket: diam 5.787 W, beban 20.962 ± 0.196 W, energi total 436.23 ± 4.61 µJ/citra
+  inti : diam 0.000 W, beban 10.928 ± 0.117 W, energi total 227.43 ± 4.31 µJ/citra
+  bukti: inferensi minimal 100.0000 % inti uji, lain maksimal 11.0 µs, sela paksa maksimal 1
+
+Daftar dan rangkuman sesi ini: /home/rifan/skripsi/Alur_Utama/5_PC_Linux/hasil/sesi_20261116_235145.json
+
+=== SELESAI 2026-11-17 00:23:05 ===
+Log lengkap: /home/rifan/skripsi/Alur_Utama/5_PC_Linux/hasil/log_resmi_20261116_235042.txt
+Kembali ke desktop: sudo systemctl isolate graphical.target   (atau: sudo reboot)

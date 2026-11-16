@@ -1,0 +1,141 @@
+{
+  "mulai": "2026-11-16T23:51:45",
+  "selesai": "2026-11-17T00:23:05",
+  "kali": 5,
+  "detik_per_fase": 60.0,
+  "inti": 2,
+  "model": [
+    "int8",
+    "fp32"
+  ],
+  "pengukuran": [
+    "/home/rifan/skripsi/Alur_Utama/5_PC_Linux/hasil/beban_int8_1_inti2_20261116_235246.json",
+    "/home/rifan/skripsi/Alur_Utama/5_PC_Linux/hasil/beban_fp32_1_inti2_20261116_235548.json",
+    "/home/rifan/skripsi/Alur_Utama/5_PC_Linux/hasil/beban_int8_1_inti2_20261116_235851.json",
+    "/home/rifan/skripsi/Alur_Utama/5_PC_Linux/hasil/beban_fp32_1_inti2_20261117_000153.json",
+    "/home/rifan/skripsi/Alur_Utama/5_PC_Linux/hasil/beban_int8_1_inti2_20261117_000455.json",
+    "/home/rifan/skripsi/Alur_Utama/5_PC_Linux/hasil/beban_fp32_1_inti2_20261117_000757.json",
+    "/home/rifan/skripsi/Alur_Utama/5_PC_Linux/hasil/beban_int8_1_inti2_20261117_001058.json",
+    "/home/rifan/skripsi/Alur_Utama/5_PC_Linux/hasil/beban_fp32_1_inti2_20261117_001400.json",
+    "/home/rifan/skripsi/Alur_Utama/5_PC_Linux/hasil/beban_int8_1_inti2_20261117_001702.json",
+    "/home/rifan/skripsi/Alur_Utama/5_PC_Linux/hasil/beban_fp32_1_inti2_20261117_002004.json"
+  ],
+  "rangkuman": {
+    "int8": {
+      "ulangan": 5,
+      "citra_per_detik": [
+        62101.32885670307,
+        220.09759921383113
+      ],
+      "pemakaian_cpu_persen": [
+        99.99922555377434,
+        0.0004305487987516569
+      ],
+      "paket": {
+        "diam_w": [
+          5.788981510524636,
+          0.04286723866836778
+        ],
+        "beban_w": [
+          21.74604375815811,
+          0.17852895629053914
+        ],
+        "selisih_w": [
+          15.957062247633473,
+          0.15242003252234024
+        ],
+        "energi_total_uj_per_citra": [
+          350.1688726926671,
+          2.329726699559359
+        ],
+        "energi_tambahan_uj_per_citra": [
+          256.9510978485871,
+          2.142090666681263
+        ]
+      },
+      "inti": {
+        "diam_w": [
+          9.951701451436543e-05,
+          6.1620046502242e-05
+        ],
+        "beban_w": [
+          10.765088141230924,
+          0.02950913653339883
+        ],
+        "selisih_w": [
+          10.76498862421641,
+          0.029472685396051593
+        ],
+        "energi_total_uj_per_citra": [
+          173.34924752708022,
+          0.8719590399232647
+        ],
+        "energi_tambahan_uj_per_citra": [
+          173.34764328397705,
+          0.8712012096951035
+        ]
+      },
+      "ftrace_inferensi_persen_min": 99.99998333384484,
+      "ftrace_lain_us_maks": 9.999999747378752,
+      "sela_paksa_maks": 1
+    },
+    "fp32": {
+      "ulangan": 5,
+      "citra_per_detik": [
+        48057.40380249947,
+        782.9923486739044
+      ],
+      "pemakaian_cpu_persen": [
+        99.99922253073728,
+        0.00042882982466815514
+      ],
+      "paket": {
+        "diam_w": [
+          5.787218939730099,
+          0.044674785889123214
+        ],
+        "beban_w": [
+          20.96188201274439,
+          0.1964302928975554
+        ],
+        "selisih_w": [
+          15.17466307301429,
+          0.17897914047894906
+        ],
+        "energi_total_uj_per_citra": [
+          436.2345383941774,
+          4.607525647559048
+        ],
+        "energi_tambahan_uj_per_citra": [
+          315.7871275322312,
+          2.803510130777291
+        ]
+      },
+      "inti": {
+        "diam_w": [
+          0.00013488672925170118,
+          9.947455834149429e-05
+        ],
+        "beban_w": [
+          10.927613719027349,
+          0.11747391799063803
+        ],
+        "selisih_w": [
+          10.927478832298096,
+          0.11753919552390907
+        ],
+        "energi_total_uj_per_citra": [
+          227.4327971522909,
+          4.305193168252454
+        ],
+        "energi_tambahan_uj_per_citra": [
+          227.4299855256961,
+          4.305660795870797
+        ]
+      },
+      "ftrace_inferensi_persen_min": 99.99998166725373,
+      "ftrace_lain_us_maks": 11.000000085914508,
+      "sela_paksa_maks": 1
+    }
+  }
+}

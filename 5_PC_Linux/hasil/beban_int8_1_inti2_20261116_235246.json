@@ -1,0 +1,229 @@
+{
+  "lingkungan": {
+    "waktu": "2026-11-16T23:55:47",
+    "cpu": "AMD Ryzen 5 7535HS with Radeon Graphics",
+    "cpu_logis": 12,
+    "os": "Linux-7.0.0-43-generic-x86_64-with-glibc2.43",
+    "python": "3.12.10",
+    "numpy": "1.26.4",
+    "torch": "2.12.1+cpu",
+    "skema_daya": "power_profiles_daemon=balanced, platform_profile=balanced, driver=amd-pstate-epp, amd_pstate=active, governor=powersave, epp=balance_performance",
+    "baterai": "BAT1 78% status=Not charging; ACAD online=1",
+    "desktop": "inactive",
+    "root": true,
+    "isolasi": {
+      "cmdline": "BOOT_IMAGE=/boot/vmlinuz-7.0.0-43-generic root=UUID=6d0dca48-b219-450e-9c88-3b682d96a6a8 ro quiet splash isolcpus=domain,managed_irq,4,5 nohz_full=4,5 rcu_nocbs=4,5 irqaffinity=0-3,6-11 crashkernel=2G-4G:320M,4G-32G:512M,32G-64G:1024M,64G-128G:2048M,128G-:4096M",
+      "isolated": "4-5",
+      "nohz_full": "4-5"
+    }
+  },
+  "model": "int8",
+  "mode_thread": "1",
+  "kunci_inti": {
+    "inti_fisik": 2,
+    "prosesor_logis": 4,
+    "affinity_ok": true,
+    "thread_siblings": "4-5",
+    "terisolasi": true,
+    "prioritas": "normal (nice 0)"
+  },
+  "detik_per_fase": 60.0,
+  "tepi_dibuang_detik": 5.0,
+  "inferensi": 3722088,
+  "detik_beban": 60.00000664399977,
+  "citra_per_detik": 62034.79313068082,
+  "detik_cpu_proses": 59.999729356,
+  "pemakaian_cpu_persen": 99.99953785338491,
+  "suhu_c": {
+    "diam_mulai": 44.625,
+    "beban_mulai": 37.75,
+    "beban_selesai": 85.25,
+    "diam_selesai": 38.25
+  },
+  "fase": [
+    {
+      "fase": "diam_mulai",
+      "waktu": "2026-11-16T23:52:47.025"
+    },
+    {
+      "fase": "beban_mulai",
+      "waktu": "2026-11-16T23:53:47.026"
+    },
+    {
+      "fase": "beban_selesai",
+      "waktu": "2026-11-16T23:54:47.028"
+    },
+    {
+      "fase": "diam_selesai",
+      "waktu": "2026-11-16T23:55:47.030"
+    }
+  ],
+  "jendela_beban_mono": [
+    5501.215827141,
+    5561.217667062
+  ],
+  "bukti": {
+    "sela_sukarela": 0,
+    "sela_paksa": 1,
+    "proc_stat": {
+      "cpu4": {
+        "detik": {
+          "user": 60.0,
+          "nice": 0.0,
+          "system": 0.0,
+          "idle": 0.0,
+          "iowait": 0.0,
+          "irq": 0.0,
+          "softirq": 0.0,
+          "steal": 0.0
+        },
+        "total_detik": 60.0,
+        "persen": {
+          "user": 100.0,
+          "nice": 0.0,
+          "system": 0.0,
+          "idle": 0.0,
+          "iowait": 0.0,
+          "irq": 0.0,
+          "softirq": 0.0,
+          "steal": 0.0
+        }
+      },
+      "cpu5": {
+        "detik": {
+          "user": 0.0,
+          "nice": 0.0,
+          "system": 0.0,
+          "idle": 60.01,
+          "iowait": 0.0,
+          "irq": 0.0,
+          "softirq": 0.0,
+          "steal": 0.0
+        },
+        "total_detik": 60.01,
+        "persen": {
+          "user": 0.0,
+          "nice": 0.0,
+          "system": 0.0,
+          "idle": 100.0,
+          "iowait": 0.0,
+          "irq": 0.0,
+          "softirq": 0.0,
+          "steal": 0.0
+        }
+      }
+    },
+    "interupsi": {
+      "cpu4": {
+        "LOC": 16,
+        "CAL": 11,
+        "softirq TIMER": 10
+      },
+      "cpu5": {
+        "LOC": 14,
+        "CAL": 10,
+        "softirq TIMER": 14,
+        "softirq RCU": 10
+      }
+    },
+    "ftrace": {
+      "berkas": {
+        "cpu4": "hasil/ftrace/beban_int8_1_inti2_20261116_235246_cpu4.txt",
+        "cpu5": "hasil/ftrace/beban_int8_1_inti2_20261116_235246_cpu5.txt"
+      },
+      "per_cpu": {
+        "cpu4": {
+          "jendela_detik": 60.00183992100028,
+          "pergantian_tugas": 2,
+          "inferensi_detik": 60.001829921000535,
+          "inferensi_persen": 99.99998333384484,
+          "diam_detik": 0,
+          "diam_persen": 0.0,
+          "lain_us_total": 9.999999747378752,
+          "lain": [
+            {
+              "comm": "kworker/4:1",
+              "pid": 8162,
+              "us": 9.999999747378752,
+              "kali": 1
+            }
+          ],
+          "buffer": {
+            "entries": 22,
+            "overrun": 0
+          }
+        },
+        "cpu5": {
+          "jendela_detik": 60.00183992100028,
+          "pergantian_tugas": 0,
+          "tanpa_pergantian": true,
+          "inferensi_detik": 0.0,
+          "inferensi_persen": 0.0,
+          "diam_detik": null,
+          "diam_persen": null,
+          "lain_us_total": 0.0,
+          "lain": [],
+          "catatan": "tidak ada pergantian tugas selama rekaman; status dari /proc/stat",
+          "buffer": {
+            "entries": 0,
+            "overrun": 0
+          }
+        }
+      }
+    }
+  },
+  "daya": {
+    "paket": {
+      "diam_sebelum_w": 5.809696070254419,
+      "beban_w": 21.683007964815143,
+      "diam_sesudah_w": 5.828879047795601,
+      "diam_w": 5.81928755902501,
+      "selisih_w": 15.863720405790133,
+      "energi_total_uj_per_citra": 349.5297859563794,
+      "energi_tambahan_uj_per_citra": 255.72295167281445
+    },
+    "inti": {
+      "diam_sebelum_w": 4.45554489363171e-05,
+      "beban_w": 10.738133303538465,
+      "diam_sesudah_w": 3.814671873948375e-05,
+      "diam_w": 4.1351083837900426e-05,
+      "selisih_w": 10.738091952454628,
+      "energi_total_uj_per_citra": 173.09855907664274,
+      "energi_tambahan_uj_per_citra": 173.09789249774806
+    }
+  },
+  "frekuensi_efektif_mhz": {
+    "diam_sebelum": 0.03309074022864083,
+    "beban": 4419.7230524072675,
+    "diam_sesudah": 0.029503003618567444
+  },
+  "energi_mentah": {
+    "joule_per_satuan": 1.52587890625e-05,
+    "fase": {
+      "diam_sebelum": {
+        "detik": 50.0002414139999,
+        "energi_paket_j": 290.4862060546875,
+        "energi_inti_j": 0.002227783203125,
+        "daya_paket_w": 5.809696070254419,
+        "daya_inti_w": 4.45554489363171e-05,
+        "frekuensi_efektif_mhz": 0.03309074022864083
+      },
+      "beban": {
+        "detik": 49.99999401900004,
+        "energi_paket_j": 1084.1502685546875,
+        "energi_inti_j": 536.9066009521484,
+        "daya_paket_w": 21.683007964815143,
+        "daya_inti_w": 10.738133303538465,
+        "frekuensi_efektif_mhz": 4419.7230524072675
+      },
+      "diam_sesudah": {
+        "detik": 50.00033281599917,
+        "energi_paket_j": 291.4458923339844,
+        "energi_inti_j": 0.0019073486328125,
+        "daya_paket_w": 5.828879047795601,
+        "daya_inti_w": 3.814671873948375e-05,
+        "frekuensi_efektif_mhz": 0.029503003618567444
+      }
+    }
+  }
+}

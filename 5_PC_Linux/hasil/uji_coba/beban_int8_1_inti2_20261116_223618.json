@@ -1,0 +1,182 @@
+{
+  "lingkungan": {
+    "waktu": "2026-11-16T22:37:03",
+    "cpu": "AMD Ryzen 5 7535HS with Radeon Graphics",
+    "cpu_logis": 12,
+    "os": "Linux-7.0.0-43-generic-x86_64-with-glibc2.43",
+    "python": "3.12.10",
+    "numpy": "1.26.4",
+    "torch": "2.12.1+cpu",
+    "skema_daya": "power_profiles_daemon=balanced, platform_profile=balanced, driver=amd-pstate-epp, amd_pstate=active, governor=powersave, epp=balance_performance",
+    "baterai": "BAT1 78% status=Not charging; ACAD online=1",
+    "desktop": "active",
+    "root": true,
+    "isolasi": {
+      "cmdline": "BOOT_IMAGE=/boot/vmlinuz-7.0.0-43-generic root=UUID=6d0dca48-b219-450e-9c88-3b682d96a6a8 ro quiet splash isolcpus=domain,managed_irq,4,5 nohz_full=4,5 rcu_nocbs=4,5 irqaffinity=0-3,6-11 crashkernel=2G-4G:320M,4G-32G:512M,32G-64G:1024M,64G-128G:2048M,128G-:4096M",
+      "isolated": "4-5",
+      "nohz_full": "4-5"
+    }
+  },
+  "model": "int8",
+  "mode_thread": "1",
+  "kunci_inti": {
+    "inti_fisik": 2,
+    "prosesor_logis": 4,
+    "affinity_ok": true,
+    "thread_siblings": "4-5",
+    "terisolasi": true,
+    "prioritas": "normal (nice 0)"
+  },
+  "detik_per_fase": 15.0,
+  "tepi_dibuang_detik": 5.0,
+  "inferensi": 903623,
+  "detik_beban": 15.000016875000028,
+  "citra_per_detik": 60241.46556168446,
+  "detik_cpu_proses": 14.999458105999999,
+  "pemakaian_cpu_persen": 99.99627487752389,
+  "suhu_c": {
+    "diam_mulai": 52.75,
+    "beban_mulai": 45.125,
+    "beban_selesai": 91.125,
+    "diam_selesai": 45.625
+  },
+  "fase": [
+    {
+      "fase": "diam_mulai",
+      "waktu": "2026-11-16T22:36:18.175"
+    },
+    {
+      "fase": "beban_mulai",
+      "waktu": "2026-11-16T22:36:33.177"
+    },
+    {
+      "fase": "beban_selesai",
+      "waktu": "2026-11-16T22:36:48.178"
+    },
+    {
+      "fase": "diam_selesai",
+      "waktu": "2026-11-16T22:37:03.180"
+    }
+  ],
+  "bukti": {
+    "sela_sukarela": 0,
+    "sela_paksa": 1,
+    "interupsi": {
+      "cpu4": {
+        "LOC": 6,
+        "CAL": 3,
+        "softirq TIMER": 2
+      },
+      "cpu5": {
+        "LOC": 2,
+        "CAL": 2,
+        "softirq TIMER": 2,
+        "softirq RCU": 2
+      }
+    },
+    "ftrace": {
+      "berkas": {
+        "cpu4": "hasil/ftrace/beban_int8_1_inti2_20261116_223618_cpu4.txt",
+        "cpu5": "hasil/ftrace/beban_int8_1_inti2_20261116_223618_cpu5.txt"
+      },
+      "per_cpu": {
+        "cpu4": {
+          "jendela_detik": 15.001648054000043,
+          "pergantian_tugas": 2,
+          "inferensi_detik": 15.001640054000063,
+          "inferensi_persen": 99.99994667252591,
+          "diam_detik": 0,
+          "diam_persen": 0.0,
+          "lain_us_total": 7.999999979801942,
+          "lain": [
+            {
+              "comm": "kworker/4:1",
+              "pid": 8162,
+              "us": 7.999999979801942,
+              "kali": 1
+            }
+          ],
+          "buffer": {
+            "entries": 24,
+            "overrun": 0
+          }
+        },
+        "cpu5": {
+          "jendela_detik": 15.001648054000043,
+          "pergantian_tugas": 0,
+          "inferensi_detik": 0,
+          "inferensi_persen": 0.0,
+          "diam_detik": 0,
+          "diam_persen": 0.0,
+          "lain_us_total": 15001648.054000042,
+          "lain": [
+            {
+              "comm": "tidak_diketahui",
+              "pid": -1,
+              "us": 15001648.054000042,
+              "kali": 0
+            }
+          ],
+          "buffer": {
+            "entries": 0,
+            "overrun": 0
+          }
+        }
+      }
+    }
+  },
+  "daya": {
+    "paket": {
+      "diam_sebelum_w": 5.951164900308361,
+      "beban_w": 21.310711187724106,
+      "diam_sesudah_w": 5.783873629330307,
+      "diam_w": 5.867519264819334,
+      "selisih_w": 15.443191922904772,
+      "energi_total_uj_per_citra": 353.75485953114685,
+      "energi_tambahan_uj_per_citra": 256.3548509139715
+    },
+    "inti": {
+      "diam_sebelum_w": 0.00021665644123419162,
+      "beban_w": 10.50583910815756,
+      "diam_sesudah_w": 0.0014098092415158196,
+      "diam_w": 0.0008132328413750056,
+      "selisih_w": 10.505025875316184,
+      "energi_total_uj_per_citra": 174.39547677338737,
+      "energi_tambahan_uj_per_citra": 174.38197722064922
+    }
+  },
+  "frekuensi_efektif_mhz": {
+    "diam_sebelum": 0.1040909774153,
+    "beban": 4372.094780146419,
+    "diam_sesudah": 0.07472134789707224
+  },
+  "energi_mentah": {
+    "joule_per_satuan": 1.52587890625e-05,
+    "fase": {
+      "diam_sebelum": {
+        "detik": 5.000423791999992,
+        "energi_paket_j": 29.758346557617188,
+        "energi_inti_j": 0.0010833740234375,
+        "daya_paket_w": 5.951164900308361,
+        "daya_inti_w": 0.00021665644123419162,
+        "frekuensi_efektif_mhz": 0.1040909774153
+      },
+      "beban": {
+        "detik": 4.999993668999991,
+        "energi_paket_j": 106.55342102050781,
+        "energi_inti_j": 52.52912902832031,
+        "daya_paket_w": 21.310711187724106,
+        "daya_inti_w": 10.50583910815756,
+        "frekuensi_efektif_mhz": 4372.094780146419
+      },
+      "diam_sesudah": {
+        "detik": 5.000364829000091,
+        "energi_paket_j": 28.921478271484375,
+        "energi_inti_j": 0.007049560546875,
+        "daya_paket_w": 5.783873629330307,
+        "daya_inti_w": 0.0014098092415158196,
+        "frekuensi_efektif_mhz": 0.07472134789707224
+      }
+    }
+  }
+}

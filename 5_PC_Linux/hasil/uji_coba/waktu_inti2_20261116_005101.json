@@ -1,0 +1,86 @@
+{
+  "lingkungan": {
+    "waktu": "2026-11-16T00:50:41",
+    "cpu": "AMD Ryzen 5 7535HS with Radeon Graphics",
+    "skema_daya": "power_profiles_daemon=balanced, platform_profile=balanced, driver=amd-pstate-epp, amd_pstate=active, governor=powersave, epp=balance_performance",
+    "baterai": "BAT1 78% status=Not charging; ACAD online=1",
+    "cpu_logis": 12,
+    "os": "Linux-7.0.0-43-generic-x86_64-with-glibc2.43",
+    "python": "3.12.10",
+    "numpy": "1.26.4",
+    "torch": "2.12.1+cpu"
+  },
+  "jalan": [
+    {
+      "mode_thread": "1",
+      "torch_thread": 1,
+      "kunci_inti": {
+        "inti_fisik": 2,
+        "prosesor_logis": 4,
+        "affinity_ok": true,
+        "thread_siblings": "4-5",
+        "prioritas": "normal (nice 0)"
+      },
+      "model": {
+        "INT8 (NumPy)": {
+          "latensi_satu_citra": {
+            "n": 10000,
+            "median_us": 16.161,
+            "rata_us": 17.3641123,
+            "simpangan_us": 3.715651645820516,
+            "p95_us": 27.984,
+            "p99_us": 31.911110000000004,
+            "min_us": 15.8,
+            "maks_us": 51.398
+          },
+          "throughput": [
+            {
+              "batch": 1,
+              "citra_per_detik": 56798.41923381905,
+              "us_per_citra": 17.606123788117287
+            },
+            {
+              "batch": 16,
+              "citra_per_detik": 121688.98557390877,
+              "us_per_citra": 8.21767060744082
+            },
+            {
+              "batch": 10000,
+              "citra_per_detik": 133655.40173346523,
+              "us_per_citra": 7.48192730731672
+            }
+          ]
+        },
+        "FP32 (PyTorch)": {
+          "latensi_satu_citra": {
+            "n": 10000,
+            "median_us": 20.42,
+            "rata_us": 22.617006099999998,
+            "simpangan_us": 6.895340226490843,
+            "p95_us": 41.55444999999993,
+            "p99_us": 51.710100000000004,
+            "min_us": 19.567,
+            "maks_us": 74.744
+          },
+          "throughput": [
+            {
+              "batch": 1,
+              "citra_per_detik": 46495.62172090211,
+              "us_per_citra": 21.507401406581256
+            },
+            {
+              "batch": 16,
+              "citra_per_detik": 517643.09636694024,
+              "us_per_citra": 1.9318329695082668
+            },
+            {
+              "batch": 10000,
+              "citra_per_detik": 2513323.04389743,
+              "us_per_citra": 0.3978796129801492
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
