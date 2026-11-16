@@ -11,7 +11,8 @@ proyek Quartus untuk memprogram papan.
 Selain rancangan utama *output-stationary* (OS), repository ini memuat dua
 rancangan pembanding dengan model, chip, clock, dan unit MAC yang sama, yaitu
 *weight-stationary* (WS) dan *no local reuse* (NLR, tanpa stationary), serta
-pembanding inferensi di CPU laptop. Ketiganya dibandingkan dari sisi waktu,
+pembanding inferensi di CPU laptop (Ubuntu, satu inti yang diisolasi sehingga
+hanya program inferensi yang berjalan). Semuanya dibandingkan dari sisi waktu,
 daya, dan energi per citra.
 
 ```
@@ -20,7 +21,7 @@ Alur_Utama/
 ├── 2_Verilog/       langkah 5–6  rancangan akselerator OS + simulasi
 ├── 3_Quartus/       langkah 7–9  kompilasi, program papan (OS)
 ├── 4_WS/            rancangan weight-stationary (larik sistolik 4 × 2, batch 16)
-├── 5_PC/            pembanding CPU: model INT8 dan FP32, waktu, daya
+├── 5_PC_Linux/      pembanding CPU (Ubuntu, inti terisolasi): model INT8 dan FP32, waktu, daya
 ├── 6_Daya_FPGA/     analisis daya OS dengan Power Analyzer
 ├── 7_NLR/           rancangan no local reuse (tanpa stationary)
 └── gambar/          foto papan untuk README
@@ -53,23 +54,27 @@ Alur_Utama/
 
 ## Perbandingan OS, WS, NLR, dan PC
 
-| | OS | WS (4 × 2, batch 16) | NLR (tanpa stationary) | PC INT8 (1 inti Ryzen 5 7535HS) |
+| | OS | WS (4 × 2, batch 16) | NLR (tanpa stationary) | PC INT8 (1 inti terisolasi Ryzen 5 7535HS) |
 |---|---|---|---|---|
 | Yang ditahan di dekat MAC | jumlah parsial | bobot | tidak ada | – |
 | Siklus per citra | 1.708 | 1.649 | 1.965 | – |
-| Waktu per citra | 34,16 µs | 32,98 µs | 39,30 µs | 16,11 µs (1 ÷ 62.058 citra/s) |
-| Latensi sampai hasil pertama | 34,16 µs | 527,66 µs | 39,30 µs | median 15,6 µs |
+| Waktu per citra | 34,16 µs | 32,98 µs | 39,30 µs | 16,10 µs (1 ÷ 62.101 citra/s) |
+| Latensi sampai hasil pertama | 34,16 µs | 527,66 µs | 39,30 µs | median 15,79 µs |
 | Logic element | 2.306 | 3.573 | 2.317 | – |
 | Blok M9K | 21 / 30 | 22 / 30 | 29 / 30 | – |
 | Fmax | 82,46 MHz | 88,55 MHz | 73,61 MHz | – |
-| Daya saat bekerja | 93,91 mW | 108,63 mW | 118,17 mW | 24,79 W (paket CPU) |
-| **Energi per citra** | **3,208 µJ** | **3,582 µJ** | **4,644 µJ** | **399,5 µJ** |
+| Daya saat bekerja | 93,91 mW | 108,63 mW | 118,17 mW | 21,75 W (paket CPU) |
+| **Energi per citra** | **3,208 µJ** | **3,582 µJ** | **4,644 µJ** | **350,2 µJ** |
 
 - Waktu per citra = siklus ÷ 50 MHz. Energi per citra = daya saat bekerja ×
   waktu per citra.
 - Daya FPGA adalah perkiraan Power Analyzer Quartus (confidence High) dari
-  simulasi netlist; daya PC adalah telemetri CPU (HWiNFO). Keduanya bukan
-  pengukuran arus fisik.
+  simulasi netlist; daya PC dibaca dari penghitung energi di dalam CPU (RAPL).
+  Keduanya bukan pengukuran arus fisik.
+- Daya PC adalah daya seluruh paket CPU. Daya inti yang mengerjakan inferensi
+  saja: 10,77 W, atau 173,3 µJ per citra. Selama pengukuran PC, rekaman
+  penjadwal kernel (ftrace) menunjukkan program inferensi memakai
+  ≥ 99,99998 % waktu inti uji (rincian di `5_PC_Linux/README.md`).
 - Ketiga rancangan FPGA lulus simulasi RTL dan uji papan dengan keluaran
   identik dengan acuan Python, dan memakai `mac_unit.v` yang sama tanpa
   diubah.
@@ -79,7 +84,7 @@ Alur_Utama/
 membuat energi totalnya sekitar 12 % lebih besar, dan latensinya menunggu satu
 batch. NLR paling boros dan paling lambat karena setiap jumlah parsial dibaca
 dan ditulis ke M9K pada setiap operasi. Dibanding satu inti CPU, ketiganya
-sekitar 2–2,4× lebih lambat, tetapi 86–125× lebih hemat energi per citra.
+sekitar 2–2,4× lebih lambat, tetapi 75–109× lebih hemat energi per citra.
 
 ---
 
@@ -90,6 +95,7 @@ sekitar 2–2,4× lebih lambat, tetapi 86–125× lebih hemat energi per citra.
 | Simulasi | Python 3 (tanpa paket tambahan) dan [Icarus Verilog](https://bleyer.org/icarus/) |
 | Kompilasi dan program papan | Quartus Prime Lite 25.1std, papan OMDAZZ Cyclone IV (EP4CE6E22C8), USB-Blaster |
 | Notebook pelatihan (opsional) | Python 3 dengan PyTorch, torchvision, numpy |
+| Pembanding PC (`5_PC_Linux`) | Linux (diuji di Ubuntu 26.04), Python 3.12 dengan NumPy 1.26.4 dan PyTorch 2.12.1 (CPU), akses root, parameter kernel isolasi inti lewat GRUB |
 
 ---
 
@@ -198,13 +204,16 @@ siklus = 1.649 siklus per citra).
 
 ---
 
-## 5_PC
+## 5_PC_Linux
 
-Model yang **sama** dijalankan di CPU laptop (AMD Ryzen 5 7535HS, satu inti):
+Model yang **sama** dijalankan di CPU laptop (AMD Ryzen 5 7535HS, Ubuntu):
 INT8 dengan NumPy (aritmetika persis seperti FPGA) dan FP32 dengan PyTorch.
-Berisi skrip kebenaran model, metrik akurasi (precision, recall, F1),
-pengukuran latensi dan throughput, serta pengolahan log daya HWiNFO. Cara
-menjalankan dan hasil lengkap ada di `5_PC/README.md`.
+Inti uji diisolasi oleh kernel (`isolcpus`, `nohz_full`, `rcu_nocbs`,
+`irqaffinity`) sehingga hanya program inferensi yang berjalan di inti itu, dan
+hal ini dibuktikan dengan rekaman penjadwal kernel (ftrace). Berisi skrip
+kebenaran model, metrik akurasi (precision, recall, F1), serta pengukuran
+latensi, throughput, daya, dan energi (penghitung energi CPU, paket dan inti).
+Cara menjalankan dan hasil lengkap ada di `5_PC_Linux/README.md`.
 
 ---
 

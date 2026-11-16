@@ -1,0 +1,14 @@
+# tracer: nop
+#
+# entries-in-buffer/entries-written: 517/517   #P:12
+#
+#                                _-----=> irqs-off/BH-disabled
+#                               / _----=> need-resched
+#                              | / _---=> hardirq/softirq
+#                              || / _--=> preempt-depth
+#                              ||| / _-=> migrate-disable
+#                              |||| /     delay
+#           TASK-PID     CPU#  |||||  TIMESTAMP  FUNCTION
+#              | |         |   |||||     |         |
+          <idle>-0       [005] d..2.  3015.240017: sched_switch: prev_comm=swapper/5 prev_pid=0 prev_prio=120 prev_state=R ==> next_comm=kworker/5:1H next_pid=8788 next_prio=100
+    kworker/5:1H-8788    [005] d..2.  3015.240028: sched_switch: prev_comm=kworker/5:1H prev_pid=8788 prev_prio=100 prev_state=I ==> next_comm=swapper/5 next_pid=0 next_prio=120

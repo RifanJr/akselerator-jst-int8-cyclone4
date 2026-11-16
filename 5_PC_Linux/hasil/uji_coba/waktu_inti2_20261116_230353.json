@@ -1,0 +1,215 @@
+{
+  "lingkungan": {
+    "waktu": "2026-11-16T23:03:53",
+    "cpu": "AMD Ryzen 5 7535HS with Radeon Graphics",
+    "cpu_logis": 12,
+    "os": "Linux-7.0.0-43-generic-x86_64-with-glibc2.43",
+    "python": "3.12.10",
+    "numpy": "1.26.4",
+    "torch": "2.12.1+cpu",
+    "skema_daya": "power_profiles_daemon=balanced, platform_profile=balanced, driver=amd-pstate-epp, amd_pstate=active, governor=powersave, epp=balance_performance",
+    "baterai": "BAT1 78% status=Not charging; ACAD online=1",
+    "desktop": "active",
+    "root": true,
+    "isolasi": {
+      "cmdline": "BOOT_IMAGE=/boot/vmlinuz-7.0.0-43-generic root=UUID=6d0dca48-b219-450e-9c88-3b682d96a6a8 ro quiet splash isolcpus=domain,managed_irq,4,5 nohz_full=4,5 rcu_nocbs=4,5 irqaffinity=0-3,6-11 crashkernel=2G-4G:320M,4G-32G:512M,32G-64G:1024M,64G-128G:2048M,128G-:4096M",
+      "isolated": "4-5",
+      "nohz_full": "4-5"
+    }
+  },
+  "jalan": [
+    {
+      "mode_thread": "1",
+      "torch_thread": 1,
+      "kunci_inti": {
+        "inti_fisik": 2,
+        "prosesor_logis": 4,
+        "affinity_ok": true,
+        "thread_siblings": "4-5",
+        "terisolasi": true,
+        "prioritas": "normal (nice 0)"
+      },
+      "model": {
+        "INT8 (NumPy)": {
+          "latensi_satu_citra": {
+            "n": 10000,
+            "median_us": 15.96,
+            "rata_us": 16.053859099999997,
+            "simpangan_us": 0.47703625779094616,
+            "p95_us": 16.351,
+            "p99_us": 18.174200000000003,
+            "min_us": 15.6,
+            "maks_us": 25.878
+          },
+          "throughput": [
+            {
+              "batch": 1,
+              "citra_per_detik": 61047.2660795939,
+              "us_per_citra": 16.380749937207543
+            },
+            {
+              "batch": 16,
+              "citra_per_detik": 129079.59358272882,
+              "us_per_citra": 7.7471579530430335
+            },
+            {
+              "batch": 10000,
+              "citra_per_detik": 139005.2709140782,
+              "us_per_citra": 7.193971807141896
+            }
+          ]
+        },
+        "FP32 (PyTorch)": {
+          "latensi_satu_citra": {
+            "n": 10000,
+            "median_us": 20.599,
+            "rata_us": 20.798124599999998,
+            "simpangan_us": 1.1321030229951867,
+            "p95_us": 21.22,
+            "p99_us": 26.750800000000016,
+            "min_us": 19.807,
+            "maks_us": 40.056
+          },
+          "throughput": [
+            {
+              "batch": 1,
+              "citra_per_detik": 48070.924400457516,
+              "us_per_citra": 20.80259559124439
+            },
+            {
+              "batch": 16,
+              "citra_per_detik": 553020.3524621085,
+              "us_per_citra": 1.8082517136085283
+            },
+            {
+              "batch": 10000,
+              "citra_per_detik": 3076582.6523732,
+              "us_per_citra": 0.3250359613217687
+            }
+          ]
+        }
+      },
+      "jendela_mono": [
+        2509.123662035,
+        2527.701289459
+      ],
+      "tid": [
+        9212
+      ],
+      "bukti": {
+        "sela_sukarela": 88,
+        "sela_paksa": 1,
+        "proc_stat": {
+          "cpu4": {
+            "detik": {
+              "user": 18.51,
+              "nice": 0.0,
+              "system": 0.01,
+              "idle": 0.0,
+              "iowait": 0.05,
+              "irq": 0.0,
+              "softirq": 0.0,
+              "steal": 0.0
+            },
+            "total_detik": 18.57,
+            "persen": {
+              "user": 99.67689822294024,
+              "nice": 0.0,
+              "system": 0.053850296176628974,
+              "idle": 0.0,
+              "iowait": 0.2692514808831449,
+              "irq": 0.0,
+              "softirq": 0.0,
+              "steal": 0.0
+            }
+          },
+          "cpu5": {
+            "detik": {
+              "user": 0.0,
+              "nice": 0.0,
+              "system": 0.0,
+              "idle": 18.58,
+              "iowait": 0.0,
+              "irq": 0.0,
+              "softirq": 0.0,
+              "steal": 0.0
+            },
+            "total_detik": 18.58,
+            "persen": {
+              "user": 0.0,
+              "nice": 0.0,
+              "system": 0.0,
+              "idle": 100.0,
+              "iowait": 0.0,
+              "irq": 0.0,
+              "softirq": 0.0,
+              "steal": 0.0
+            }
+          }
+        },
+        "interupsi": {
+          "cpu4": {
+            "59": 87,
+            "LOC": 9,
+            "IWI": 7,
+            "CAL": 9,
+            "TLB": 2,
+            "softirq TIMER": 9,
+            "softirq RCU": 3
+          },
+          "cpu5": {
+            "LOC": 4,
+            "CAL": 5,
+            "softirq TIMER": 4,
+            "softirq RCU": 3
+          }
+        },
+        "ftrace": {
+          "berkas": {
+            "cpu4": "hasil/ftrace/waktu_inti2_20261116_230353_cpu4.txt",
+            "cpu5": "hasil/ftrace/waktu_inti2_20261116_230353_cpu5.txt"
+          },
+          "per_cpu": {
+            "cpu4": {
+              "jendela_detik": 18.57762742399973,
+              "pergantian_tugas": 178,
+              "inferensi_detik": 18.520680424001057,
+              "inferensi_persen": 99.69346462441644,
+              "diam_detik": 0.056937999998808664,
+              "diam_persen": 0.3064869302161407,
+              "lain_us_total": 8.999999863590347,
+              "lain": [
+                {
+                  "comm": "kworker/4:1",
+                  "pid": 8162,
+                  "us": 8.999999863590347,
+                  "kali": 1
+                }
+              ],
+              "buffer": {
+                "entries": 304,
+                "overrun": 0
+              }
+            },
+            "cpu5": {
+              "jendela_detik": 18.57762742399973,
+              "pergantian_tugas": 0,
+              "tanpa_pergantian": true,
+              "inferensi_detik": 0.0,
+              "inferensi_persen": 0.0,
+              "diam_detik": null,
+              "diam_persen": null,
+              "lain_us_total": 0.0,
+              "lain": [],
+              "catatan": "tidak ada pergantian tugas selama rekaman; status dari /proc/stat",
+              "buffer": {
+                "entries": 0,
+                "overrun": 0
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

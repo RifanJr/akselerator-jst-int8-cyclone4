@@ -1,0 +1,34 @@
+# tracer: nop
+#
+# entries-in-buffer/entries-written: 22/22   #P:12
+#
+#                                _-----=> irqs-off/BH-disabled
+#                               / _----=> need-resched
+#                              | / _---=> hardirq/softirq
+#                              || / _--=> preempt-depth
+#                              ||| / _-=> migrate-disable
+#                              |||| /     delay
+#           TASK-PID     CPU#  |||||  TIMESTAMP  FUNCTION
+#              | |         |   |||||     |         |
+          python-14625   [004] ...1.  5623.218876: tracing_mark_write: diam_mulai
+          python-14625   [004] d..2.  5623.218972: sched_switch: prev_comm=python prev_pid=14625 prev_prio=120 prev_state=S ==> next_comm=swapper/4 next_pid=0 next_prio=120
+          <idle>-0       [004] d..2.  5625.416418: sched_switch: prev_comm=swapper/4 prev_pid=0 prev_prio=120 prev_state=R ==> next_comm=kworker/4:1 next_pid=8162 next_prio=120
+     kworker/4:1-8162    [004] d..2.  5625.416445: sched_switch: prev_comm=kworker/4:1 prev_pid=8162 prev_prio=120 prev_state=I ==> next_comm=swapper/4 next_pid=0 next_prio=120
+          <idle>-0       [004] d..2.  5628.219139: sched_switch: prev_comm=swapper/4 prev_pid=0 prev_prio=120 prev_state=R ==> next_comm=python next_pid=14625 next_prio=120
+          python-14625   [004] d..2.  5628.219236: sched_switch: prev_comm=python prev_pid=14625 prev_prio=120 prev_state=S ==> next_comm=swapper/4 next_pid=0 next_prio=120
+          <idle>-0       [004] d..2.  5678.219387: sched_switch: prev_comm=swapper/4 prev_pid=0 prev_prio=120 prev_state=R ==> next_comm=python next_pid=14625 next_prio=120
+          python-14625   [004] d..2.  5678.219473: sched_switch: prev_comm=python prev_pid=14625 prev_prio=120 prev_state=S ==> next_comm=swapper/4 next_pid=0 next_prio=120
+          <idle>-0       [004] d..2.  5683.219644: sched_switch: prev_comm=swapper/4 prev_pid=0 prev_prio=120 prev_state=R ==> next_comm=python next_pid=14625 next_prio=120
+          python-14625   [004] ...1.  5683.220327: tracing_mark_write: beban_mulai
+          python-14625   [004] d..2.  5686.856068: sched_switch: prev_comm=python prev_pid=14625 prev_prio=120 prev_state=R ==> next_comm=kworker/4:1 next_pid=8162 next_prio=120
+     kworker/4:1-8162    [004] d..2.  5686.856079: sched_switch: prev_comm=kworker/4:1 prev_pid=8162 prev_prio=120 prev_state=I ==> next_comm=python next_pid=14625 next_prio=120
+          python-14625   [004] ...1.  5743.221858: tracing_mark_write: beban_selesai
+          python-14625   [004] d..2.  5743.222498: sched_switch: prev_comm=python prev_pid=14625 prev_prio=120 prev_state=S ==> next_comm=swapper/4 next_pid=0 next_prio=120
+          <idle>-0       [004] d..2.  5748.222699: sched_switch: prev_comm=swapper/4 prev_pid=0 prev_prio=120 prev_state=R ==> next_comm=python next_pid=14625 next_prio=120
+          python-14625   [004] d..2.  5748.222787: sched_switch: prev_comm=python prev_pid=14625 prev_prio=120 prev_state=S ==> next_comm=swapper/4 next_pid=0 next_prio=120
+          <idle>-0       [004] d..2.  5748.296333: sched_switch: prev_comm=swapper/4 prev_pid=0 prev_prio=120 prev_state=R ==> next_comm=kworker/4:1 next_pid=8162 next_prio=120
+     kworker/4:1-8162    [004] d..2.  5748.296359: sched_switch: prev_comm=kworker/4:1 prev_pid=8162 prev_prio=120 prev_state=I ==> next_comm=swapper/4 next_pid=0 next_prio=120
+          <idle>-0       [004] d..2.  5798.223072: sched_switch: prev_comm=swapper/4 prev_pid=0 prev_prio=120 prev_state=R ==> next_comm=python next_pid=14625 next_prio=120
+          python-14625   [004] d..2.  5798.223157: sched_switch: prev_comm=python prev_pid=14625 prev_prio=120 prev_state=S ==> next_comm=swapper/4 next_pid=0 next_prio=120
+          <idle>-0       [004] d..2.  5803.223291: sched_switch: prev_comm=swapper/4 prev_pid=0 prev_prio=120 prev_state=R ==> next_comm=python next_pid=14625 next_prio=120
+          python-14625   [004] ...1.  5803.224408: tracing_mark_write: diam_selesai

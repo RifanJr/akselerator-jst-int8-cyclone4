@@ -103,18 +103,19 @@ dan **energi tambahan per citra = selisih × 34,16 µs**.
 
 ## Perbandingan dengan PC
 
-Angka PC berasal dari `5_PC/` (AMD Ryzen 5 7535HS, model INT8 NumPy, satu inti,
-2 November 2026).
+Angka PC berasal dari `5_PC_Linux/` (AMD Ryzen 5 7535HS, Ubuntu, model INT8
+NumPy, satu inti yang diisolasi sehingga hanya inferensi yang berjalan,
+17 November 2026).
 
 | | FPGA (OS, 50 MHz) | PC (INT8, satu inti) | |
 |---|---|---|---|
-| Latensi per citra | 34,16 µs, selalu sama | median 15,6 µs, p99 22,5 µs | PC ≈2× lebih cepat |
-| Throughput | 29.274 citra/s | 62.058 citra/s | PC ≈2× lebih cepat |
-| Daya saat bekerja | 93,91 mW (chip) | 24,79 W (paket CPU) | FPGA ≈264× lebih kecil |
-| **Energi per citra, total chip** | **3,208 µJ** | **399,5 µJ** (paket CPU) | **FPGA ≈125× lebih hemat** |
-| Energi per citra, bagian yang bekerja | 0,720 µJ (inti dinamis) | 171,5 µJ (tambahan di inti) | FPGA ≈238× lebih hemat |
-| Daya saat diam | 89,40 mW (chip) | 8,43 W (paket CPU) | FPGA ≈94× lebih kecil |
-| Selisih bekerja − diam | 4,51 mW → 0,154 µJ per citra | 16,36 W → 263,7 µJ per citra (paket) | cara hitung sama; angka FPGA kecil karena daya diamnya tinggi (lihat di atas) |
+| Latensi per citra | 34,16 µs, selalu sama | median 15,79 µs, p99 17,24 µs | PC ≈2× lebih cepat |
+| Throughput | 29.274 citra/s | 62.101 citra/s | PC ≈2× lebih cepat |
+| Daya saat bekerja | 93,91 mW (chip) | 21,75 W (paket CPU) | FPGA ≈232× lebih kecil |
+| **Energi per citra, total chip** | **3,208 µJ** | **350,2 µJ** (paket CPU) | **FPGA ≈109× lebih hemat** |
+| Energi per citra, bagian yang bekerja | 0,720 µJ (inti dinamis) | 173,3 µJ (tambahan di inti) | FPGA ≈241× lebih hemat |
+| Daya saat diam | 89,40 mW (chip) | 5,79 W (paket CPU) | FPGA ≈65× lebih kecil |
+| Selisih bekerja − diam | 4,51 mW → 0,154 µJ per citra | 15,96 W → 257,0 µJ per citra (paket) | cara hitung sama; angka FPGA kecil karena daya diamnya tinggi (lihat di atas) |
 
 **Kesimpulan:** FPGA jauh lebih hemat energi, tetapi pada 50 MHz dengan 8 MAC
 ia sekitar dua kali lebih lambat dari satu inti CPU laptop. Keunggulan lain
@@ -122,8 +123,8 @@ FPGA adalah latensinya tetap, sedangkan di PC latensinya bervariasi.
 
 ## Keterbatasan
 
-- Daya FPGA adalah **perkiraan model Power Analyzer**, dan daya PC adalah
-  **telemetri CPU**. Keduanya bukan pengukuran fisik. Pengukuran fisik dengan
+- Daya FPGA adalah **perkiraan model Power Analyzer**, dan daya PC dibaca dari
+  **penghitung energi di dalam CPU (RAPL)**. Keduanya bukan pengukuran fisik. Pengukuran fisik dengan
   sensor arus masih berupa rencana.
 - Simulasi netlist hanya menjalankan **citra 00**. Tombol papan memerlukan
   debounce 500.000 siklus, terlalu lambat untuk simulasi tingkat gerbang.
