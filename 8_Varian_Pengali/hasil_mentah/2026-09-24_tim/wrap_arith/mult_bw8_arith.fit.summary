@@ -1,0 +1,16 @@
+Fitter Status : Successful - Thu Sep 24 17:09:26 2026
+Quartus Prime Version : 25.1std.0 Build 1129 10/21/2025 SC Lite Edition
+Revision Name : mult_bw8_arith
+Top-level Entity Name : wrap_arith
+Family : Cyclone IV E
+Device : EP4CE6E22C8
+Timing Models : Final
+Total logic elements : 134 / 6,272 ( 2 % )
+    Total combinational functions : 134 / 6,272 ( 2 % )
+    Dedicated logic registers : 32 / 6,272 ( < 1 % )
+Total registers : 32
+Total pins : 33 / 92 ( 36 % )
+Total virtual pins : 0
+Total memory bits : 0 / 276,480 ( 0 % )
+Embedded Multiplier 9-bit elements : 0 / 30 ( 0 % )
+Total PLLs : 0 / 2 ( 0 % )

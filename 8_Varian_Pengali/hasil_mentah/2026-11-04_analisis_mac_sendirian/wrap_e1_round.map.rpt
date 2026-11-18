@@ -1,0 +1,413 @@
+Analysis & Synthesis report for wrap_e1_round
+Wed Nov  4 20:37:15 2026
+Quartus Prime Version 25.1std.0 Build 1129 10/21/2025 SC Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. General Register Statistics
+  9. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 10. Parameter Settings for User Entity Instance: epi_round:u_dut
+ 11. Post-Synthesis Netlist Statistics for Top Partition
+ 12. Elapsed Time Per Partition
+ 13. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2025  Altera Corporation. All rights reserved.
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, the Altera Quartus Prime License Agreement,
+the Altera IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Altera and sold by Altera or its authorized distributors.  Please
+refer to the Altera Software License Subscription Agreements 
+on the Quartus Prime software download page.
+
+
+
++--------------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                         ;
++------------------------------------+-------------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Wed Nov  4 20:37:15 2026           ;
+; Quartus Prime Version              ; 25.1std.0 Build 1129 10/21/2025 SC Lite Edition ;
+; Revision Name                      ; wrap_e1_round                                   ;
+; Top-level Entity Name              ; wrap_e1_round                                   ;
+; Family                             ; Cyclone IV E                                    ;
+; Total logic elements               ; 108                                             ;
+;     Total combinational functions  ; 70                                              ;
+;     Dedicated logic registers      ; 70                                              ;
+; Total registers                    ; 70                                              ;
+; Total pins                         ; 1                                               ;
+; Total virtual pins                 ; 70                                              ;
+; Total memory bits                  ; 0                                               ;
+; Embedded Multiplier 9-bit elements ; 0                                               ;
+; Total PLLs                         ; 0                                               ;
++------------------------------------+-------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                              ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                           ; Setting            ; Default Value      ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                           ; EP4CE6E22C8        ;                    ;
+; Top-level entity name                                            ; wrap_e1_round      ; wrap_e1_round      ;
+; Family name                                                      ; Cyclone IV E       ; Cyclone V          ;
+; Use smart compilation                                            ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                      ; Off                ; Off                ;
+; Restructure Multiplexers                                         ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                              ; Off                ; Off                ;
+; Preserve fewer node names                                        ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable             ; Enable             ;
+; Verilog Version                                                  ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                     ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                         ; Auto               ; Auto               ;
+; Safe State Machine                                               ; Off                ; Off                ;
+; Extract Verilog State Machines                                   ; On                 ; On                 ;
+; Extract VHDL State Machines                                      ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                       ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                   ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                        ; On                 ; On                 ;
+; Parallel Synthesis                                               ; On                 ; On                 ;
+; DSP Block Balancing                                              ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                               ; On                 ; On                 ;
+; Power-Up Don't Care                                              ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                     ; Off                ; Off                ;
+; Remove Duplicate Registers                                       ; On                 ; On                 ;
+; Ignore CARRY Buffers                                             ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                           ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                            ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                ; Off                ;
+; Ignore LCELL Buffers                                             ; Off                ; Off                ;
+; Ignore SOFT Buffers                                              ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                ; Off                ;
+; Optimization Technique                                           ; Balanced           ; Balanced           ;
+; Carry Chain Length                                               ; 70                 ; 70                 ;
+; Auto Carry Chains                                                ; On                 ; On                 ;
+; Auto Open-Drain Pins                                             ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                ; Off                ;
+; Auto ROM Replacement                                             ; On                 ; On                 ;
+; Auto RAM Replacement                                             ; On                 ; On                 ;
+; Auto DSP Block Replacement                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                  ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                    ; On                 ; On                 ;
+; Strict RAM Replacement                                           ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                           ; Off                ; Off                ;
+; Auto RAM Block Balancing                                         ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                ; Off                ; Off                ;
+; Auto Resource Sharing                                            ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                    ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing              ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                ; Off                ; Off                ;
+; Timing-Driven Synthesis                                          ; On                 ; On                 ;
+; Report Parameter Settings                                        ; On                 ; On                 ;
+; Report Source Assignments                                        ; On                 ; On                 ;
+; Report Connectivity Checks                                       ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                ; Off                ;
+; Synchronization Register Chain Length                            ; 2                  ; 2                  ;
+; Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                  ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                ; 100                ;
+; Clock MUX Protection                                             ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                      ; Off                ; Off                ;
+; Block Design Naming                                              ; Auto               ; Auto               ;
+; SDC constraint protection                                        ; Off                ; Off                ;
+; Synthesis Effort                                                 ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                             ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                               ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                      ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                           ; On                 ; On                 ;
++------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 4           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processors 2-4         ;   0.0%      ;
++----------------------------+-------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                       ;
++----------------------------------+-----------------+------------------------+----------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                                         ; Library ;
++----------------------------------+-----------------+------------------------+----------------------------------------------------------------------+---------+
+; ../../2_Verilog/epilog_unit.v    ; yes             ; User Verilog HDL File  ; C:/akselerator-jst-int8-cyclone4/2_Verilog/epilog_unit.v             ;         ;
+; wrap_komponen.v                  ; yes             ; User Verilog HDL File  ; C:/akselerator-jst-int8-cyclone4/8_Analisis_MAC/wrap/wrap_komponen.v ;         ;
++----------------------------------+-----------------+------------------------+----------------------------------------------------------------------+---------+
+
+
++---------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary             ;
++---------------------------------------------+-----------+
+; Resource                                    ; Usage     ;
++---------------------------------------------+-----------+
+; Estimated Total logic elements              ; 108       ;
+;                                             ;           ;
+; Total combinational functions               ; 70        ;
+; Logic element usage by number of LUT inputs ;           ;
+;     -- 4 input functions                    ; 36        ;
+;     -- 3 input functions                    ; 33        ;
+;     -- <=2 input functions                  ; 1         ;
+;                                             ;           ;
+; Logic elements by mode                      ;           ;
+;     -- normal mode                          ; 39        ;
+;     -- arithmetic mode                      ; 31        ;
+;                                             ;           ;
+; Total registers                             ; 70        ;
+;     -- Dedicated logic registers            ; 70        ;
+;     -- I/O registers                        ; 0         ;
+;                                             ;           ;
+; Virtual pins                                ; 70        ;
+; I/O pins                                    ; 1         ;
+;                                             ;           ;
+; Embedded Multiplier 9-bit elements          ; 0         ;
+;                                             ;           ;
+; Maximum fan-out node                        ; clk~input ;
+; Maximum fan-out                             ; 70        ;
+; Total fan-out                               ; 417       ;
+; Average fan-out                             ; 1.97      ;
++---------------------------------------------+-----------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                   ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------+---------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name            ; Entity Name   ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------+---------------+--------------+
+; |wrap_e1_round             ; 70 (32)             ; 70 (70)                   ; 0           ; 0            ; 0       ; 0         ; 1    ; 70           ; |wrap_e1_round                 ; wrap_e1_round ; work         ;
+;    |epi_round:u_dut|       ; 38 (38)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |wrap_e1_round|epi_round:u_dut ; epi_round     ; work         ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------+---------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 70    ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                 ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------+
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |wrap_e1_round|epi_round:u_dut|rnd_add[17] ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |wrap_e1_round|epi_round:u_dut|rnd_add[14] ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------+
+
+
++--------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: epi_round:u_dut ;
++----------------+-------+-------------------------------------+
+; Parameter Name ; Value ; Type                                ;
++----------------+-------+-------------------------------------+
+; ACCW           ; 32    ; Signed Integer                      ;
++----------------+-------+-------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 71                          ;
+; cycloneiii_ff         ; 70                          ;
+;     plain             ; 70                          ;
+; cycloneiii_lcell_comb ; 70                          ;
+;     arith             ; 31                          ;
+;         3 data inputs ; 31                          ;
+;     normal            ; 39                          ;
+;         1 data inputs ; 1                           ;
+;         3 data inputs ; 2                           ;
+;         4 data inputs ; 36                          ;
+;                       ;                             ;
+; Max LUT depth         ; 7.10                        ;
+; Average LUT depth     ; 3.50                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 25.1std.0 Build 1129 10/21/2025 SC Lite Edition
+    Info: Processing started: Wed Nov  4 20:37:02 2026
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off wrap_e1_round -c wrap_e1_round
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 6 design units, including 6 entities, in source file /akselerator-jst-int8-cyclone4/2_verilog/mac_unit.v
+    Info (12023): Found entity 1: mac_unit File: C:/akselerator-jst-int8-cyclone4/2_Verilog/mac_unit.v Line: 23
+    Info (12023): Found entity 2: mac_handshake File: C:/akselerator-jst-int8-cyclone4/2_Verilog/mac_unit.v Line: 185
+    Info (12023): Found entity 3: mac_reg_t1 File: C:/akselerator-jst-int8-cyclone4/2_Verilog/mac_unit.v Line: 199
+    Info (12023): Found entity 4: mac_mux_init File: C:/akselerator-jst-int8-cyclone4/2_Verilog/mac_unit.v Line: 232
+    Info (12023): Found entity 5: mac_add32 File: C:/akselerator-jst-int8-cyclone4/2_Verilog/mac_unit.v Line: 244
+    Info (12023): Found entity 6: mac_reg_acc File: C:/akselerator-jst-int8-cyclone4/2_Verilog/mac_unit.v Line: 257
+Info (12021): Found 6 design units, including 6 entities, in source file /akselerator-jst-int8-cyclone4/2_verilog/epilog_unit.v
+    Info (12023): Found entity 1: epilog_unit File: C:/akselerator-jst-int8-cyclone4/2_Verilog/epilog_unit.v Line: 25
+    Info (12023): Found entity 2: epi_round File: C:/akselerator-jst-int8-cyclone4/2_Verilog/epilog_unit.v Line: 80
+    Info (12023): Found entity 3: epi_shift File: C:/akselerator-jst-int8-cyclone4/2_Verilog/epilog_unit.v Line: 96
+    Info (12023): Found entity 4: epi_relu File: C:/akselerator-jst-int8-cyclone4/2_Verilog/epilog_unit.v Line: 107
+    Info (12023): Found entity 5: epi_sat File: C:/akselerator-jst-int8-cyclone4/2_Verilog/epilog_unit.v Line: 118
+    Info (12023): Found entity 6: epi_reg_out File: C:/akselerator-jst-int8-cyclone4/2_Verilog/epilog_unit.v Line: 138
+Info (12021): Found 1 design units, including 1 entities, in source file /akselerator-jst-int8-cyclone4/2_verilog/mult_bw8_arith.v
+    Info (12023): Found entity 1: mult_bw8_arith File: C:/akselerator-jst-int8-cyclone4/2_Verilog/mult_bw8_arith.v Line: 13
+Info (12021): Found 2 design units, including 2 entities, in source file /akselerator-jst-int8-cyclone4/2_verilog/mult_bw8_struct.v
+    Info (12023): Found entity 1: full_adder File: C:/akselerator-jst-int8-cyclone4/2_Verilog/mult_bw8_struct.v Line: 16
+    Info (12023): Found entity 2: mult_bw8_struct File: C:/akselerator-jst-int8-cyclone4/2_Verilog/mult_bw8_struct.v Line: 24
+Info (12021): Found 1 design units, including 1 entities, in source file /akselerator-jst-int8-cyclone4/2_verilog/mult_hard8.v
+    Info (12023): Found entity 1: mult_hard8 File: C:/akselerator-jst-int8-cyclone4/2_Verilog/mult_hard8.v Line: 15
+Info (12021): Found 8 design units, including 8 entities, in source file wrap_komponen.v
+    Info (12023): Found entity 1: wrap_dasar File: C:/akselerator-jst-int8-cyclone4/8_Analisis_MAC/wrap/wrap_komponen.v Line: 27
+    Info (12023): Found entity 2: wrap_m3_mux File: C:/akselerator-jst-int8-cyclone4/8_Analisis_MAC/wrap/wrap_komponen.v Line: 32
+    Info (12023): Found entity 3: wrap_m4_add File: C:/akselerator-jst-int8-cyclone4/8_Analisis_MAC/wrap/wrap_komponen.v Line: 38
+    Info (12023): Found entity 4: wrap_e1_round File: C:/akselerator-jst-int8-cyclone4/8_Analisis_MAC/wrap/wrap_komponen.v Line: 44
+    Info (12023): Found entity 5: wrap_e2_shift File: C:/akselerator-jst-int8-cyclone4/8_Analisis_MAC/wrap/wrap_komponen.v Line: 50
+    Info (12023): Found entity 6: wrap_e3_relu File: C:/akselerator-jst-int8-cyclone4/8_Analisis_MAC/wrap/wrap_komponen.v Line: 56
+    Info (12023): Found entity 7: wrap_e4_sat File: C:/akselerator-jst-int8-cyclone4/8_Analisis_MAC/wrap/wrap_komponen.v Line: 62
+    Info (12023): Found entity 8: wrap_epi_rantai File: C:/akselerator-jst-int8-cyclone4/8_Analisis_MAC/wrap/wrap_komponen.v Line: 68
+Info (12127): Elaborating entity "wrap_e1_round" for the top level hierarchy
+Info (12128): Elaborating entity "epi_round" for hierarchy "epi_round:u_dut" File: C:/akselerator-jst-int8-cyclone4/8_Analisis_MAC/wrap/wrap_komponen.v Line: 46
+Info (286030): Timing-Driven Synthesis is running
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (15717): Design contains 70 virtual pins; timing numbers associated with paths containing virtual pins are estimates
+    Info (15719): Pin "q_o[0]" is virtual output pin File: C:/akselerator-jst-int8-cyclone4/8_Analisis_MAC/wrap/wrap_komponen.v Line: 47
+    Info (15719): Pin "q_o[1]" is virtual output pin File: C:/akselerator-jst-int8-cyclone4/8_Analisis_MAC/wrap/wrap_komponen.v Line: 47
+    Info (15719): Pin "q_o[2]" is virtual output pin File: C:/akselerator-jst-int8-cyclone4/8_Analisis_MAC/wrap/wrap_komponen.v Line: 47
+    Info (15719): Pin "q_o[3]" is virtual output pin File: C:/akselerator-jst-int8-cyclone4/8_Analisis_MAC/wrap/wrap_komponen.v Line: 47
+    Info (15719): Pin "q_o[4]" is virtual output pin File: C:/akselerator-jst-int8-cyclone4/8_Analisis_MAC/wrap/wrap_komponen.v Line: 47
+    Info (15719): Pin "q_o[5]" is virtual output pin File: C:/akselerator-jst-int8-cyclone4/8_Analisis_MAC/wrap/wrap_komponen.v Line: 47
+    Info (15719): Pin "q_o[6]" is virtual output pin File: C:/akselerator-jst-int8-cyclone4/8_Analisis_MAC/wrap/wrap_komponen.v Line: 47
+    Info (15719): Pin "q_o[7]" is virtual output pin File: C:/akselerator-jst-int8-cyclone4/8_Analisis_MAC/wrap/wrap_komponen.v Line: 47
+    Info (15719): Pin "q_o[8]" is virtual output pin File: C:/akselerator-jst-int8-cyclone4/8_Analisis_MAC/wrap/wrap_komponen.v Line: 47
+    Info (15719): Pin "q_o[9]" is virtual output pin File: C:/akselerator-jst-int8-cyclone4/8_Analisis_MAC/wrap/wrap_komponen.v Line: 47
+    Info (15719): Pin "q_o[10]" is virtual output pin File: C:/akselerator-jst-int8-cyclone4/8_Analisis_MAC/wrap/wrap_komponen.v Line: 47
+    Info (15719): Pin "q_o[11]" is virtual output pin File: C:/akselerator-jst-int8-cyclone4/8_Analisis_MAC/wrap/wrap_komponen.v Line: 47
+    Info (15719): Pin "q_o[12]" is virtual output pin File: C:/akselerator-jst-int8-cyclone4/8_Analisis_MAC/wrap/wrap_komponen.v Line: 47
+    Info (15719): Pin "q_o[13]" is virtual output pin File: C:/akselerator-jst-int8-cyclone4/8_Analisis_MAC/wrap/wrap_komponen.v Line: 47
+    Info (15719): Pin "q_o[14]" is virtual output pin File: C:/akselerator-jst-int8-cyclone4/8_Analisis_MAC/wrap/wrap_komponen.v Line: 47
+    Info (15719): Pin "q_o[15]" is virtual output pin File: C:/akselerator-jst-int8-cyclone4/8_Analisis_MAC/wrap/wrap_komponen.v Line: 47
+    Info (15719): Pin "q_o[16]" is virtual output pin File: C:/akselerator-jst-int8-cyclone4/8_Analisis_MAC/wrap/wrap_komponen.v Line: 47
+    Info (15719): Pin "q_o[17]" is virtual output pin File: C:/akselerator-jst-int8-cyclone4/8_Analisis_MAC/wrap/wrap_komponen.v Line: 47
+    Info (15719): Pin "q_o[18]" is virtual output pin File: C:/akselerator-jst-int8-cyclone4/8_Analisis_MAC/wrap/wrap_komponen.v Line: 47
+    Info (15719): Pin "q_o[19]" is virtual output pin File: C:/akselerator-jst-int8-cyclone4/8_Analisis_MAC/wrap/wrap_komponen.v Line: 47
+    Info (15719): Pin "q_o[20]" is virtual output pin File: C:/akselerator-jst-int8-cyclone4/8_Analisis_MAC/wrap/wrap_komponen.v Line: 47
+    Info (15719): Pin "q_o[21]" is virtual output pin File: C:/akselerator-jst-int8-cyclone4/8_Analisis_MAC/wrap/wrap_komponen.v Line: 47
+    Info (15719): Pin "q_o[22]" is virtual output pin File: C:/akselerator-jst-int8-cyclone4/8_Analisis_MAC/wrap/wrap_komponen.v Line: 47
+    Info (15719): Pin "q_o[23]" is virtual output pin File: C:/akselerator-jst-int8-cyclone4/8_Analisis_MAC/wrap/wrap_komponen.v Line: 47
+    Info (15719): Pin "q_o[24]" is virtual output pin File: C:/akselerator-jst-int8-cyclone4/8_Analisis_MAC/wrap/wrap_komponen.v Line: 47
+    Info (15719): Pin "q_o[25]" is virtual output pin File: C:/akselerator-jst-int8-cyclone4/8_Analisis_MAC/wrap/wrap_komponen.v Line: 47
+    Info (15719): Pin "q_o[26]" is virtual output pin File: C:/akselerator-jst-int8-cyclone4/8_Analisis_MAC/wrap/wrap_komponen.v Line: 47
+    Info (15719): Pin "q_o[27]" is virtual output pin File: C:/akselerator-jst-int8-cyclone4/8_Analisis_MAC/wrap/wrap_komponen.v Line: 47
+    Info (15719): Pin "q_o[28]" is virtual output pin File: C:/akselerator-jst-int8-cyclone4/8_Analisis_MAC/wrap/wrap_komponen.v Line: 47
+    Info (15719): Pin "q_o[29]" is virtual output pin File: C:/akselerator-jst-int8-cyclone4/8_Analisis_MAC/wrap/wrap_komponen.v Line: 47
+    Info (15719): Pin "q_o[30]" is virtual output pin File: C:/akselerator-jst-int8-cyclone4/8_Analisis_MAC/wrap/wrap_komponen.v Line: 47
+    Info (15719): Pin "q_o[31]" is virtual output pin File: C:/akselerator-jst-int8-cyclone4/8_Analisis_MAC/wrap/wrap_komponen.v Line: 47
+    Info (15718): Pin "d_i[32]" is virtual input pin File: C:/akselerator-jst-int8-cyclone4/8_Analisis_MAC/wrap/wrap_komponen.v Line: 44
+    Info (15718): Pin "d_i[33]" is virtual input pin File: C:/akselerator-jst-int8-cyclone4/8_Analisis_MAC/wrap/wrap_komponen.v Line: 44
+    Info (15718): Pin "d_i[34]" is virtual input pin File: C:/akselerator-jst-int8-cyclone4/8_Analisis_MAC/wrap/wrap_komponen.v Line: 44
+    Info (15718): Pin "d_i[35]" is virtual input pin File: C:/akselerator-jst-int8-cyclone4/8_Analisis_MAC/wrap/wrap_komponen.v Line: 44
+    Info (15718): Pin "d_i[37]" is virtual input pin File: C:/akselerator-jst-int8-cyclone4/8_Analisis_MAC/wrap/wrap_komponen.v Line: 44
+    Info (15718): Pin "d_i[36]" is virtual input pin File: C:/akselerator-jst-int8-cyclone4/8_Analisis_MAC/wrap/wrap_komponen.v Line: 44
+    Info (15718): Pin "d_i[0]" is virtual input pin File: C:/akselerator-jst-int8-cyclone4/8_Analisis_MAC/wrap/wrap_komponen.v Line: 44
+    Info (15718): Pin "d_i[1]" is virtual input pin File: C:/akselerator-jst-int8-cyclone4/8_Analisis_MAC/wrap/wrap_komponen.v Line: 44
+    Info (15718): Pin "d_i[2]" is virtual input pin File: C:/akselerator-jst-int8-cyclone4/8_Analisis_MAC/wrap/wrap_komponen.v Line: 44
+    Info (15718): Pin "d_i[3]" is virtual input pin File: C:/akselerator-jst-int8-cyclone4/8_Analisis_MAC/wrap/wrap_komponen.v Line: 44
+    Info (15718): Pin "d_i[4]" is virtual input pin File: C:/akselerator-jst-int8-cyclone4/8_Analisis_MAC/wrap/wrap_komponen.v Line: 44
+    Info (15718): Pin "d_i[5]" is virtual input pin File: C:/akselerator-jst-int8-cyclone4/8_Analisis_MAC/wrap/wrap_komponen.v Line: 44
+    Info (15718): Pin "d_i[6]" is virtual input pin File: C:/akselerator-jst-int8-cyclone4/8_Analisis_MAC/wrap/wrap_komponen.v Line: 44
+    Info (15718): Pin "d_i[7]" is virtual input pin File: C:/akselerator-jst-int8-cyclone4/8_Analisis_MAC/wrap/wrap_komponen.v Line: 44
+    Info (15718): Pin "d_i[8]" is virtual input pin File: C:/akselerator-jst-int8-cyclone4/8_Analisis_MAC/wrap/wrap_komponen.v Line: 44
+    Info (15718): Pin "d_i[9]" is virtual input pin File: C:/akselerator-jst-int8-cyclone4/8_Analisis_MAC/wrap/wrap_komponen.v Line: 44
+    Info (15718): Pin "d_i[10]" is virtual input pin File: C:/akselerator-jst-int8-cyclone4/8_Analisis_MAC/wrap/wrap_komponen.v Line: 44
+    Info (15718): Pin "d_i[11]" is virtual input pin File: C:/akselerator-jst-int8-cyclone4/8_Analisis_MAC/wrap/wrap_komponen.v Line: 44
+    Info (15718): Pin "d_i[12]" is virtual input pin File: C:/akselerator-jst-int8-cyclone4/8_Analisis_MAC/wrap/wrap_komponen.v Line: 44
+    Info (15718): Pin "d_i[13]" is virtual input pin File: C:/akselerator-jst-int8-cyclone4/8_Analisis_MAC/wrap/wrap_komponen.v Line: 44
+    Info (15718): Pin "d_i[14]" is virtual input pin File: C:/akselerator-jst-int8-cyclone4/8_Analisis_MAC/wrap/wrap_komponen.v Line: 44
+    Info (15718): Pin "d_i[15]" is virtual input pin File: C:/akselerator-jst-int8-cyclone4/8_Analisis_MAC/wrap/wrap_komponen.v Line: 44
+    Info (15718): Pin "d_i[16]" is virtual input pin File: C:/akselerator-jst-int8-cyclone4/8_Analisis_MAC/wrap/wrap_komponen.v Line: 44
+    Info (15718): Pin "d_i[17]" is virtual input pin File: C:/akselerator-jst-int8-cyclone4/8_Analisis_MAC/wrap/wrap_komponen.v Line: 44
+    Info (15718): Pin "d_i[18]" is virtual input pin File: C:/akselerator-jst-int8-cyclone4/8_Analisis_MAC/wrap/wrap_komponen.v Line: 44
+    Info (15718): Pin "d_i[19]" is virtual input pin File: C:/akselerator-jst-int8-cyclone4/8_Analisis_MAC/wrap/wrap_komponen.v Line: 44
+    Info (15718): Pin "d_i[20]" is virtual input pin File: C:/akselerator-jst-int8-cyclone4/8_Analisis_MAC/wrap/wrap_komponen.v Line: 44
+    Info (15718): Pin "d_i[21]" is virtual input pin File: C:/akselerator-jst-int8-cyclone4/8_Analisis_MAC/wrap/wrap_komponen.v Line: 44
+    Info (15718): Pin "d_i[22]" is virtual input pin File: C:/akselerator-jst-int8-cyclone4/8_Analisis_MAC/wrap/wrap_komponen.v Line: 44
+    Info (15718): Pin "d_i[23]" is virtual input pin File: C:/akselerator-jst-int8-cyclone4/8_Analisis_MAC/wrap/wrap_komponen.v Line: 44
+    Info (15718): Pin "d_i[24]" is virtual input pin File: C:/akselerator-jst-int8-cyclone4/8_Analisis_MAC/wrap/wrap_komponen.v Line: 44
+    Info (15718): Pin "d_i[25]" is virtual input pin File: C:/akselerator-jst-int8-cyclone4/8_Analisis_MAC/wrap/wrap_komponen.v Line: 44
+    Info (15718): Pin "d_i[26]" is virtual input pin File: C:/akselerator-jst-int8-cyclone4/8_Analisis_MAC/wrap/wrap_komponen.v Line: 44
+    Info (15718): Pin "d_i[27]" is virtual input pin File: C:/akselerator-jst-int8-cyclone4/8_Analisis_MAC/wrap/wrap_komponen.v Line: 44
+    Info (15718): Pin "d_i[28]" is virtual input pin File: C:/akselerator-jst-int8-cyclone4/8_Analisis_MAC/wrap/wrap_komponen.v Line: 44
+    Info (15718): Pin "d_i[29]" is virtual input pin File: C:/akselerator-jst-int8-cyclone4/8_Analisis_MAC/wrap/wrap_komponen.v Line: 44
+    Info (15718): Pin "d_i[30]" is virtual input pin File: C:/akselerator-jst-int8-cyclone4/8_Analisis_MAC/wrap/wrap_komponen.v Line: 44
+    Info (15718): Pin "d_i[31]" is virtual input pin File: C:/akselerator-jst-int8-cyclone4/8_Analisis_MAC/wrap/wrap_komponen.v Line: 44
+Info (21057): Implemented 141 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 1 input pins
+    Info (21059): Implemented 0 output pins
+    Info (21061): Implemented 140 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 1 warning
+    Info: Peak virtual memory: 4790 megabytes
+    Info: Processing ended: Wed Nov  4 20:37:15 2026
+    Info: Elapsed time: 00:00:13
+    Info: Total CPU time (on all processors): 00:00:29
+
+

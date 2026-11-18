@@ -24,6 +24,8 @@ Alur_Utama/
 ├── 5_PC_Linux/      pembanding CPU (Ubuntu, inti terisolasi): model INT8 dan FP32, waktu, daya
 ├── 6_Daya_FPGA/     analisis daya OS dengan Power Analyzer
 ├── 7_NLR/           rancangan no local reuse (tanpa stationary)
+├── 8_Varian_Pengali/ tiga varian pengali (HARD, ARITH, STRUCT): luas, timing, daya
+├── 9_Analisis_MAC/  analisis per komponen unit MAC dan epilog
 └── gambar/          foto papan untuk README
 ```
 
@@ -250,6 +252,65 @@ python jalankan_papan_nlr.py
 
 Harus berakhir dengan `HASIL: LULUS — 18 inferensi` dan tepat 1.965 siklus
 per inferensi.
+
+---
+
+## 8_Varian_Pengali
+
+Pengukuran tiga varian pengali di dalam rancangan OS akhir (Student A): pengali
+9 bit bawaan chip (HARD, yang dipakai papan), Baugh-Wooley deskripsi aritmetik
+(ARITH), dan Baugh-Wooley deskripsi struktural (STRUCT). Ketiganya dipilih
+lewat parameter `MULT_STYLE` pada `mac_unit.v` tanpa mengubah berkas di
+`2_Verilog/`. Analisis daya memakai metode `6_Daya_FPGA`.
+
+| Berkas / folder | Isi |
+|---|---|
+| `jalankan_varian.py`, `JALANKAN_VARIAN.bat` | uji RTL 16 citra, kompilasi Quartus, dan analisis daya untuk tiap varian |
+| `daya_<varian>.qpf/.qsf` | proyek Quartus tiap varian (dibuat dari `6_Daya_FPGA/daya_os.qsf`) |
+| `seed_<varian>_s1..s5.qsf` | proyek yang sama dengan seed fitter 1–5 |
+| `pecah_<varian>.qsf` | proyek versi terpecah untuk analisis per komponen (RTL dari `9_Analisis_MAC/rtl_terpecah/`) |
+| `hasil/` | ringkasan JSON tiap varian |
+| `hasil_mentah/` | laporan Quartus yang dirujuk skripsi Student A |
+| `simulasi_netlist/` | simulasi netlist, skrip VCD, dan skrip akurasi |
+
+| Varian | Logic element | Fmax (seed 1) | Daya (perkiraan) |
+|---|---|---|---|
+| HARD | 2.306 | 82,46 MHz | 93,91 mW |
+| ARITH | 3.331 | 56,87 MHz | 96,68 mW |
+| STRUCT | 3.413 | 56,76 MHz | 97,47 mW |
+
+Ketiga varian lulus simulasi RTL 16 citra (18 inferensi, 1.708 siklus) dan
+simulasi netlist. Cara menjalankan ada di `8_Varian_Pengali/README.md`.
+
+---
+
+## 9_Analisis_MAC
+
+Analisis per komponen unit MAC dan epilog (Student A): luas per entitas, delay
+per tahap pipa, variasi Fmax lima seed, daya per hierarki, komponen yang diukur
+sendirian, dan rincian 1.708 siklus.
+
+| Berkas / folder | Isi |
+|---|---|
+| `rtl_terpecah/` | `mac_unit.v` dan `epilog_unit.v` versi terpecah (submodul per komponen) |
+| `rtl_uji/` | `tb_mac_unit.v` beserta vektor uji, `tb_mult8.v`, `mac_lane_wrap.v` |
+| `tb/tb_hitung_siklus.v` | rincian 1.708 siklus dari `top_papan` tanpa mengubahnya |
+| `wrap/` | pembungkus register untuk mengukur komponen sendirian |
+| `scripts/` | pembaca laporan dan gerbang uji (`gerbang.sh`) |
+| `hasil/` | CSV, log gerbang, laporan per tahap, gambar |
+
+**Penting:** versi terpecah memakai nama modul yang sama dengan
+`2_Verilog/mac_unit.v` dan `epilog_unit.v`. Jangan memasukkan keduanya ke
+proyek atau simulasi yang sama. `2_Verilog/` tetap versi datar yang dipakai
+OS, WS, dan NLR.
+
+Menjalankan gerbang uji, dari akar repo:
+
+```
+bash 9_Analisis_MAC/scripts/gerbang.sh g1 datar
+```
+
+Harus berakhir dengan `HASIL: LULUS` (lihat `9_Analisis_MAC/README.md`).
 
 ---
 

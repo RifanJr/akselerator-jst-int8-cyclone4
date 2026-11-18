@@ -1,0 +1,13 @@
+{
+ "uji_rtl": {
+  "inferensi": 18,
+  "identik": 18,
+  "citra": 16,
+  "siklus": 1708
+ },
+ "mulai": 216,
+ "selesai": 1924,
+ "siklus": 1708,
+ "netlist_led_cocok": 1926,
+ "simulator": "/sessions/rcw-01xm9idhaqedzwzyzwdcztjc/ivl/root/usr/bin/iverilog"
+}

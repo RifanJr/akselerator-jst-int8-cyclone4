@@ -1,0 +1,76 @@
+varian,kode,komponen,n,dinamis_mw_total,dinamis_mw_per_lajur,persen_inti_dinamis,keyakinan,sumber
+HARD,M1,u_mul,8,0.26,0.0325,1.21,High,8_Varian_Pengali/output_pecah_hard/pecah_hard.pow.rpt
+HARD,M2,u_t1,8,1.25,0.1562,5.84,High,8_Varian_Pengali/output_pecah_hard/pecah_hard.pow.rpt
+HARD,M3,u_mux,8,0.17,0.0212,0.79,High,8_Varian_Pengali/output_pecah_hard/pecah_hard.pow.rpt
+HARD,M4,u_add,8,0.54,0.0675,2.52,High,8_Varian_Pengali/output_pecah_hard/pecah_hard.pow.rpt
+HARD,M5,u_acc,8,1.98,0.2475,9.25,High,8_Varian_Pengali/output_pecah_hard/pecah_hard.pow.rpt
+HARD,M6,u_hs,8,0.0,0.0,0.0,High,8_Varian_Pengali/output_pecah_hard/pecah_hard.pow.rpt
+HARD,M0,mac_unit sendiri,8,0.0,0.0,0.0,High,8_Varian_Pengali/output_pecah_hard/pecah_hard.pow.rpt
+HARD,M1W,u_mul + mem_w sendiri (banding setara),8,1.67,0.2087,7.8,High,8_Varian_Pengali/output_pecah_hard/pecah_hard.pow.rpt
+HARD,WS,mem_w sendiri (HARD: blok pengali embedded; lain: register q),8,1.41,0.1762,6.59,High,8_Varian_Pengali/output_pecah_hard/pecah_hard.pow.rpt
+HARD,MAC,8 lajur mac_unit,8,4.22,0.5275,19.71,High,8_Varian_Pengali/output_pecah_hard/pecah_hard.pow.rpt
+HARD,E1,u_round,1,0,,0.0,High,8_Varian_Pengali/output_pecah_hard/pecah_hard.pow.rpt
+HARD,E2,u_shift,1,0,,0.0,High,8_Varian_Pengali/output_pecah_hard/pecah_hard.pow.rpt
+HARD,E3,u_relu,1,0,,0.0,High,8_Varian_Pengali/output_pecah_hard/pecah_hard.pow.rpt
+HARD,E4,u_sat,1,0.0,,0.0,High,8_Varian_Pengali/output_pecah_hard/pecah_hard.pow.rpt
+HARD,E5,u_out,1,0.01,,0.05,High,8_Varian_Pengali/output_pecah_hard/pecah_hard.pow.rpt
+HARD,EPI,epilog total,1,0.01,,0.05,High,8_Varian_Pengali/output_pecah_hard/pecah_hard.pow.rpt
+HARD,W,8 mem_w (M9K bobot),8,8.75,1.0938,40.87,High,8_Varian_Pengali/output_pecah_hard/pecah_hard.pow.rpt
+HARD,D,mem_d,1,0.55,,2.57,High,8_Varian_Pengali/output_pecah_hard/pecah_hard.pow.rpt
+HARD,C,ctrl_fsm_p8,1,1.26,,5.89,High,8_Varian_Pengali/output_pecah_hard/pecah_hard.pow.rpt
+HARD,A,argmax10,1,0.08,,0.37,High,8_Varian_Pengali/output_pecah_hard/pecah_hard.pow.rpt
+HARD,CI,ROM citra,1,1.64,,7.66,High,8_Varian_Pengali/output_pecah_hard/pecah_hard.pow.rpt
+HARD,S,seg7_scan,1,0.19,,0.89,High,8_Varian_Pengali/output_pecah_hard/pecah_hard.pow.rpt
+HARD,T,top_papan sendiri,1,5.08,,23.73,High,8_Varian_Pengali/output_pecah_hard/pecah_hard.pow.rpt
+HARD,SUM,jumlah hierarki (dinamis),1,21.75,,101.59,High,8_Varian_Pengali/output_pecah_hard/pecah_hard.pow.rpt
+HARD,RING,total 94.24 mW; inti dinamis 21.41; inti statis 43.16; I/O 29.66,,,,,High,
+ARITH,M1,u_mul,8,1.3,0.1625,5.5,High,8_Varian_Pengali/output_pecah_arith/pecah_arith.pow.rpt
+ARITH,M2,u_t1,8,1.78,0.2225,7.53,High,8_Varian_Pengali/output_pecah_arith/pecah_arith.pow.rpt
+ARITH,M3,u_mux,8,0.19,0.0237,0.8,High,8_Varian_Pengali/output_pecah_arith/pecah_arith.pow.rpt
+ARITH,M4,u_add,8,0.54,0.0675,2.28,High,8_Varian_Pengali/output_pecah_arith/pecah_arith.pow.rpt
+ARITH,M5,u_acc,8,1.74,0.2175,7.36,High,8_Varian_Pengali/output_pecah_arith/pecah_arith.pow.rpt
+ARITH,M6,u_hs,8,0.0,0.0,0.0,High,8_Varian_Pengali/output_pecah_arith/pecah_arith.pow.rpt
+ARITH,M0,mac_unit sendiri,8,0.0,0.0,0.0,High,8_Varian_Pengali/output_pecah_arith/pecah_arith.pow.rpt
+ARITH,M1W,u_mul + mem_w sendiri (banding setara),8,3.12,0.39,13.2,High,8_Varian_Pengali/output_pecah_arith/pecah_arith.pow.rpt
+ARITH,WS,mem_w sendiri (HARD: blok pengali embedded; lain: register q),8,1.82,0.2275,7.7,High,8_Varian_Pengali/output_pecah_arith/pecah_arith.pow.rpt
+ARITH,MAC,8 lajur mac_unit,8,5.48,0.685,23.18,High,8_Varian_Pengali/output_pecah_arith/pecah_arith.pow.rpt
+ARITH,E1,u_round,1,0,,0.0,High,8_Varian_Pengali/output_pecah_arith/pecah_arith.pow.rpt
+ARITH,E2,u_shift,1,0,,0.0,High,8_Varian_Pengali/output_pecah_arith/pecah_arith.pow.rpt
+ARITH,E3,u_relu,1,0,,0.0,High,8_Varian_Pengali/output_pecah_arith/pecah_arith.pow.rpt
+ARITH,E4,u_sat,1,0.0,,0.0,High,8_Varian_Pengali/output_pecah_arith/pecah_arith.pow.rpt
+ARITH,E5,u_out,1,0.01,,0.04,High,8_Varian_Pengali/output_pecah_arith/pecah_arith.pow.rpt
+ARITH,EPI,epilog total,1,0.01,,0.04,High,8_Varian_Pengali/output_pecah_arith/pecah_arith.pow.rpt
+ARITH,W,8 mem_w (M9K bobot),8,9.14,1.1425,38.66,High,8_Varian_Pengali/output_pecah_arith/pecah_arith.pow.rpt
+ARITH,D,mem_d,1,0.81,,3.43,High,8_Varian_Pengali/output_pecah_arith/pecah_arith.pow.rpt
+ARITH,C,ctrl_fsm_p8,1,1.32,,5.58,High,8_Varian_Pengali/output_pecah_arith/pecah_arith.pow.rpt
+ARITH,A,argmax10,1,0.08,,0.34,High,8_Varian_Pengali/output_pecah_arith/pecah_arith.pow.rpt
+ARITH,CI,ROM citra,1,1.64,,6.94,High,8_Varian_Pengali/output_pecah_arith/pecah_arith.pow.rpt
+ARITH,S,seg7_scan,1,0.17,,0.72,High,8_Varian_Pengali/output_pecah_arith/pecah_arith.pow.rpt
+ARITH,T,top_papan sendiri,1,5.34,,22.59,High,8_Varian_Pengali/output_pecah_arith/pecah_arith.pow.rpt
+ARITH,SUM,jumlah hierarki (dinamis),1,23.98,,101.44,High,8_Varian_Pengali/output_pecah_arith/pecah_arith.pow.rpt
+ARITH,RING,total 96.58 mW; inti dinamis 23.64; inti statis 43.27; I/O 29.67,,,,,High,
+STRUCT,M1,u_mul,8,2.63,0.3288,10.47,Medium,8_Varian_Pengali/output_pecah_struct/pecah_struct.pow.rpt
+STRUCT,M2,u_t1,8,1.58,0.1975,6.29,Medium,8_Varian_Pengali/output_pecah_struct/pecah_struct.pow.rpt
+STRUCT,M3,u_mux,8,0.22,0.0275,0.88,Medium,8_Varian_Pengali/output_pecah_struct/pecah_struct.pow.rpt
+STRUCT,M4,u_add,8,0.58,0.0725,2.31,Medium,8_Varian_Pengali/output_pecah_struct/pecah_struct.pow.rpt
+STRUCT,M5,u_acc,8,1.8,0.225,7.17,Medium,8_Varian_Pengali/output_pecah_struct/pecah_struct.pow.rpt
+STRUCT,M6,u_hs,8,0.0,0.0,0.0,Medium,8_Varian_Pengali/output_pecah_struct/pecah_struct.pow.rpt
+STRUCT,M0,mac_unit sendiri,8,0.0,0.0,0.0,Medium,8_Varian_Pengali/output_pecah_struct/pecah_struct.pow.rpt
+STRUCT,M1W,u_mul + mem_w sendiri (banding setara),8,4.37,0.5463,17.4,Medium,8_Varian_Pengali/output_pecah_struct/pecah_struct.pow.rpt
+STRUCT,WS,mem_w sendiri (HARD: blok pengali embedded; lain: register q),8,1.74,0.2175,6.93,Medium,8_Varian_Pengali/output_pecah_struct/pecah_struct.pow.rpt
+STRUCT,MAC,8 lajur mac_unit,8,6.74,0.8425,26.84,Medium,8_Varian_Pengali/output_pecah_struct/pecah_struct.pow.rpt
+STRUCT,E1,u_round,1,0,,0.0,Medium,8_Varian_Pengali/output_pecah_struct/pecah_struct.pow.rpt
+STRUCT,E2,u_shift,1,0,,0.0,Medium,8_Varian_Pengali/output_pecah_struct/pecah_struct.pow.rpt
+STRUCT,E3,u_relu,1,0,,0.0,Medium,8_Varian_Pengali/output_pecah_struct/pecah_struct.pow.rpt
+STRUCT,E4,u_sat,1,0.0,,0.0,Medium,8_Varian_Pengali/output_pecah_struct/pecah_struct.pow.rpt
+STRUCT,E5,u_out,1,0.02,,0.08,Medium,8_Varian_Pengali/output_pecah_struct/pecah_struct.pow.rpt
+STRUCT,EPI,epilog total,1,0.02,,0.08,Medium,8_Varian_Pengali/output_pecah_struct/pecah_struct.pow.rpt
+STRUCT,W,8 mem_w (M9K bobot),8,9.13,1.1412,36.36,Medium,8_Varian_Pengali/output_pecah_struct/pecah_struct.pow.rpt
+STRUCT,D,mem_d,1,0.9,,3.58,Medium,8_Varian_Pengali/output_pecah_struct/pecah_struct.pow.rpt
+STRUCT,C,ctrl_fsm_p8,1,1.25,,4.98,Medium,8_Varian_Pengali/output_pecah_struct/pecah_struct.pow.rpt
+STRUCT,A,argmax10,1,0.08,,0.32,Medium,8_Varian_Pengali/output_pecah_struct/pecah_struct.pow.rpt
+STRUCT,CI,ROM citra,1,1.64,,6.53,Medium,8_Varian_Pengali/output_pecah_struct/pecah_struct.pow.rpt
+STRUCT,S,seg7_scan,1,0.19,,0.76,Medium,8_Varian_Pengali/output_pecah_struct/pecah_struct.pow.rpt
+STRUCT,T,top_papan sendiri,1,5.5,,21.9,Medium,8_Varian_Pengali/output_pecah_struct/pecah_struct.pow.rpt
+STRUCT,SUM,jumlah hierarki (dinamis),1,25.46,,101.39,Medium,8_Varian_Pengali/output_pecah_struct/pecah_struct.pow.rpt
+STRUCT,RING,total 98.13 mW; inti dinamis 25.11; inti statis 43.35; I/O 29.66,,,,,Medium,

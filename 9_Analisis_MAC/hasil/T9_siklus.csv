@@ -1,0 +1,10 @@
+kategori,siklus,persen,keterangan
+isi_pipa_awal,2,0.12,state S_ALIR tanpa beat: latensi baca memori bobot/aktivasi sebelum beat pertama
+beat_MAC_lapisan1,1568,91.80,8 kelompok x 196 suku (beat ke-1..1568)
+beat_MAC_lapisan2,128,7.49,2 kelompok x 64 suku (beat ke-1569..1696)
+ekor_S_HABIS,10,0.59,setelah beat terakhir: 2 siklus pipa MAC + 8 siklus pengurasan kelompok terakhir
+total,1708,100.00,sama dengan penghitung papan (siklus_r) dan tb_jendela_os
+sejajar_pengurasan,80,,10 kelompok x 8 lajur; tumpang tindih dengan aliran kecuali 8 siklus di ekor
+sejajar_epilog,64,,epi_valid (lapisan 1 saja); seluruhnya tumpang tindih
+sejajar_argmax,10,,amax_valid (lapisan 2 saja)
+sejajar_tulis_aktivasi,64,,wr_en ke mem_d

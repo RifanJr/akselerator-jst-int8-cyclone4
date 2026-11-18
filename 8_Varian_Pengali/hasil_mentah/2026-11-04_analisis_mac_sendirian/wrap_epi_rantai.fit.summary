@@ -1,0 +1,16 @@
+Fitter Status : Successful - Wed Nov  4 20:39:08 2026
+Quartus Prime Version : 25.1std.0 Build 1129 10/21/2025 SC Lite Edition
+Revision Name : wrap_epi_rantai
+Top-level Entity Name : wrap_epi_rantai
+Family : Cyclone IV E
+Device : EP4CE6E22C8
+Timing Models : Final
+Total logic elements : 291 / 6,272 ( 5 % )
+    Total combinational functions : 274 / 6,272 ( 4 % )
+    Dedicated logic registers : 48 / 6,272 ( < 1 % )
+Total registers : 48
+Total pins : 1 / 92 ( 1 % )
+Total virtual pins : 48
+Total memory bits : 0 / 276,480 ( 0 % )
+Embedded Multiplier 9-bit elements : 0 / 30 ( 0 % )
+Total PLLs : 0 / 2 ( 0 % )

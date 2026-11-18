@@ -1,0 +1,16 @@
+Fitter Status : Successful - Thu Sep 24 17:11:12 2026
+Quartus Prime Version : 25.1std.0 Build 1129 10/21/2025 SC Lite Edition
+Revision Name : mac_syn
+Top-level Entity Name : mac_lane_arith_noepi
+Family : Cyclone IV E
+Device : EP4CE6E22C8
+Timing Models : Final
+Total logic elements : 302 / 6,272 ( 5 % )
+    Total combinational functions : 277 / 6,272 ( 4 % )
+    Dedicated logic registers : 116 / 6,272 ( 2 % )
+Total registers : 116
+Total pins : 1 / 92 ( 1 % )
+Total virtual pins : 103
+Total memory bits : 0 / 276,480 ( 0 % )
+Embedded Multiplier 9-bit elements : 0 / 30 ( 0 % )
+Total PLLs : 0 / 2 ( 0 % )

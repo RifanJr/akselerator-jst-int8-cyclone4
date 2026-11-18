@@ -1,0 +1,69 @@
+{
+ "varian": "HARD",
+ "rancangan": "OS baru (1.708 siklus)",
+ "waktu": "2026-11-03T14:52:10",
+ "commit": "f5eb4f6",
+ "arsip": "8_Varian_Pengali/hasil_mentah/2026-11-03_os_hard",
+ "simulasi": {
+  "uji_rtl": {
+   "inferensi": 18,
+   "identik": 18,
+   "citra": 16,
+   "siklus": 1708
+  },
+  "mulai": 216,
+  "selesai": 1924,
+  "siklus": 1708,
+  "netlist_led_cocok": 1926,
+  "simulator": "/sessions/rcw-01xm9idhaqedzwzyzwdcztjc/ivl/root/usr/bin/iverilog"
+ },
+ "siklus": 1708,
+ "waktu_us": 34.16,
+ "luas": {
+  "le": 2306,
+  "fungsi_kombinasional": 1826,
+  "register": 1420,
+  "pengali_9bit": 8,
+  "m9k": 21,
+  "bit_memori": 143392,
+  "le_lajur": [
+   160,
+   150,
+   148,
+   149,
+   154,
+   150,
+   150,
+   150
+  ],
+  "le_lajur_rerata": 151.4
+ },
+ "timing": {
+  "fmax_mhz": 82.46,
+  "setup_slack_ns": 7.873,
+  "hold_slack_ns": 0.452
+ },
+ "daya": {
+  "total_mw": 93.91,
+  "inti_dinamis_mw": 21.09,
+  "inti_statis_mw": 43.16,
+  "io_mw": 29.66,
+  "delapan_lajur_mw": 4.39,
+  "energi_uj_per_citra": 3.208,
+  "keyakinan": "High",
+  "sumber_aktivitas": {
+   "simulasi": {
+    "sinyal_persen": 83.4,
+    "register_persen": 49.7
+   },
+   "assignment": {
+    "sinyal_persen": 16.5,
+    "register_persen": 50.3
+   },
+   "vectorless": {
+    "sinyal_persen": 0.1,
+    "register_persen": 0.0
+   }
+  }
+ }
+}

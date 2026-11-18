@@ -1,0 +1,80 @@
+# -------------------------------------------------------------------------- #
+#  mac_syn.qsf — sintesis satu lajur mac_unit pada EP4CE6E22C8
+#
+#  Tujuan  : mengukur logic element per lajur dan Fmax, untuk menentukan
+#            nilai P (jumlah lajur MAC paralel).
+#
+#  Top-level tersedia tiga pilihan, ganti lewat
+#  Assignments -> Settings -> General -> Top-level entity :
+#
+#  Dengan epilog di dalam lajur (HAS_EPILOG = 1):
+#      mac_lane_arith         varian logika  (Baugh-Wooley aritmetik)
+#      mac_lane_struct        varian logika  (Baugh-Wooley struktural)
+#      mac_lane_hard          varian keras   (pengali embedded 9 bit)
+#
+#  Tanpa epilog di dalam lajur (HAS_EPILOG = 0), epilog jadi blok bersama:
+#      mac_lane_arith_noepi
+#      mac_lane_struct_noepi
+#      mac_lane_hard_noepi
+#      epilog_wrap            blok epilog bersama, diukur sendirian
+#
+#  Port selain clk dijadikan pin maya karena mac_unit punya 104 bit port
+#  sedangkan chip hanya menyediakan 92 GPIO. Di sistem sebenarnya port-port
+#  itu memang kawat internal, bukan pin.
+# -------------------------------------------------------------------------- #
+
+set_global_assignment -name FAMILY "Cyclone IV E"
+set_global_assignment -name DEVICE EP4CE6E22C8
+set_global_assignment -name TOP_LEVEL_ENTITY mac_lane_arith_noepi
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION 25.1STD.0
+set_global_assignment -name LAST_QUARTUS_VERSION "25.1std.0 Lite Edition"
+set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_mac_syn
+
+# ---- suhu dan tegangan inti ----
+set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
+set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
+set_global_assignment -name NOMINAL_CORE_SUPPLY_VOLTAGE 1.2V
+set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR 1
+
+# ---- berkas sumber ----
+set_global_assignment -name VERILOG_FILE ../rtl/mult_bw8_arith.v
+set_global_assignment -name VERILOG_FILE ../rtl/mult_bw8_struct.v
+set_global_assignment -name VERILOG_FILE ../rtl/mult_hard8.v
+set_global_assignment -name VERILOG_FILE ../rtl/mac_unit.v
+set_global_assignment -name VERILOG_FILE ../rtl/epilog_unit.v
+set_global_assignment -name VERILOG_FILE ../rtl/mac_lane_wrap.v
+set_global_assignment -name SDC_FILE ../rtl/mac_unit.sdc
+
+# ---- pin maya: seluruh port kecuali clk ----
+
+# ---- pin maya tambahan: port milik epilog_wrap ----
+
+# ---- partisi ----
+
+set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
+set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_instance_assignment -name VIRTUAL_PIN ON -to rst_n
+set_instance_assignment -name VIRTUAL_PIN ON -to s_valid
+set_instance_assignment -name VIRTUAL_PIN ON -to s_ready
+set_instance_assignment -name VIRTUAL_PIN ON -to s_x
+set_instance_assignment -name VIRTUAL_PIN ON -to s_w
+set_instance_assignment -name VIRTUAL_PIN ON -to s_first
+set_instance_assignment -name VIRTUAL_PIN ON -to s_last
+set_instance_assignment -name VIRTUAL_PIN ON -to s_init
+set_instance_assignment -name VIRTUAL_PIN ON -to cfg_shift
+set_instance_assignment -name VIRTUAL_PIN ON -to cfg_round
+set_instance_assignment -name VIRTUAL_PIN ON -to cfg_relu
+set_instance_assignment -name VIRTUAL_PIN ON -to m_valid
+set_instance_assignment -name VIRTUAL_PIN ON -to m_ready
+set_instance_assignment -name VIRTUAL_PIN ON -to m_acc
+set_instance_assignment -name VIRTUAL_PIN ON -to m_act
+set_instance_assignment -name VIRTUAL_PIN ON -to m_ovf
+set_instance_assignment -name VIRTUAL_PIN ON -to in_valid
+set_instance_assignment -name VIRTUAL_PIN ON -to in_acc
+set_instance_assignment -name VIRTUAL_PIN ON -to out_valid
+set_instance_assignment -name VIRTUAL_PIN ON -to out_act
+set_instance_assignment -name VIRTUAL_PIN ON -to out_ovf
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

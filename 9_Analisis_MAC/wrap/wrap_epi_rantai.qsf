@@ -1,0 +1,16 @@
+# dibuat jalankan_wrap.py (Tugas 10)
+set_global_assignment -name FAMILY "Cyclone IV E"
+set_global_assignment -name DEVICE EP4CE6E22C8
+set_global_assignment -name TOP_LEVEL_ENTITY wrap_epi_rantai
+set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_wrap_epi_rantai
+set_global_assignment -name SDC_FILE wrap.sdc
+set_instance_assignment -name VIRTUAL_PIN ON -to d_i[*]
+set_instance_assignment -name VIRTUAL_PIN ON -to q_o[*]
+set_global_assignment -name VERILOG_FILE ../rtl_terpecah/mac_unit.v
+set_global_assignment -name VERILOG_FILE ../rtl_terpecah/epilog_unit.v
+set_global_assignment -name VERILOG_FILE ../../2_Verilog/mult_bw8_arith.v
+set_global_assignment -name VERILOG_FILE ../../2_Verilog/mult_bw8_struct.v
+set_global_assignment -name VERILOG_FILE ../../2_Verilog/mult_hard8.v
+set_global_assignment -name VERILOG_FILE wrap_komponen.v
+
+set_global_assignment -name LAST_QUARTUS_VERSION "25.1std.0 Lite Edition"

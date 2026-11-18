@@ -1,0 +1,69 @@
+{
+ "varian": "ARITH",
+ "rancangan": "OS baru (1.708 siklus), unit MAC dan epilog dipecah per komponen",
+ "waktu": "2026-11-04T17:31:27",
+ "commit": "f6482a4",
+ "arsip": "8_Varian_Pengali/hasil_mentah/2026-11-04_analisis_mac_pecah_arith",
+ "simulasi": {
+  "uji_rtl": {
+   "inferensi": 18,
+   "identik": 18,
+   "citra": 16,
+   "siklus": 1708
+  },
+  "mulai": 216,
+  "selesai": 1924,
+  "siklus": 1708,
+  "netlist_led_cocok": 1926,
+  "simulator": "/sessions/rcw-01xm9idhaqedzwzyzwdcztjc/ivl/root/usr/bin/iverilog"
+ },
+ "siklus": 1708,
+ "waktu_us": 34.16,
+ "luas": {
+  "le": 3360,
+  "fungsi_kombinasional": 2959,
+  "register": 1492,
+  "pengali_9bit": 0,
+  "m9k": 21,
+  "bit_memori": 143392,
+  "le_lajur": [
+   285,
+   279,
+   280,
+   278,
+   277,
+   278,
+   280,
+   278
+  ],
+  "le_lajur_rerata": 279.4
+ },
+ "timing": {
+  "fmax_mhz": 57.71,
+  "setup_slack_ns": 2.673,
+  "hold_slack_ns": 0.452
+ },
+ "daya": {
+  "total_mw": 96.58,
+  "inti_dinamis_mw": 23.64,
+  "inti_statis_mw": 43.27,
+  "io_mw": 29.67,
+  "delapan_lajur_mw": 5.49,
+  "energi_uj_per_citra": 3.299,
+  "keyakinan": "High",
+  "sumber_aktivitas": {
+   "simulasi": {
+    "sinyal_persen": 86.4,
+    "register_persen": 47.6
+   },
+   "assignment": {
+    "sinyal_persen": 12.3,
+    "register_persen": 48.1
+   },
+   "vectorless": {
+    "sinyal_persen": 1.3,
+    "register_persen": 4.3
+   }
+  }
+ }
+}

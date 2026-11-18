@@ -1,0 +1,4 @@
+varian,mac_unit_LE_rata2,mac_unit_LE_min,mac_unit_LE_maks,u_mul_LE_rata2,non_pengali_LE_rata2,mac_unit_reg_rata2,catatan_u_mul,sumber
+HARD,151.38,148,160,0,151.38,90.25,,8_Varian_Pengali/hasil_mentah/2026-11-03_os_hard/daya_hard.fit.rpt
+ARITH,276.75,273,286,126,150.75,90.25,,8_Varian_Pengali/hasil_mentah/2026-11-03_os_arith/daya_arith.fit.rpt
+STRUCT,289,287,297,151.25,137.75,90.25,,8_Varian_Pengali/hasil_mentah/2026-11-03_os_struct/daya_struct.fit.rpt

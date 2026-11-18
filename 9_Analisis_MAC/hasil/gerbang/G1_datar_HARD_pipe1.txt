@@ -1,0 +1,24 @@
+=== varian HARD, PIPE_MULT = 1 ===
+=== Uji 1 : 64 neuron x 196 suku, menerus tanpa jeda ===
+  beat terkirim      : 12544  (seharusnya 12544)
+  siklus jeda tunggu : 0  (seharusnya 0)
+  hasil diterima     : 64  (seharusnya 64)
+  ketidakcocokan     : 0
+
+=== Uji 2 : first dan last bersamaan, akumulasi satu suku ===
+  m_acc = 135  (seharusnya 135 = 100 + 5x7)     OK
+
+=== Uji 3 : backpressure, m_ready ditahan rendah ===
+  s_ready saat hasil menunggu = 0  (seharusnya 0)     OK
+  m_acc setelah dilepas = 6  (seharusnya 6)     OK
+  s_ready pulih = 1  (seharusnya 1)     OK
+
+=== Uji 4 : kasus terburuk 196 x (-128 x -128), tanpa meluap ===
+  m_acc = 3211264  (seharusnya 3211264)     OK
+
+=== Uji 5 : saturasi keluaran ===
+  m_act = 127, m_ovf = 1  (seharusnya 127 dan 1)     OK
+
+========================================
+HASIL: LULUS — seluruh pengujian benar
+========================================

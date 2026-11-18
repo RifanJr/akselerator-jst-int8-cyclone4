@@ -1,0 +1,11 @@
+kode,komponen,LE,delay_komponen_ns,fmax_mhz,sumber
+M1,pengali ARITH (arsip wrap_arith),134,14.02,65.32,skripsi/Implementasi/quartus/hasil_mentah/wrap_arith
+M1,pengali STRUCT (arsip wrap_struct),155,15.245,60.48,skripsi/Implementasi/quartus/hasil_mentah/wrap_struct
+M1,pengali HARD (arsip wrap_hard),0 + 1 pengali embedded,2.452,267.31,skripsi/Implementasi/quartus/hasil_mentah/wrap_hard
+M3,MUX acc_base,32,1.214,390.47,9_Analisis_MAC/wrap/output_wrap_m3_mux/ ; hasil_sta/wrap_m3_mux_slow85.rpt
+M4,penjumlah 32 bit,32,3.639,199.76,9_Analisis_MAC/wrap/output_wrap_m4_add/ ; hasil_sta/wrap_m4_add_slow85.rpt
+E1,pembulatan,38,6.943,120.02,9_Analisis_MAC/wrap/output_wrap_e1_round/ ; hasil_sta/wrap_e1_round_slow85.rpt
+E2,penggeser 32 bit,115,7.391,114.08,9_Analisis_MAC/wrap/output_wrap_e2_shift/ ; hasil_sta/wrap_e2_shift_slow85.rpt
+E3,ReLU,32,1.307,374.67,9_Analisis_MAC/wrap/output_wrap_e3_relu/ ; hasil_sta/wrap_e3_relu_slow85.rpt
+E4,saturasi,24,4.964,157.85,9_Analisis_MAC/wrap/output_wrap_e4_sat/ ; hasil_sta/wrap_e4_sat_slow85.rpt
+E1-E4,rantai epilog,264,16.027,57.54,9_Analisis_MAC/wrap/output_wrap_epi_rantai/ ; hasil_sta/wrap_epi_rantai_slow85.rpt

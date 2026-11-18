@@ -1,0 +1,10 @@
+varian,ukuran,datar,terpecah,selisih_persen,lebih_2_persen
+HARD,LE total,2306,2305,-0.04,False
+HARD,register,1420,1420,0.0,False
+HARD,Fmax Slow 85C (MHz),82.46,77.98,-5.43,True
+ARITH,LE total,3331,3360,0.87,False
+ARITH,register,1492,1492,0.0,False
+ARITH,Fmax Slow 85C (MHz),56.87,57.71,1.48,False
+STRUCT,LE total,3413,3439,0.76,False
+STRUCT,register,1492,1492,0.0,False
+STRUCT,Fmax Slow 85C (MHz),56.76,56.36,-0.7,False

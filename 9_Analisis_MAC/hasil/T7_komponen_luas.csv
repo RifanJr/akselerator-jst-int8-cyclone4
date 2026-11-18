@@ -1,0 +1,43 @@
+varian,kode,komponen,instans,n,sint_komb_rata2,sint_reg_rata2,LE_rata2,LE_min,LE_maks,reg_rata2,persen_mac_unit,persen_epilog,persen_LE_sistem
+HARD,M1,pengali,u_mul,8,0,0,0,0,0,0,0.0,,0.0
+HARD,M2,register tahap 1,u_t1,8,10.12,26.12,26.25,25,30,26.12,17.4,,9.11
+HARD,M3,MUX acc_base,u_mux,8,32,0,32,32,32,0,21.2,,11.11
+HARD,M4,penjumlah 32 bit,u_add,8,64,0,64,64,64,0,42.3,,22.21
+HARD,M5,register akumulator,u_acc,8,0.38,64.12,64.38,64,65,64.12,42.6,,22.34
+HARD,M6,handshake,u_hs,8,0.25,0,0.25,0,2,0,0.2,,0.09
+HARD,M0,logika mac_unit di luar submodul,mac_unit,8,0.0,0.01,0,0,0,0,0.0,,0.0
+HARD,MAC,mac_unit total,mac_unit,8,106.75,90.25,151.25,142,159,90.25,100.0,,52.49
+HARD,E1,pembulatan,u_round,1,0,0,0,0,0,0,,0.0,0.0
+HARD,E2,penggeser,u_shift,1,0,0,0,0,0,0,,0.0,0.0
+HARD,E3,ReLU,u_relu,1,0,0,0,0,0,0,,0.0,0.0
+HARD,E4,saturasi,u_sat,1,5,0,5,5,5,0,,35.7,0.22
+HARD,E5,register keluaran,u_out,1,9,8,9,9,9,8,,64.3,0.39
+HARD,E0,epilog total,epilog_unit,1,14,8,14,14,14,8,,100.0,0.61
+ARITH,M1,pengali,u_mul,8,126,0,126,126,126,0,45.1,,30.0
+ARITH,M2,register tahap 1,u_t1,8,25.12,26.12,26.25,25,30,26.12,9.4,,6.25
+ARITH,M3,MUX acc_base,u_mux,8,32,0,32,32,32,0,11.5,,7.62
+ARITH,M4,penjumlah 32 bit,u_add,8,64,0,64,64,64,0,22.9,,15.24
+ARITH,M5,register akumulator,u_acc,8,0.38,64.12,64.38,64,65,64.12,23.0,,15.33
+ARITH,M6,handshake,u_hs,8,0.25,0,0.25,0,2,0,0.1,,0.06
+ARITH,M0,logika mac_unit di luar submodul,mac_unit,8,0.0,0.01,0,0,0,0,0.0,,0.0
+ARITH,MAC,mac_unit total,mac_unit,8,247.75,90.25,279.38,277,285,90.25,100.0,,66.52
+ARITH,E1,pembulatan,u_round,1,0,0,0,0,0,0,,0.0,0.0
+ARITH,E2,penggeser,u_shift,1,0,0,0,0,0,0,,0.0,0.0
+ARITH,E3,ReLU,u_relu,1,0,0,0,0,0,0,,0.0,0.0
+ARITH,E4,saturasi,u_sat,1,5,0,5,5,5,0,,35.7,0.15
+ARITH,E5,register keluaran,u_out,1,9,8,9,9,9,8,,64.3,0.27
+ARITH,E0,epilog total,epilog_unit,1,14,8,14,14,14,8,,100.0,0.42
+STRUCT,M1,pengali,u_mul,8,151.25,0,151.25,151,152,0,52.2,,35.18
+STRUCT,M2,register tahap 1,u_t1,8,10.12,26.12,26.25,25,30,26.12,9.1,,6.11
+STRUCT,M3,MUX acc_base,u_mux,8,32,0,32,32,32,0,11.0,,7.44
+STRUCT,M4,penjumlah 32 bit,u_add,8,64,0,64,64,64,0,22.1,,14.89
+STRUCT,M5,register akumulator,u_acc,8,0.38,64.12,64.38,64,65,64.12,22.2,,14.98
+STRUCT,M6,handshake,u_hs,8,0.25,0,0.25,0,2,0,0.1,,0.06
+STRUCT,M0,logika mac_unit di luar submodul,mac_unit,8,0.0,0.01,0,0,0,0,0.0,,0.0
+STRUCT,MAC,mac_unit total,mac_unit,8,258,90.25,289.75,286,295,90.25,100.0,,67.4
+STRUCT,E1,pembulatan,u_round,1,0,0,0,0,0,0,,0.0,0.0
+STRUCT,E2,penggeser,u_shift,1,0,0,0,0,0,0,,0.0,0.0
+STRUCT,E3,ReLU,u_relu,1,0,0,0,0,0,0,,0.0,0.0
+STRUCT,E4,saturasi,u_sat,1,5,0,5,5,5,0,,35.7,0.15
+STRUCT,E5,register keluaran,u_out,1,9,8,9,9,9,8,,64.3,0.26
+STRUCT,E0,epilog total,epilog_unit,1,14,8,14,14,14,8,,100.0,0.41

@@ -1,0 +1,9 @@
+revisi,LE_total,LE_dut_fitter,komb_dut_sintesis,fmax_mhz,fmax_terbatas_mhz,data_delay_ns,slack_ns,sumber
+wrap_dasar,64,0,0,729.39,250.0,1.289,18.629,"9_Analisis_MAC/wrap/output_wrap_dasar/wrap_dasar.fit.rpt, .sta.rpt; hasil_sta/wrap_dasar_slow85.rpt"
+wrap_m3_mux,97,32,32,390.47,250.0,2.503,17.439,"9_Analisis_MAC/wrap/output_wrap_m3_mux/wrap_m3_mux.fit.rpt, .sta.rpt; hasil_sta/wrap_m3_mux_slow85.rpt"
+wrap_m4_add,80,0,0,199.76,199.76,4.928,14.994,"9_Analisis_MAC/wrap/output_wrap_m4_add/wrap_m4_add.fit.rpt, .sta.rpt; hasil_sta/wrap_m4_add_slow85.rpt"
+wrap_e1_round,102,38,38,120.02,120.02,8.232,11.668,"9_Analisis_MAC/wrap/output_wrap_e1_round/wrap_e1_round.fit.rpt, .sta.rpt; hasil_sta/wrap_e1_round_slow85.rpt"
+wrap_e2_shift,139,115,115,114.08,114.08,8.68,11.234,"9_Analisis_MAC/wrap/output_wrap_e2_shift/wrap_e2_shift.fit.rpt, .sta.rpt; hasil_sta/wrap_e2_shift_slow85.rpt"
+wrap_e3_relu,65,32,32,374.67,250.0,2.596,17.331,"9_Analisis_MAC/wrap/output_wrap_e3_relu/wrap_e3_relu.fit.rpt, .sta.rpt; hasil_sta/wrap_e3_relu_slow85.rpt"
+wrap_e4_sat,44,24,24,157.85,157.85,6.253,13.665,"9_Analisis_MAC/wrap/output_wrap_e4_sat/wrap_e4_sat.fit.rpt, .sta.rpt; hasil_sta/wrap_e4_sat_slow85.rpt"
+wrap_epi_rantai,291,264,264,57.54,57.54,17.316,2.622,"9_Analisis_MAC/wrap/output_wrap_epi_rantai/wrap_epi_rantai.fit.rpt, .sta.rpt; hasil_sta/wrap_epi_rantai_slow85.rpt"

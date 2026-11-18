@@ -1,0 +1,16 @@
+Fitter Status : Successful - Wed Nov  4 20:38:40 2026
+Quartus Prime Version : 25.1std.0 Build 1129 10/21/2025 SC Lite Edition
+Revision Name : wrap_e4_sat
+Top-level Entity Name : wrap_e4_sat
+Family : Cyclone IV E
+Device : EP4CE6E22C8
+Timing Models : Final
+Total logic elements : 44 / 6,272 ( < 1 % )
+    Total combinational functions : 25 / 6,272 ( < 1 % )
+    Dedicated logic registers : 41 / 6,272 ( < 1 % )
+Total registers : 41
+Total pins : 1 / 92 ( 1 % )
+Total virtual pins : 41
+Total memory bits : 0 / 276,480 ( 0 % )
+Embedded Multiplier 9-bit elements : 0 / 30 ( 0 % )
+Total PLLs : 0 / 2 ( 0 % )

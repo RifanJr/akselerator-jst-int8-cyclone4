@@ -1,0 +1,4 @@
+varian,LE_mode_normal,LE_mode_aritmetik,sumber,selisih_aritmetik_vs_HARD,selisih_normal_vs_HARD,selisih_aritmetik_per_lajur
+HARD,1406,420,8_Varian_Pengali/hasil_mentah/2026-11-03_os_hard/daya_hard.fit.rpt,0,0,0.0
+ARITH,2035,924,8_Varian_Pengali/hasil_mentah/2026-11-03_os_arith/daya_arith.fit.rpt,504,629,63.0
+STRUCT,2618,420,8_Varian_Pengali/hasil_mentah/2026-11-03_os_struct/daya_struct.fit.rpt,0,1212,0.0
