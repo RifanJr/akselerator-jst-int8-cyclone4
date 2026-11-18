@@ -1,0 +1,4 @@
+--> [HARD] Kompilasi uji RTL 16 citra
+--> [HARD] Uji RTL 16 citra (sekitar 1 menit)
+    18/18 inferensi identik, 16 citra berbeda
+{'inferensi': 18, 'identik': 18, 'citra': 16, 'siklus': 1708}

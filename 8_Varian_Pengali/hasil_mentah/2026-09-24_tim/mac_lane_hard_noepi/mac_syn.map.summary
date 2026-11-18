@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Thu Sep 24 17:11:39 2026
+Quartus Prime Version : 25.1std.0 Build 1129 10/21/2025 SC Lite Edition
+Revision Name : mac_syn
+Top-level Entity Name : mac_lane_hard_noepi
+Family : Cyclone IV E
+Total logic elements : 184
+    Total combinational functions : 136
+    Dedicated logic registers : 116
+Total registers : 116
+Total pins : 1
+Total virtual pins : 103
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 1
+Total PLLs : 0

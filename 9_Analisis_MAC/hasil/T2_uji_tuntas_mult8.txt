@@ -1,0 +1,17 @@
+# Tugas 2 — uji tuntas pengali 8x8 bertanda
+# Tanggal: 2026-11-04 08:50
+# Testbench: skripsi/Implementasi/rtl/tb_mult8.v
+# RTL: akselerator-jst-int8-cyclone4/2_Verilog/mult_bw8_arith.v, mult_bw8_struct.v, mult_hard8.v
+# Simulator: Icarus Verilog Icarus Verilog version 11.0 (stable) ()
+
+=== Pengujian menyeluruh pengali 8x8 bertanda ===
+
+  mult_bw8_arith  : 65536 / 65536 benar, meleset 0
+  mult_bw8_struct : 65536 / 65536 benar, meleset 0
+  mult_hard8      : 65536 / 65536 benar, meleset 0
+
+  batas  -128 x -128 = 16384  (seharusnya  16384)     OK
+  batas  -128 x  127 = -16256  (seharusnya -16256)     OK
+  batas   127 x  127 = 16129  (seharusnya  16129)     OK
+
+HASIL: LULUS — ketiga varian benar pada seluruh 65.536 kombinasi

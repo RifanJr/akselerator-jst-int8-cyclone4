@@ -1,0 +1,9 @@
+Uji H4 (kriteria pra-registrasi: tolak bila |rata2 ARITH - rata2 STRUCT| > 2 x simpangan baku gabungan; 5 seed per varian)
+Sumber: hasil/T11_seed.csv
+ARITH  Fmax: [56.87, 57.52, 57.25, 57.4, 56.74] -> rata2 57.156, sd 0.338
+STRUCT Fmax: [56.76, 55.41, 56.46, 56.25, 56.76] -> rata2 56.328, sd 0.557
+Selisih rata-rata          : 0.828 MHz
+SD gabungan sqrt((sA^2+sS^2)/2): 0.460 MHz
+Ambang 2 x SD gabungan     : 0.921 MHz
+Keputusan                  : H4 BERTAHAN (tidak ditolak)
+Catatan: margin tipis (0.093 MHz). HARD rata2 79.244, sd 3.234 (rentang 74.15-82.46).

@@ -1,0 +1,16 @@
+varian,seed,fmax_mhz,setup_slack_ns,LE,sumber
+HARD,1,82.46,7.873,2306,8_Varian_Pengali/hasil_mentah/2026-11-04_analisis_mac_seed/seed_hard_s1/seed_hard_s1.sta.rpt
+HARD,2,81.41,7.717,2288,8_Varian_Pengali/hasil_mentah/2026-11-04_analisis_mac_seed/seed_hard_s2/seed_hard_s2.sta.rpt
+HARD,3,78.46,7.254,2299,8_Varian_Pengali/hasil_mentah/2026-11-04_analisis_mac_seed/seed_hard_s3/seed_hard_s3.sta.rpt
+HARD,4,74.15,6.514,2300,8_Varian_Pengali/hasil_mentah/2026-11-04_analisis_mac_seed/seed_hard_s4/seed_hard_s4.sta.rpt
+HARD,5,79.74,7.459,2294,8_Varian_Pengali/hasil_mentah/2026-11-04_analisis_mac_seed/seed_hard_s5/seed_hard_s5.sta.rpt
+ARITH,1,56.87,2.416,3331,8_Varian_Pengali/hasil_mentah/2026-11-04_analisis_mac_seed/seed_arith_s1/seed_arith_s1.sta.rpt
+ARITH,2,57.52,2.615,3331,8_Varian_Pengali/hasil_mentah/2026-11-04_analisis_mac_seed/seed_arith_s2/seed_arith_s2.sta.rpt
+ARITH,3,57.25,2.534,3317,8_Varian_Pengali/hasil_mentah/2026-11-04_analisis_mac_seed/seed_arith_s3/seed_arith_s3.sta.rpt
+ARITH,4,57.4,2.579,3315,8_Varian_Pengali/hasil_mentah/2026-11-04_analisis_mac_seed/seed_arith_s4/seed_arith_s4.sta.rpt
+ARITH,5,56.74,2.377,3355,8_Varian_Pengali/hasil_mentah/2026-11-04_analisis_mac_seed/seed_arith_s5/seed_arith_s5.sta.rpt
+STRUCT,1,56.76,2.382,3413,8_Varian_Pengali/hasil_mentah/2026-11-04_analisis_mac_seed/seed_struct_s1/seed_struct_s1.sta.rpt
+STRUCT,2,55.41,1.954,3405,8_Varian_Pengali/hasil_mentah/2026-11-04_analisis_mac_seed/seed_struct_s2/seed_struct_s2.sta.rpt
+STRUCT,3,56.46,2.289,3408,8_Varian_Pengali/hasil_mentah/2026-11-04_analisis_mac_seed/seed_struct_s3/seed_struct_s3.sta.rpt
+STRUCT,4,56.25,2.223,3438,8_Varian_Pengali/hasil_mentah/2026-11-04_analisis_mac_seed/seed_struct_s4/seed_struct_s4.sta.rpt
+STRUCT,5,56.76,2.382,3411,8_Varian_Pengali/hasil_mentah/2026-11-04_analisis_mac_seed/seed_struct_s5/seed_struct_s5.sta.rpt
