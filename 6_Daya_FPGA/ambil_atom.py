@@ -5,7 +5,7 @@ karena Icarus menolak modul PLL di berkas aslinya.
 
     python ambil_atom.py cycloneive_atoms.v netlist.vo keluar.v
 
-Diadaptasi dari 3_Quartus/simulasi_netlist/ambil_atom.py (Student A,
+Diadaptasi dari 8_Varian_Pengali/simulasi_netlist/ambil_atom.py (Student A,
 1 November 2026); daftar atom kini dibaca dari netlist, bukan ditulis tangan.
 """
 import re

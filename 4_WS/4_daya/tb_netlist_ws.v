@@ -11,7 +11,7 @@
 //  benar bila LED "cocok" menyala pada siklus yang SAMA dengan RTL.
 //
 //  Sama dengan 6_Daya_FPGA/tb_netlist_os.v (rancangan OS), yang diadaptasi
-//  dari 3_Quartus/simulasi_netlist/tb_netlist.v (Student A).
+//  dari 8_Varian_Pengali/simulasi_netlist/tb_netlist.v (Student A).
 // ============================================================================
 module tb_netlist_ws;
     reg clk = 0; always #10000 clk = ~clk;      // 50 MHz

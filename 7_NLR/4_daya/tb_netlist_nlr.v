@@ -10,7 +10,7 @@
 //  MULAI, SELESAI, dan LED_COCOK diambil dari tb_jendela_nlr.v (RTL). Netlist
 //  dianggap benar bila LED "cocok" menyala pada siklus yang SAMA dengan RTL.
 //
-//  Diadaptasi dari 3_Quartus/simulasi_netlist/tb_netlist.v (Student A).
+//  Diadaptasi dari 8_Varian_Pengali/simulasi_netlist/tb_netlist.v (Student A).
 // ============================================================================
 module tb_netlist_nlr;
     reg clk = 0; always #10000 clk = ~clk;      // 50 MHz

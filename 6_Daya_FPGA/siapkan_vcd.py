@@ -12,7 +12,7 @@ Siapkan VCD Icarus dari simulasi netlist supaya dapat dibaca Power Analyzer.
    0. Keadaan sinyal sebelum T_MULAI ditulis sebagai nilai awal pada waktu 0,
    sehingga jendela boleh berada di tengah rekaman (mis. saat chip diam).
 
-Langkah 1-3 diadaptasi dari 3_Quartus/simulasi_netlist/vcd_quartus.py
+Langkah 1-3 diadaptasi dari 8_Varian_Pengali/simulasi_netlist/vcd_quartus.py
 (Student A, 1 November 2026); langkah 4 tambahan.
 """
 import itertools
