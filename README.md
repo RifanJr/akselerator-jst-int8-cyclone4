@@ -293,7 +293,7 @@ sendirian, dan rincian 1.708 siklus.
 | Berkas / folder | Isi |
 |---|---|
 | `rtl_terpecah/` | `mac_unit.v` dan `epilog_unit.v` versi terpecah (submodul per komponen) |
-| `rtl_uji/` | `tb_mac_unit.v` beserta vektor uji, `tb_mult8.v`, `mac_lane_wrap.v` |
+| `rtl_uji/` | `tb_mac_unit.v`, `buat_vektor_uji.py` (pembangkit vektor uji), `tb_mult8.v`, `mac_lane_wrap.v` |
 | `tb/tb_hitung_siklus.v` | rincian 1.708 siklus dari `top_papan` tanpa mengubahnya |
 | `wrap/` | pembungkus register untuk mengukur komponen sendirian |
 | `scripts/` | pembaca laporan dan gerbang uji (`gerbang.sh`) |
@@ -310,7 +310,7 @@ Menjalankan gerbang uji, dari akar repo:
 bash 9_Analisis_MAC/scripts/gerbang.sh g1 datar
 ```
 
-Harus berakhir dengan `HASIL: LULUS` (lihat `9_Analisis_MAC/README.md`).
+Langkah ini membangkitkan vektor uji dari `1_Python_PC/Training/export_final/` dengan `rtl_uji/buat_vektor_uji.py` sebelum simulasi. Harus berakhir dengan `HASIL: LULUS` (lihat `9_Analisis_MAC/README.md`).
 
 ---
 

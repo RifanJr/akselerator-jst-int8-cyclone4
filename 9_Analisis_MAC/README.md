@@ -16,7 +16,7 @@ Berkas di `input/ideas/`, `DOKUMENTASI_PROSES.md`, `log.md`, dan `8_Varian_Penga
 | Folder / berkas | Isi |
 |---|---|
 | `rtl_terpecah/` | `mac_unit.v` dan `epilog_unit.v` versi terpecah (submodul per komponen) |
-| `rtl_uji/` | `tb_mac_unit.v` beserta vektor uji `*.hex`, `tb_mult8.v`, `mac_lane_wrap.v` |
+| `rtl_uji/` | `tb_mac_unit.v`, `buat_vektor_uji.py` (pembangkit vektor uji), `tb_mult8.v`, `mac_lane_wrap.v` |
 | `tb/` | `tb_hitung_siklus.v`: rincian 1.708 siklus, meng-instansiasi `top_papan` tanpa mengubahnya |
 | `wrap/` | proyek pembungkus register untuk mengukur komponen sendirian |
 | `kompilasi_pecah/` | pembangkit proyek `pecah_<varian>` dan skrip aktivitas register versi terpecah |
@@ -48,5 +48,7 @@ bash 9_Analisis_MAC/scripts/gerbang.sh g1 terpecah
 bash 9_Analisis_MAC/scripts/gerbang.sh t2            # tb_mult8, 65.536 pasangan masukan
 bash 9_Analisis_MAC/scripts/gerbang.sh g3            # 2_Verilog/jalankan_papan.py, 18/18
 ```
+
+Vektor uji `tb_mac_unit` (`tv_w`, `tv_x`, `tv_init`, `exp_acc`, `exp_act`, `*.hex`) tidak disimpan di repo. `gerbang.sh g1` membangkitkannya ke folder sementara dengan `rtl_uji/buat_vektor_uji.py`, yang membaca `1_Python_PC/Training/export_final/` (`weights_layer1.coe`, `bias_layer1.coe`, `input_sample.coe`) dengan aturan bilangan beku. Untuk membangkitkan manual: `python3 9_Analisis_MAC/rtl_uji/buat_vektor_uji.py <folder>`.
 
 Semua harus berakhir dengan `HASIL: LULUS`.
