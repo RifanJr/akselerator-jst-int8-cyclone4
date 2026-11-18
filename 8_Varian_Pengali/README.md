@@ -45,6 +45,12 @@ hanya dipanggil atau dibaca, tidak diubah.
 
 ## Hasil
 
+| Varian | Logic element | Fmax (seed 1) | Daya total (perkiraan) | Confidence daya |
+|---|---|---|---|---|
+| HARD | 2.306 | 82,46 MHz | 93,91 mW | High |
+| ARITH | 3.331 | 56,87 MHz | 96,68 mW | High |
+| STRUCT | 3.413 | 56,76 MHz | 97,47 mW | Medium |
+
 - `hasil/<varian>.json`: angka satu varian beserta nama folder arsipnya.
 - `hasil_mentah/`: laporan Quartus yang dirujuk skripsi Student A.
   - `2026-11-03_os_<varian>/`: proyek `daya_<varian>` (angka utama versi datar).

@@ -1,3 +1,8 @@
+> **Catatan bertanggal 1 November 2026 untuk rancangan lama (1.816 siklus).** Isi di bawah tidak diperbarui.
+> Angka resmi sekarang ada di `8_Varian_Pengali/README.md` (bagian Hasil): HARD 93,91 mW, confidence High.
+> Berkas yang disebut di catatan ini, yaitu `papan.vo`, `hasil_mentah/2026-11-01_*`, `jalankan_daya_questa.bat`,
+> dan `papan.qsf.sebelum_questa`, tidak ada di repo.
+
 # Simulasi netlist, VCD, dan skrip akurasi — 1 November 2026
 
 Dibuat untuk analisis daya PowerPlay rancangan `top_papan` (varian HARD).

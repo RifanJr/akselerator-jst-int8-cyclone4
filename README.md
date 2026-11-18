@@ -273,11 +273,11 @@ lewat parameter `MULT_STYLE` pada `mac_unit.v` tanpa mengubah berkas di
 | `hasil_mentah/` | laporan Quartus yang dirujuk skripsi Student A |
 | `simulasi_netlist/` | simulasi netlist, skrip VCD, dan skrip akurasi |
 
-| Varian | Logic element | Fmax (seed 1) | Daya (perkiraan) |
-|---|---|---|---|
-| HARD | 2.306 | 82,46 MHz | 93,91 mW |
-| ARITH | 3.331 | 56,87 MHz | 96,68 mW |
-| STRUCT | 3.413 | 56,76 MHz | 97,47 mW |
+| Varian | Logic element | Fmax (seed 1) | Daya (perkiraan) | Confidence daya |
+|---|---|---|---|---|
+| HARD | 2.306 | 82,46 MHz | 93,91 mW | High |
+| ARITH | 3.331 | 56,87 MHz | 96,68 mW | High |
+| STRUCT | 3.413 | 56,76 MHz | 97,47 mW | Medium |
 
 Ketiga varian lulus simulasi RTL 16 citra (18 inferensi, 1.708 siklus) dan
 simulasi netlist. Cara menjalankan ada di `8_Varian_Pengali/README.md`.
