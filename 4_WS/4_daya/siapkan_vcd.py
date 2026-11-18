@@ -12,7 +12,7 @@ Siapkan VCD Icarus dari simulasi netlist supaya dapat dibaca Power Analyzer.
    VCD = lama inferensi.
 
 Salinan 6_Daya_FPGA/siapkan_vcd.py (rancangan OS). Langkah 1-3 diadaptasi
-dari 3_Quartus/simulasi_netlist/vcd_quartus.py
+dari 8_Varian_Pengali/simulasi_netlist/vcd_quartus.py
 (Student A, 1 November 2026); langkah 4 tambahan.
 """
 import itertools

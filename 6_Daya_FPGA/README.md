@@ -61,7 +61,7 @@ di PATH atau di `C:\iverilog\bin`.
 
 Energi per citra = daya × 34,16 µs.
 
-Langkah 1, 3, dan 4 diadaptasi dari `3_Quartus/simulasi_netlist/` milik
+Langkah 1, 3, dan 4 diadaptasi dari `8_Varian_Pengali/simulasi_netlist/` milik
 Student A. Bagian yang baru adalah jendela inferensi, aktivitas register MAC,
 dan pengendali otomatis.
 
